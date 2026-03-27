@@ -30,9 +30,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-
-# Google Analytics
-html:
-  google_analytics_id: "G-57M0ESJTXR"
+  # para ver las estadísticas en goolgle analitycs
+  analytics:
+    google_analytics_id: "G-57M0ESJTXR"
 
 
