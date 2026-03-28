@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mirar los datos &#8212; Estadística</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-57M0ESJTXR"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-57M0ESJTXR');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-57M0ESJTXR');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cap2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="¿Qué es la estadística?" href="qesestadistica.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Estadística - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Estadística - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Un econometrista te explica
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="qesestadistica.html">¿Qué es la estadística?</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mirar los datos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Michaeljo112/estadisticalibro" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Michaeljo112/estadisticalibro/issues/new?title=Issue%20on%20page%20%2Fcap2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/cap2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mirar los datos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-frecuencia-como-probabilidad">La frecuencia como probabilidad</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mirar-los-datos">
+<h1>Mirar los datos<a class="headerlink" href="#mirar-los-datos" title="Link to this heading">#</a></h1>
+<p>Hagámonos una pregunta: ¿cuántas personas hay por hogar en el Ecuador? Para responderla, usemos los datos del censo de 2022, como antes.</p>
+<p>Los datos que el INEC se pueden descargar de su página web, pero son archivos <em>.csv</em> que son bastante pesados para procesar en tu computadora. Por eso, preparé un archivo <em>parquet</em> con datos suficientes para que puedes usarlo sin problema. Este tipo de archivo sirve para almacenar grandes conjuntos de datos de forma eficiente, se usa en Big Data.</p>
+<p>Leamos tales datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Leemos los datos de población del censo de 2022 a nivel de hogar y sexo</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyarrow</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/Michaeljo112/estadisticalibro/releases/download/popec22/popec22.parquet&quot;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;pyarrow&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>I01</th>
+      <th>I02</th>
+      <th>I03</th>
+      <th>I04</th>
+      <th>I05</th>
+      <th>I10</th>
+      <th>INH</th>
+      <th>P00</th>
+      <th>P01</th>
+      <th>P02</th>
+      <th>P03</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>500000</th>
+      <td>1</td>
+      <td>1</td>
+      <td>67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>500001</th>
+      <td>1</td>
+      <td>1</td>
+      <td>67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5</td>
+      <td>1</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>500002</th>
+      <td>1</td>
+      <td>1</td>
+      <td>67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>6</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>500003</th>
+      <td>1</td>
+      <td>1</td>
+      <td>67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>7</td>
+      <td>9</td>
+      <td>2</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>500004</th>
+      <td>1</td>
+      <td>1</td>
+      <td>67</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>70</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora, vamos a obtener un conteo de la cantidad de personas por hogar. En los datos del INEC se enumeró a cada persona del hogar, así que para obtener la cantidad de personas por hogar basta con obtener el número máximo de la columna <em>P00</em> por hogar de forma agrupada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diccionario de columnas</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">I01 Provincia</span>
+<span class="sd">I02 Identificador de Cantón</span>
+<span class="sd">I03 Identificador de Parroquia</span>
+<span class="sd">I04 Zona</span>
+<span class="sd">I05 Sector</span>
+<span class="sd">I10 Número de vivienda</span>
+<span class="sd">INH Número de hogar</span>
+<span class="sd">P00 Número de persona</span>
+<span class="sd">P01 Parentesco o relación con el representante del hogar</span>
+<span class="sd">P02 Sexo al nacer</span>
+<span class="sd">P03 Años cumplidos</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">excluir</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P00&#39;</span><span class="p">,</span><span class="s1">&#39;P01&#39;</span><span class="p">,</span><span class="s1">&#39;P02&#39;</span><span class="p">,</span><span class="s1">&#39;P03&#39;</span><span class="p">]</span>
+
+<span class="n">agrupacion</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">excluir</span><span class="p">]</span>
+
+<span class="c1"># Al obtener el número máximo del número de persona obtendremos la cantidad de personas del hogar</span>
+<span class="n">personasporhogar</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">agrupacion</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">numpersonas</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;P00&#39;</span><span class="p">,</span><span class="s1">&#39;max&#39;</span><span class="p">))</span>
+      <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">personasporhogar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>I01</th>
+      <th>I02</th>
+      <th>I03</th>
+      <th>I04</th>
+      <th>I05</th>
+      <th>I10</th>
+      <th>INH</th>
+      <th>numpersonas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>50</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>50</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>50</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>50</td>
+      <td>1</td>
+      <td>1</td>
+      <td>4</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>1</td>
+      <td>50</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2784857</th>
+      <td>24</td>
+      <td>3</td>
+      <td>52</td>
+      <td>999</td>
+      <td>4</td>
+      <td>70</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2784858</th>
+      <td>24</td>
+      <td>3</td>
+      <td>52</td>
+      <td>999</td>
+      <td>4</td>
+      <td>71</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2784859</th>
+      <td>24</td>
+      <td>3</td>
+      <td>52</td>
+      <td>999</td>
+      <td>4</td>
+      <td>72</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2784860</th>
+      <td>24</td>
+      <td>3</td>
+      <td>52</td>
+      <td>999</td>
+      <td>4</td>
+      <td>73</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2784861</th>
+      <td>24</td>
+      <td>3</td>
+      <td>52</td>
+      <td>999</td>
+      <td>4</td>
+      <td>74</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>2784862 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>En su <a class="reference external" href="https://www.censoecuador.gob.ec/wp-content/uploads/2024/02/1.Ficha_Met_Promedio_de_personas_por_hogar.pdf">metodología</a>, el INEC excluye a los hogares que están clasificados con el número 0 cuando cuenta a las personas. Probablemente se trate de viviendas que no están ocupadas por hogares, ya que es habitual clasificar este tipo de viviendas como 0, pero no pude encontrar esta aclaración ni en los diccionarios ni en los metadatos públicos. —Si el INEC lee esto, le agradecería que me lo hiciera saber—. En las líneas de código de abajo usamos el mismo filtro que el INEC y contamos cuántos hogares tienen 1, 2, 3, etc. personas. (Recordemos que en las líneas de código presedentes ya habíamos obtenido la cantidad de miembros por hogar, así que ahora contaremos cuántos hogares tienen una cantidad determinada de miembros).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Excluye hogar que están clasificados con el número 0. Así que se respetó el filtro</span>
+<span class="n">pararesumen</span> <span class="o">=</span> <span class="n">personasporhogar</span><span class="p">[</span><span class="n">personasporhogar</span><span class="p">[</span><span class="s1">&#39;INH&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Ver un conteo de la cantdiad de personas en el hogar</span>
+<span class="n">resumen</span> <span class="o">=</span> <span class="n">pararesumen</span><span class="p">[</span><span class="s1">&#39;numpersonas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;numhogares&#39;</span><span class="p">)</span>
+
+<span class="n">resumen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>numpersonas</th>
+      <th>numhogares</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>314250</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>431560</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>536947</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>633787</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>451793</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>224034</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>100970</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>45275</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>21191</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>10395</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>4871</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>2479</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>1212</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>671</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>336</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>28</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>31</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>34</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como puede observar, en el año 2022, 314.250 hogares eran de 1 persona; 431.560 hogares eran de 2 personas; 536.947 hogares eran de 3 personas, etc. Muy pocos hogares tenían más de 11 miembros. Pero resumamos la tabla obtenida graficándola. Dibujemos en el eje horizontal número de personas en el hogar y en el eje vertical la frecuencia o cantidad de hogares con ese número de personas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numpersonas&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numhogares&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de personas en el hogar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Conteo (miles)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución del tamaño del hogar&quot;</span><span class="p">)</span>
+
+<span class="c1"># Formatear eje Y en miles</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span>
+    <span class="n">ticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span><span class="si">}</span><span class="s1">K&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1dca262a6134ed3eb641d37984d672f4b48e13e0cc1f886aff99d469383b18b9.png" src="_images/1dca262a6134ed3eb641d37984d672f4b48e13e0cc1f886aff99d469383b18b9.png" />
+</div>
+</div>
+<p>Este gráfico es una distribución estadística: la forma en la que se reparten los datos. En este caso, la mayoría de los hogares tienen entre 2 y 5 personas. Note que las barras del gráfico, vistas como un todo, parecen una campana deformada, como si la hubieran martillado.</p>
+<p>Hay otra forma de presentar estos datos: como porcentajes. Si dividimos el número de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares (2.780.237), obtenemos la porción que respresentan. Llamamos a esta representación porcentual la <strong>frecuencia relativa</strong> comunmente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hogarestotales</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numhogares&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hay </span><span class="si">{</span><span class="n">hogarestotales</span><span class="si">}</span><span class="s1"> hogares en total.&#39;</span><span class="p">)</span>
+<span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;porcentaje&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numhogares&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">hogarestotales</span>
+
+<span class="c1"># configurar por defecto la visualización de decimales (5 dígitos)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="n">resumen</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hay 2780237 hogares en total.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>numpersonas</th>
+      <th>numhogares</th>
+      <th>porcentaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>314250</td>
+      <td>0.11303</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>431560</td>
+      <td>0.15522</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>536947</td>
+      <td>0.19313</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>633787</td>
+      <td>0.22796</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>451793</td>
+      <td>0.16250</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>224034</td>
+      <td>0.08058</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>100970</td>
+      <td>0.03632</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>45275</td>
+      <td>0.01628</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>21191</td>
+      <td>0.00762</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>10395</td>
+      <td>0.00374</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>11</td>
+      <td>4871</td>
+      <td>0.00175</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>2479</td>
+      <td>0.00089</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>13</td>
+      <td>1212</td>
+      <td>0.00044</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>671</td>
+      <td>0.00024</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>15</td>
+      <td>336</td>
+      <td>0.00012</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>194</td>
+      <td>0.00007</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>17</td>
+      <td>109</td>
+      <td>0.00004</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>18</td>
+      <td>65</td>
+      <td>0.00002</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>19</td>
+      <td>34</td>
+      <td>0.00001</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>20</td>
+      <td>28</td>
+      <td>0.00001</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>11</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>22</td>
+      <td>11</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>23</td>
+      <td>5</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>24</td>
+      <td>4</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>25</td>
+      <td>1</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>26</td>
+      <td>1</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>28</td>
+      <td>1</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>31</td>
+      <td>1</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>34</td>
+      <td>1</td>
+      <td>0.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>El 11,30% de hogares es de 1 miembro; el 15,52%, de 2; 19,31%, de 3; 22,80%, de 4; etcétera. Podemos graficar estos porcentajes:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numpersonas&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;porcentaje&#39;</span><span class="p">]</span> 
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de personas en el hogar&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia relativa&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución relativa del tamaño del hogar&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ddeb7252f4f23cebf602408e53e986746bc5bc62925de88c8c8e37a1a36c5883.png" src="_images/ddeb7252f4f23cebf602408e53e986746bc5bc62925de88c8c8e37a1a36c5883.png" />
+</div>
+</div>
+<p>Como nota, el gráfico conserva su forma; esto es porque solo es una forma diferente de personificar la misma información. Lo que mostramos en el gráfico de arriba es la frecuencia relativa, es decir, la porción de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nota
+La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empelada es un dato y los volvimos información al analizar la distribución.</p>
+</div>
+<section id="la-frecuencia-como-probabilidad">
+<h2>La frecuencia como probabilidad<a class="headerlink" href="#la-frecuencia-como-probabilidad" title="Link to this heading">#</a></h2>
+<p>Anteriormente dividimos el número de hogares según su tamaño por el número total de hogares para obtener la frecuencia relativa. Es decir, cuántos hogares de un miembro había para el total, cuántos de 2 para el total, cuántos de 3 para el total, et. al. Dividimos la cantidad de veces que ocurrió un evento (ser un hogar de una cantidad de miembros) por el total de eventos (el número de hogares). En este apartado veremos que esta frecuencia relativa es una estimación de la probabilidad de que un hogar tenga un tamaño determinado.</p>
+<p>Usar el término “frecuencia” resume el hecho de cuántas veces ocurre un evento respecto al total de eventos. El nombre que usamos para referinos al total de eventos es <strong>espacio muestral</strong>. Más adelante quedará claro por qué “muestral”, de momento es importante notar que la frecuencia relativa de un evento es el porcentaje que representa respecto al espacio muestral.</p>
+<p>Consideremos otro ejemplo: si lanzamos un dado, el espacio muestral son los puntos de sus caras {1, 2, 3, 4, 5, 6}. La frecuencia relativa de que veamos un punto en una de sus caras es una de seis (1/6); de que salga 2, una de sesis (1/6), etc.</p>
+<p>Al hablar de probabilidad aludimos a la frecuencia relativa de un evento. Por ejemplo, en nuestro caso, la frecuencia o probabilidad de que un hogar en el Ecuador sea de 1 miembro es 11,30%. Otra forma de ver ese 11,30% es pensar así: 113 de cada 1000 hogares tienen 1 miembro, porque 113/1000 = 11,30% = 314.250 (hogares de 1 miembro)/2.780.237 (hogares totales). La probabilidad de que un hogar en el Ecuador esté consitituído de un miembro es 11,30%, porque expresa la posibilidad de observar eso basándonos en la frecuencia relativa, que a su vez se basa en la frecuencia (o cantidad de veces que ocurre algo); es decir, en qué tan habitual es el evento.</p>
+<p>Es indispensable que usted entienda que la probabilidad es una frecuencia relativa. Sino, relea los capítulso hasta aquí antes de seguir.</p>
+<p>Como seguramente ya entendió hasta este momento, la probabilidad está asociada con la distribución de los datos. Prácticamente entender la distribución de los datos es entender la probabilidad de la ocurrencia de los eventos que estamos analizando.</p>
+<div class="important admonition">
+<p class="admonition-title">Resumen</p>
+<p>Hemos aprendido qué es una distribución de datos: la forma en la que estos datos están repartidos. También podríamos pensar en estas distribuciones como las ubicaciones que ocupan los datos de forma conceptual, que puede intuirse de forma gráfica.
+Además, qué es la probabilidad: la frecuencia relativa de un evento.</p>
+</div>
+<p>En los próximos capítulos profundizaremos en estos conceptos. Por ahora, solo quiero que se quede con la idea de que la probabilidad es una frecuencia relativa y que las distribuciones son la forma en la que se reparten los datos.</p>
+<p>En el siguiente capítulo conoceremos algunas distribuciones comunes y útiles, que nos sirven analizar fenómenos aleatorios. Luego de ese, empezaremos a utilizar el cálculo de probabilidades.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="qesestadistica.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">¿Qué es la estadística?</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-frecuencia-como-probabilidad">La frecuencia como probabilidad</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Peñafiel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

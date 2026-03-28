@@ -395,19 +395,15 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="mirar-los-datos">
 <h1>Mirar los datos<a class="headerlink" href="#mirar-los-datos" title="Link to this heading">#</a></h1>
 <p>En el capítulo anterior analizamos la pobreza parroquial de Ecuador. Elegimos un mapa un indicador de pobreza que construímos. Presentamos los datos de forma gráfica, a esto le decimos “graficar”. Hay varias formas de graficar. En este caso, usamos un mapa para graficar la pobreza parroquial de Ecuador. Un mapa que variaba la intensidad de color según el valor del indicador. Más rojo, más pobreza. Este tipo de mapas que usamos se llama “mapa de calor”. Pero hay más de una forma de dibujar los datos. Usemos otra.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/Michaeljo112/Estimando-la-pobreza-parroquial/main/datos22.xlsx&quot;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

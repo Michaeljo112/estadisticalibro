@@ -57,7 +57,7 @@ la estadística se ocupa de la recolección, la organización, el análisis y la
 
 Plantémonso un problema: entender la pobreza de Ecuador. ¿Cómo podríamos hacerlo?
 
-Usaremos una tabla de datos que construí con datos del Instituto Nacional de Estadística y Censos de Ecuador (INEC), datos geoespaciales de radiancia nocturna, datos de suelo urbano, entre otros. Pueden obtenerse en mi repositorio de GitHub [Michaeljo112/Estimando-la-pobreza-parroquial](https://github.com/Michaeljo112/Estimando-la-pobreza-parroquial).
+Usaremos una tabla de datos que construí con datos del Instituto Nacional de Estadística y Censos de Ecuador [(INEC)](https://www.censoecuador.gob.ec/), datos geoespaciales de radiancia nocturna, datos de suelo urbano, entre otros. Pueden obtenerse en mi repositorio de GitHub [Michaeljo112/Estimando-la-pobreza-parroquial](https://github.com/Michaeljo112/Estimando-la-pobreza-parroquial).
 
 Cada fila es una parroquia del país. En análisis de datos solemos identificar una unidad de observación (lemento básico sobre el cual se recolectan datos) con códigos (sean numéricos o cadenas de textos, o una cambinación de ambos) que denominamos identificadores únicos. En este caso, el identificador de cada parroquia es su código postal.    
 
@@ -134,7 +134,7 @@ Así, si somos los gobernantes de un cantón podemos saber qué tan mala es nues
 
 Muchas personas no saben manejar lenguajes de programación ni software estadístico. Por esta razón, es importante presentar los datos de forma visual. ¿Qué tal si presentamos la pobreza parroquial de forma interactiva en un mapa del país usando nuestro indicador? Justamente hice esto, hace tiempo, como divulgación de un estudio econométrico que elaboré. El resultado fue un proyecto en Tableu Public [Pobreza parroquial de Ecuador](https://public.tableau.com/app/profile/michael.joseph5274/viz/PobrezaparroquialdeEcuador/Dashboard).
 
-Elaboré un mapa interactivo donde el usuario puede consultar nuestro indicador, la tasa de pobreza y otras variables relacionadas por provincia y cantón usando botones con los que filtrar la información (ver captura del visualizador abajo).
+Elaboré un mapa interactivo donde el usuario puede consultar nuestro indicador, la tasa de pobreza y otras variables relacionadas por provincia y cantón usando botones con los que filtrar la información (ver captura del visualizador abajo). El tipo de mapa que usé para mostrar nuestro índice de pobreza habitualmente se conoce como "mapa de calor". Es un mapa que variaba la intensidad de color según el valor del indicador. Más rojo, más pobreza.
 
 ![Mapa de pobreza](imagenes/mapatableau.png)
 
