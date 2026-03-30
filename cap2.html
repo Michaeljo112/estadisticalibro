@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Mirar los datos &#8212; Estadística</title>
+    <title>Mirar los datos. Distribuciones &#8212; Estadística</title>
   
   
   
@@ -73,6 +73,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'cap2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="El arte de la inferencia" href="cap3.html" />
     <link rel="prev" title="¿Qué es la estadística?" href="qesestadistica.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -194,7 +195,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="qesestadistica.html">¿Qué es la estadística?</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mirar los datos</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mirar los datos. Distribuciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap3.html">El arte de la inferencia</a></li>
+
 </ul>
 
     </div>
@@ -380,7 +383,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Mirar los datos</h1>
+    <h1>Mirar los datos. Distribuciones</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -390,6 +393,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-estaistica">Distribución estaística</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-frecuencia-como-probabilidad">La frecuencia como probabilidad</a></li>
 </ul>
             </nav>
@@ -402,8 +406,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="mirar-los-datos">
-<h1>Mirar los datos<a class="headerlink" href="#mirar-los-datos" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="mirar-los-datos-distribuciones">
+<h1>Mirar los datos. Distribuciones<a class="headerlink" href="#mirar-los-datos-distribuciones" title="Link to this heading">#</a></h1>
 <p>Hagámonos una pregunta: ¿cuántas personas hay por hogar en el Ecuador? Para responderla, usemos los datos del censo de 2022, como antes.</p>
 <p>Los datos que el INEC se pueden descargar de su página web, pero son archivos <em>.csv</em> que son bastante pesados para procesar en tu computadora. Por eso, preparé un archivo <em>parquet</em> con datos suficientes para que puedes usarlo sin problema. Este tipo de archivo sirve para almacenar grandes conjuntos de datos de forma eficiente, se usa en Big Data.</p>
 <p>Leamos tales datos.</p>
@@ -903,36 +907,108 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<section id="distribucion-estaistica">
+<h2>Distribución estaística<a class="headerlink" href="#distribucion-estaistica" title="Link to this heading">#</a></h2>
 <p>Como puede observar, en el año 2022, 314.250 hogares eran de 1 persona; 431.560 hogares eran de 2 personas; 536.947 hogares eran de 3 personas, etc. Muy pocos hogares tenían más de 11 miembros. Pero resumamos la tabla obtenida graficándola. Dibujemos en el eje horizontal número de personas en el hogar y en el eje vertical la frecuencia o cantidad de hogares con ese número de personas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.ticker</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ticker</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numpersonas&#39;</span><span class="p">],</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numhogares&#39;</span><span class="p">]</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">resumen</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span>
+  <span class="n">size</span><span class="o">=</span><span class="mi">20</span> <span class="c1"># controla el grosor de las barras</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+  <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span>
+    <span class="s1">&#39;numpersonas:O&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Número de personas en el hogar&#39;</span><span class="p">,</span>
+    <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span>
+      <span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="c1"># etiquetas horizontales</span>
+    <span class="p">)</span>
+  <span class="p">),</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+    <span class="s1">&#39;numhogares:Q&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Número de hogares&#39;</span><span class="p">,</span>
+    <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;.0s&#39;</span><span class="p">)</span>
+  <span class="p">),</span>
+  <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numpersonas&#39;</span><span class="p">,</span><span class="s1">&#39;numhogares&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+  <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribución del tamaño del hogar&quot;</span><span class="p">,</span>
+  <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="c1"># longitud eje horizontal </span>
+  <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
 <span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de personas en el hogar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Conteo (miles)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución del tamaño del hogar&quot;</span><span class="p">)</span>
-
-<span class="c1"># Formatear eje Y en miles</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span>
-    <span class="n">ticker</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span><span class="si">}</span><span class="s1">K&#39;</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">chart</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1dca262a6134ed3eb641d37984d672f4b48e13e0cc1f886aff99d469383b18b9.png" src="_images/1dca262a6134ed3eb641d37984d672f4b48e13e0cc1f886aff99d469383b18b9.png" />
-</div>
+<div class="output text_html">
+<style>
+  #altair-viz-ccec78b727b24c2688f9c03d7da11ae9.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-ccec78b727b24c2688f9c03d7da11ae9.vega-embed details,
+  #altair-viz-ccec78b727b24c2688f9c03d7da11ae9.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-ccec78b727b24c2688f9c03d7da11ae9"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-ccec78b727b24c2688f9c03d7da11ae9") {
+      outputDiv = document.getElementById("altair-viz-ccec78b727b24c2688f9c03d7da11ae9");
+    }
+
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@6?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@6.1.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@7?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      let deps = ["vega-embed"];
+      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "6")
+        .then(() => maybeLoadScript("vega-lite", "6.1.0"))
+        .then(() => maybeLoadScript("vega-embed", "7"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-de3ffd6bb6b08d9d5ea6421dd73d9ada"}, "mark": {"type": "bar", "size": 20}, "encoding": {"tooltip": [{"field": "numpersonas", "type": "quantitative"}, {"field": "numhogares", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "numpersonas", "title": "N\u00famero de personas en el hogar", "type": "ordinal"}, "y": {"axis": {"format": ".0s"}, "field": "numhogares", "title": "N\u00famero de hogares", "type": "quantitative"}}, "height": 400, "title": "Distribuci\u00f3n del tama\u00f1o del hogar", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-de3ffd6bb6b08d9d5ea6421dd73d9ada": [{"numpersonas": 1, "numhogares": 314250}, {"numpersonas": 2, "numhogares": 431560}, {"numpersonas": 3, "numhogares": 536947}, {"numpersonas": 4, "numhogares": 633787}, {"numpersonas": 5, "numhogares": 451793}, {"numpersonas": 6, "numhogares": 224034}, {"numpersonas": 7, "numhogares": 100970}, {"numpersonas": 8, "numhogares": 45275}, {"numpersonas": 9, "numhogares": 21191}, {"numpersonas": 10, "numhogares": 10395}, {"numpersonas": 11, "numhogares": 4871}, {"numpersonas": 12, "numhogares": 2479}, {"numpersonas": 13, "numhogares": 1212}, {"numpersonas": 14, "numhogares": 671}, {"numpersonas": 15, "numhogares": 336}, {"numpersonas": 16, "numhogares": 194}, {"numpersonas": 17, "numhogares": 109}, {"numpersonas": 18, "numhogares": 65}, {"numpersonas": 19, "numhogares": 34}, {"numpersonas": 20, "numhogares": 28}, {"numpersonas": 21, "numhogares": 11}, {"numpersonas": 22, "numhogares": 11}, {"numpersonas": 23, "numhogares": 5}, {"numpersonas": 24, "numhogares": 4}, {"numpersonas": 25, "numhogares": 1}, {"numpersonas": 26, "numhogares": 1}, {"numpersonas": 28, "numhogares": 1}, {"numpersonas": 31, "numhogares": 1}, {"numpersonas": 34, "numhogares": 1}]}}, {"mode": "vega-lite"});
+</script></div></div>
 </div>
 <p>Este gráfico es una distribución estadística: la forma en la que se reparten los datos. En este caso, la mayoría de los hogares tienen entre 2 y 5 personas. Note que las barras del gráfico, vistas como un todo, parecen una campana deformada, como si la hubieran martillado.</p>
 <p>Hay otra forma de presentar estos datos: como porcentajes. Si dividimos el número de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares (2.780.237), obtenemos la porción que respresentan. Llamamos a esta representación porcentual la <strong>frecuencia relativa</strong> comunmente.</p>
@@ -1158,31 +1234,106 @@ document.write(`
 <p>El 11,30% de hogares es de 1 miembro; el 15,52%, de 2; 19,31%, de 3; 22,80%, de 4; etcétera. Podemos graficar estos porcentajes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;numpersonas&#39;</span><span class="p">],</span>
-    <span class="n">y</span><span class="o">=</span><span class="n">resumen</span><span class="p">[</span><span class="s1">&#39;porcentaje&#39;</span><span class="p">]</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">resumen</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">(</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">20</span>   <span class="c1"># controla el grosor de las barras</span>
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+  <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span>
+    <span class="s1">&#39;numpersonas:O&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Número de personas en el hogar&#39;</span><span class="p">,</span>
+    <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">labelAngle</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="p">),</span>
+  <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span>
+    <span class="s1">&#39;porcentaje:Q&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Frecuencia relativa&#39;</span><span class="p">,</span>
+    <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;.0s&#39;</span><span class="p">)</span> <span class="c1"># compacto K</span>
+  <span class="p">),</span>
+  <span class="n">tooltip</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;porcentaje&#39;</span><span class="p">,</span><span class="s1">&#39;numhogares&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+  <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Distribución relativa del tamaño del hogar&quot;</span><span class="p">,</span>
+  <span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> 
+  <span class="n">height</span><span class="o">=</span><span class="mi">400</span>
 <span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Número de personas en el hogar&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frecuencia relativa&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribución relativa del tamaño del hogar&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">chart</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ddeb7252f4f23cebf602408e53e986746bc5bc62925de88c8c8e37a1a36c5883.png" src="_images/ddeb7252f4f23cebf602408e53e986746bc5bc62925de88c8c8e37a1a36c5883.png" />
-</div>
+<div class="output text_html">
+<style>
+  #altair-viz-53521443337e4ab9a6136c9c2cf54910.vega-embed {
+    width: 100%;
+    display: flex;
+  }
+
+  #altair-viz-53521443337e4ab9a6136c9c2cf54910.vega-embed details,
+  #altair-viz-53521443337e4ab9a6136c9c2cf54910.vega-embed details summary {
+    position: relative;
+  }
+</style>
+<div id="altair-viz-53521443337e4ab9a6136c9c2cf54910"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-53521443337e4ab9a6136c9c2cf54910") {
+      outputDiv = document.getElementById("altair-viz-53521443337e4ab9a6136c9c2cf54910");
+    }
+
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm/vega@6?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm/vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm/vega-lite@6.1.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm/vega-embed@7?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      let deps = ["vega-embed"];
+      require(deps, displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "6")
+        .then(() => maybeLoadScript("vega-lite", "6.1.0"))
+        .then(() => maybeLoadScript("vega-embed", "7"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-511377a1d6b3196799ba5c0848f35792"}, "mark": {"type": "bar", "size": 20}, "encoding": {"tooltip": [{"field": "porcentaje", "type": "quantitative"}, {"field": "numhogares", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "numpersonas", "title": "N\u00famero de personas en el hogar", "type": "ordinal"}, "y": {"axis": {"format": ".0s"}, "field": "porcentaje", "title": "Frecuencia relativa", "type": "quantitative"}}, "height": 400, "title": "Distribuci\u00f3n relativa del tama\u00f1o del hogar", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-511377a1d6b3196799ba5c0848f35792": [{"numpersonas": 1, "numhogares": 314250, "porcentaje": 0.11302993234030048}, {"numpersonas": 2, "numhogares": 431560, "porcentaje": 0.15522417693167884}, {"numpersonas": 3, "numhogares": 536947, "porcentaje": 0.19312993820311003}, {"numpersonas": 4, "numhogares": 633787, "porcentaje": 0.22796150112382504}, {"numpersonas": 5, "numhogares": 451793, "porcentaje": 0.16250161407103064}, {"numpersonas": 6, "numhogares": 224034, "porcentaje": 0.08058090011750797}, {"numpersonas": 7, "numhogares": 100970, "porcentaje": 0.03631704779124945}, {"numpersonas": 8, "numhogares": 45275, "porcentaje": 0.016284582933037722}, {"numpersonas": 9, "numhogares": 21191, "porcentaje": 0.007622012080265099}, {"numpersonas": 10, "numhogares": 10395, "porcentaje": 0.003738889886006121}, {"numpersonas": 11, "numhogares": 4871, "porcentaje": 0.001752008911470497}, {"numpersonas": 12, "numhogares": 2479, "porcentaje": 0.0008916506038873665}, {"numpersonas": 13, "numhogares": 1212, "porcentaje": 0.00043593405885901094}, {"numpersonas": 14, "numhogares": 671, "porcentaje": 0.0002413463312660036}, {"numpersonas": 15, "numhogares": 336, "porcentaje": 0.00012085300641635947}, {"numpersonas": 16, "numhogares": 194, "porcentaje": 6.977822394277898e-05}, {"numpersonas": 17, "numhogares": 109, "porcentaje": 3.9205290771973754e-05}, {"numpersonas": 18, "numhogares": 65, "porcentaje": 2.337930183649811e-05}, {"numpersonas": 19, "numhogares": 34, "porcentaje": 1.2229173268322088e-05}, {"numpersonas": 20, "numhogares": 28, "porcentaje": 1.0071083868029957e-05}, {"numpersonas": 21, "numhogares": 11, "porcentaje": 3.9564972338689116e-06}, {"numpersonas": 22, "numhogares": 11, "porcentaje": 3.9564972338689116e-06}, {"numpersonas": 23, "numhogares": 5, "porcentaje": 1.7984078335767777e-06}, {"numpersonas": 24, "numhogares": 4, "porcentaje": 1.4387262668614222e-06}, {"numpersonas": 25, "numhogares": 1, "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 26, "numhogares": 1, "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 28, "numhogares": 1, "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 31, "numhogares": 1, "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 34, "numhogares": 1, "porcentaje": 3.5968156671535555e-07}]}}, {"mode": "vega-lite"});
+</script></div></div>
 </div>
 <p>Como nota, el gráfico conserva su forma; esto es porque solo es una forma diferente de personificar la misma información. Lo que mostramos en el gráfico de arriba es la frecuencia relativa, es decir, la porción de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Nota
-La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empelada es un dato y los volvimos información al analizar la distribución.</p>
+<p>La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empelada es un dato y los volvimos información al analizar la distribución.</p>
 </div>
+</section>
 <section id="la-frecuencia-como-probabilidad">
 <h2>La frecuencia como probabilidad<a class="headerlink" href="#la-frecuencia-como-probabilidad" title="Link to this heading">#</a></h2>
 <p>Anteriormente dividimos el número de hogares según su tamaño por el número total de hogares para obtener la frecuencia relativa. Es decir, cuántos hogares de un miembro había para el total, cuántos de 2 para el total, cuántos de 3 para el total, et. al. Dividimos la cantidad de veces que ocurrió un evento (ser un hogar de una cantidad de miembros) por el total de eventos (el número de hogares). En este apartado veremos que esta frecuencia relativa es una estimación de la probabilidad de que un hogar tenga un tamaño determinado.</p>
@@ -1240,6 +1391,15 @@ Además, qué es la probabilidad: la frecuencia relativa de un evento.</p>
         <p class="prev-next-title">¿Qué es la estadística?</p>
       </div>
     </a>
+    <a class="right-next"
+       href="cap3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">El arte de la inferencia</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1256,6 +1416,7 @@ Además, qué es la probabilidad: la frecuencia relativa de un evento.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-estaistica">Distribución estaística</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#la-frecuencia-como-probabilidad">La frecuencia como probabilidad</a></li>
 </ul>
   </nav></div>

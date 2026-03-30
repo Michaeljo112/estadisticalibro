@@ -1,0 +1,151 @@
+Traceback (most recent call last):
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1265, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\site-packages\jupyter_core\utils\__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 703, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 1021, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\Michael\AppData\Local\Programs\Python\Python310\lib\site-packages\nbclient\client.py", line 915, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import plotly.express as px
+
+sizepop = len(personasporhogar)
+
+# Distribución población
+freq_poblacion = (
+    personasporhogar['numpersonas']
+    .value_counts(normalize=True)
+    .sort_index()
+    .reset_index()
+)
+
+freq_poblacion.columns = ['numpersonas','porcentaje']
+freq_poblacion['grupo'] = 'poblacion'
+freq_poblacion['n'] = sizepop
+
+# Tamaños muestrales pedagógicos
+tamanos = [10, 30, 50, 1e2, 1e3, 1e4, 1e5, 1e6]
+
+# Filtrar si alguno supera la población
+tamanos = [n for n in tamanos if n <= sizepop]
+
+# Generar muestras
+lista = []
+
+for n in tamanos:
+
+    muestra = personasporhogar.sample(
+        n=n,
+        random_state=123
+    )
+
+    freq_muestra = (
+        muestra['numpersonas']
+        .value_counts(normalize=True)
+        .sort_index()
+        .reset_index()
+    )
+
+    freq_muestra.columns = ['numpersonas','porcentaje']
+    freq_muestra['grupo'] = 'muestra'
+    freq_muestra['n'] = n
+
+    lista.append(freq_muestra)
+
+df_muestras = pd.concat(lista)
+
+df_total = pd.concat([
+    df_muestras,
+    freq_poblacion
+])
+
+fig = px.bar(
+
+    df_total,
+
+    x="numpersonas",
+    y="porcentaje",
+
+    color="grupo",
+
+    barmode="group",
+
+    animation_frame="n",
+
+    color_discrete_map={
+        "poblacion":"#013440",
+        "muestra":"#593954"
+    },
+
+    labels={
+        "numpersonas":"Número de personas en el hogar",
+        "porcentaje":"Porcentaje",
+        "grupo":"",
+        "n":"Tamaño muestra"
+    },
+
+    title="Distribución del tamaño del hogar: convergencia muestral"
+
+)
+
+fig.update_layout(
+
+    width=700,
+    height=500,
+
+    yaxis_tickformat=".1%",
+
+    legend=dict(
+        orientation="h",
+        y=1.1
+    )
+
+)
+
+fig.show()
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [1;32mIn[4], line 28[0m
+[0;32m     24[0m lista [38;5;241m=[39m []
+[0;32m     26[0m [38;5;28;01mfor[39;00m n [38;5;129;01min[39;00m tamanos:
+[1;32m---> 28[0m     muestra [38;5;241m=[39m [43mpersonasporhogar[49m[38;5;241;43m.[39;49m[43msample[49m[43m([49m
+[0;32m     29[0m [43m        [49m[43mn[49m[38;5;241;43m=[39;49m[43mn[49m[43m,[49m
+[0;32m     30[0m [43m        [49m[43mrandom_state[49m[38;5;241;43m=[39;49m[38;5;241;43m123[39;49m
+[0;32m     31[0m [43m    [49m[43m)[49m
+[0;32m     33[0m     freq_muestra [38;5;241m=[39m (
+[0;32m     34[0m         muestra[[38;5;124m'[39m[38;5;124mnumpersonas[39m[38;5;124m'[39m]
+[0;32m     35[0m         [38;5;241m.[39mvalue_counts(normalize[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m     36[0m         [38;5;241m.[39msort_index()
+[0;32m     37[0m         [38;5;241m.[39mreset_index()
+[0;32m     38[0m     )
+[0;32m     40[0m     freq_muestra[38;5;241m.[39mcolumns [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mnumpersonas[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mporcentaje[39m[38;5;124m'[39m]
+
+File [1;32m~\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py:6118[0m, in [0;36mNDFrame.sample[1;34m(self, n, frac, replace, weights, random_state, axis, ignore_index)[0m
+[0;32m   6115[0m [38;5;28;01mif[39;00m weights [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[0;32m   6116[0m     weights [38;5;241m=[39m sample[38;5;241m.[39mpreprocess_weights([38;5;28mself[39m, weights, axis)
+[1;32m-> 6118[0m sampled_indices [38;5;241m=[39m [43msample[49m[38;5;241;43m.[39;49m[43msample[49m[43m([49m[43mobj_len[49m[43m,[49m[43m [49m[43msize[49m[43m,[49m[43m [49m[43mreplace[49m[43m,[49m[43m [49m[43mweights[49m[43m,[49m[43m [49m[43mrs[49m[43m)[49m
+[0;32m   6119[0m result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mtake(sampled_indices, axis[38;5;241m=[39maxis)
+[0;32m   6121[0m [38;5;28;01mif[39;00m ignore_index:
+
+File [1;32m~\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\sample.py:152[0m, in [0;36msample[1;34m(obj_len, size, replace, weights, random_state)[0m
+[0;32m    149[0m     [38;5;28;01melse[39;00m:
+[0;32m    150[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mInvalid weights: weights sum to zero[39m[38;5;124m"[39m)
+[1;32m--> 152[0m [38;5;28;01mreturn[39;00m [43mrandom_state[49m[38;5;241;43m.[39;49m[43mchoice[49m[43m([49m[43mobj_len[49m[43m,[49m[43m [49m[43msize[49m[38;5;241;43m=[39;49m[43msize[49m[43m,[49m[43m [49m[43mreplace[49m[38;5;241;43m=[39;49m[43mreplace[49m[43m,[49m[43m [49m[43mp[49m[38;5;241;43m=[39;49m[43mweights[49m[43m)[49m[38;5;241m.[39mastype(
+[0;32m    153[0m     np[38;5;241m.[39mintp, copy[38;5;241m=[39m[38;5;28;01mFalse[39;00m
+[0;32m    154[0m )
+
+File [1;32mnumpy\\random\\mtrand.pyx:1051[0m, in [0;36mnumpy.random.mtrand.RandomState.choice[1;34m()[0m
+
+[1;31mTypeError[0m: expected a sequence of integers or a single integer, got '100.0'
+TypeError: expected a sequence of integers or a single integer, got '100.0'
+

@@ -10,7 +10,7 @@ kernelspec:
   display_name: Python 3
 ---
 
-# Mirar los datos
+# Mirar los datos. Distribuciones
 
 Hagámonos una pregunta: ¿cuántas personas hay por hogar en el Ecuador? Para responderla, usemos los datos del censo de 2022, como antes.
 
@@ -74,30 +74,36 @@ resumen = pararesumen['numpersonas'].value_counts().sort_index().reset_index(nam
 resumen
 ```
 
+## Distribución estaística
+
 Como puede observar, en el año 2022, 314.250 hogares eran de 1 persona; 431.560 hogares eran de 2 personas; 536.947 hogares eran de 3 personas, etc. Muy pocos hogares tenían más de 11 miembros. Pero resumamos la tabla obtenida graficándola. Dibujemos en el eje horizontal número de personas en el hogar y en el eje vertical la frecuencia o cantidad de hogares con ese número de personas. 
 
 ```{code-cell}
-import matplotlib.pyplot as plt
-import seaborn as sns
-import matplotlib.ticker as ticker
+import altair as alt
 
-plt.figure(figsize=(8,5))
-
-sns.barplot(
-    x=resumen['numpersonas'],
-    y=resumen['numhogares']
+chart = alt.Chart(resumen).mark_bar(
+  size=20 # controla el grosor de las barras
+).encode(
+  x=alt.X(
+    'numpersonas:O',
+    title='Número de personas en el hogar',
+    axis=alt.Axis(
+      labelAngle=0, # etiquetas horizontales
+    )
+  ),
+  y=alt.Y(
+    'numhogares:Q',
+    title='Número de hogares',
+    axis=alt.Axis(format='.0s')
+  ),
+  tooltip=['numpersonas','numhogares']
+).properties(
+  title="Distribución del tamaño del hogar",
+  width=700, # longitud eje horizontal 
+  height=400
 )
 
-plt.xlabel("Número de personas en el hogar")
-plt.ylabel("Conteo (miles)")
-plt.title("Distribución del tamaño del hogar")
-
-# Formatear eje Y en miles
-plt.gca().yaxis.set_major_formatter(
-    ticker.FuncFormatter(lambda x, p: f'{int(x/1000)}K')
-)
-
-plt.show()
+chart
 ```
 
 Este gráfico es una distribución estadística: la forma en la que se reparten los datos. En este caso, la mayoría de los hogares tienen entre 2 y 5 personas. Note que las barras del gráfico, vistas como un todo, parecen una campana deformada, como si la hubieran martillado.
@@ -118,23 +124,32 @@ resumen
 El 11,30% de hogares es de 1 miembro; el 15,52%, de 2; 19,31%, de 3; 22,80%, de 4; etcétera. Podemos graficar estos porcentajes:
 
 ```{code-cell}
-plt.figure(figsize=(8,5))
-
-sns.barplot(
-    x=resumen['numpersonas'],
-    y=resumen['porcentaje'] 
+chart = alt.Chart(resumen).mark_bar(
+    size=20   # controla el grosor de las barras
+).encode(
+  x=alt.X(
+    'numpersonas:O',
+    title='Número de personas en el hogar',
+    axis=alt.Axis(labelAngle=0)
+  ),
+  y=alt.Y(
+    'porcentaje:Q',
+    title='Frecuencia relativa',
+    axis=alt.Axis(format='.0s') # compacto K
+  ),
+  tooltip=['porcentaje','numhogares']
+).properties(
+  title="Distribución relativa del tamaño del hogar",
+  width=700, 
+  height=400
 )
 
-plt.xlabel("Número de personas en el hogar")
-plt.ylabel("Frecuencia relativa")
-plt.title("Distribución relativa del tamaño del hogar")
-
-plt.show()
+chart
 ```
 
 Como nota, el gráfico conserva su forma; esto es porque solo es una forma diferente de personificar la misma información. Lo que mostramos en el gráfico de arriba es la frecuencia relativa, es decir, la porción de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares.
 
-```{note} Nota
+```{note}
 La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empelada es un dato y los volvimos información al analizar la distribución.
 ```
 
