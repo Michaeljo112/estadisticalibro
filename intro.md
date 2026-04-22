@@ -1,8 +1,15 @@
 # Un econometrista te explica
 
+```{image} portada.png
+:alt: Portada
+:class: bg-primary mb-1
+:width: 100%
+:align: center
+```
+
 Me dedico, desde hace ya unos 6 años, a la **Econometría** de forma profesional: la ciencia y el arte de emplear matemáticas aplicadas a estudiar asuntos económicos. La **Estadística** es un componente fundamental de la econometría, y una herramienta poderosísima para tomar decisiones. 
 
-Como la he estudiado con devoción más allá de estudios formales de pregado y posgrado de Economía con los que cuento, la he usado a diario en mi trabajo y en investigación científica de economía, creo que puedo darte una buena perspectiva de lo que es y cómo puedes aprovecharla.
+Como la he estudiado con devoción más allá de estudios formales de pregado y posgrado de Economía con los que cuento y la he usado a diario en mi trabajo y en investigación científica, creo que puedo darte una buena perspectiva de lo que es y cómo puedes aprovecharla.
 
 Los economistas usamos mucha estadística, sobre todo los *econometristas*. Por lo general, los economistas nos centramos en problemas económicos, pero la estadística nos ayuda a entender y resolver problemas en casi cualquier campo. En este contexto, Los *econometristas* hacemos un énfasis particular en dominar la Estadística y las matemáticas aplicadas a un nivel avanzado.
 
