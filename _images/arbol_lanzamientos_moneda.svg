@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="780" viewBox="0 0 1180 780" role="img" aria-labelledby="title desc">
+  <title id="title">Árbol de bifurcación para cuatro lanzamientos de una moneda</title>
+  <desc id="desc">Diagrama que muestra los dieciséis resultados posibles de cuatro lanzamientos de una moneda.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .panel { fill: #ffffff; stroke: #d7dde5; stroke-width: 2; }
+      .branch { fill: none; stroke: #52616f; stroke-width: 2.2; stroke-linecap: round; }
+      .resultLine { stroke: #8ab17d; stroke-width: 1.8; stroke-linecap: round; }
+      .node { fill: #ffffff; stroke: #2f5d7c; stroke-width: 3; }
+      .coin { fill: #fff3c4; stroke: #b27a00; stroke-width: 2.3; }
+      .leaf { fill: #f1f8ff; stroke: #2f5d7c; stroke-width: 2; }
+      .resultBox { fill: #eef6f0; stroke: #8ab17d; stroke-width: 1.6; }
+      .startLabel { fill: #1f2933; font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .label { fill: #1f2933; font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .leafLabel { fill: #1f2933; font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .small { fill: #52616f; font-family: Arial, sans-serif; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+      .outcome { fill: #1f2933; font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .title { fill: #1f2933; font-family: Arial, sans-serif; font-size: 25px; font-weight: 700; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1180" height="780"/>
+  <rect class="panel" x="28" y="26" width="1124" height="728" rx="8"/>
+  <text class="title" x="590" y="66">Árbol de bifurcación: cuatro lanzamientos de una moneda</text>
+
+  <g transform="translate(0 28)">
+  <text class="small" x="290" y="76">t1</text>
+  <text class="small" x="490" y="76">t2</text>
+  <text class="small" x="690" y="76">t3</text>
+  <text class="small" x="890" y="76">t4</text>
+  <text class="small" x="1060" y="76">Resultado</text>
+
+  <path class="branch" d="M90 390L290 230M90 390L290 550M290 230L490 150M290 230L490 310M290 550L490 470M290 550L490 630M490 150L690 110M490 150L690 190M490 310L690 270M490 310L690 350M490 470L690 430M490 470L690 510M490 630L690 590M490 630L690 670M690 110L890 90M690 110L890 130M690 190L890 170M690 190L890 210M690 270L890 250M690 270L890 290M690 350L890 330M690 350L890 370M690 430L890 410M690 430L890 450M690 510L890 490M690 510L890 530M690 590L890 570M690 590L890 610M690 670L890 650M690 670L890 690"/>
+
+  <circle class="node" cx="90" cy="390" r="30"/><text class="startLabel" x="90" y="390">Inicio</text>
+  <circle class="coin" cx="290" cy="230" r="24"/><text class="label" x="290" y="230">C</text>
+  <circle class="coin" cx="290" cy="550" r="24"/><text class="label" x="290" y="550">S</text>
+  <circle class="coin" cx="490" cy="150" r="24"/><text class="label" x="490" y="150">C</text>
+  <circle class="coin" cx="490" cy="310" r="24"/><text class="label" x="490" y="310">S</text>
+  <circle class="coin" cx="490" cy="470" r="24"/><text class="label" x="490" y="470">C</text>
+  <circle class="coin" cx="490" cy="630" r="24"/><text class="label" x="490" y="630">S</text>
+  <circle class="coin" cx="690" cy="110" r="24"/><text class="label" x="690" y="110">C</text>
+  <circle class="coin" cx="690" cy="190" r="24"/><text class="label" x="690" y="190">S</text>
+  <circle class="coin" cx="690" cy="270" r="24"/><text class="label" x="690" y="270">C</text>
+  <circle class="coin" cx="690" cy="350" r="24"/><text class="label" x="690" y="350">S</text>
+  <circle class="coin" cx="690" cy="430" r="24"/><text class="label" x="690" y="430">C</text>
+  <circle class="coin" cx="690" cy="510" r="24"/><text class="label" x="690" y="510">S</text>
+  <circle class="coin" cx="690" cy="590" r="24"/><text class="label" x="690" y="590">C</text>
+  <circle class="coin" cx="690" cy="670" r="24"/><text class="label" x="690" y="670">S</text>
+
+  <circle class="leaf" cx="890" cy="90" r="20"/><text class="leafLabel" x="890" y="90">C</text>
+  <circle class="leaf" cx="890" cy="130" r="20"/><text class="leafLabel" x="890" y="130">S</text>
+  <circle class="leaf" cx="890" cy="170" r="20"/><text class="leafLabel" x="890" y="170">C</text>
+  <circle class="leaf" cx="890" cy="210" r="20"/><text class="leafLabel" x="890" y="210">S</text>
+  <circle class="leaf" cx="890" cy="250" r="20"/><text class="leafLabel" x="890" y="250">C</text>
+  <circle class="leaf" cx="890" cy="290" r="20"/><text class="leafLabel" x="890" y="290">S</text>
+  <circle class="leaf" cx="890" cy="330" r="20"/><text class="leafLabel" x="890" y="330">C</text>
+  <circle class="leaf" cx="890" cy="370" r="20"/><text class="leafLabel" x="890" y="370">S</text>
+  <circle class="leaf" cx="890" cy="410" r="20"/><text class="leafLabel" x="890" y="410">C</text>
+  <circle class="leaf" cx="890" cy="450" r="20"/><text class="leafLabel" x="890" y="450">S</text>
+  <circle class="leaf" cx="890" cy="490" r="20"/><text class="leafLabel" x="890" y="490">C</text>
+  <circle class="leaf" cx="890" cy="530" r="20"/><text class="leafLabel" x="890" y="530">S</text>
+  <circle class="leaf" cx="890" cy="570" r="20"/><text class="leafLabel" x="890" y="570">C</text>
+  <circle class="leaf" cx="890" cy="610" r="20"/><text class="leafLabel" x="890" y="610">S</text>
+  <circle class="leaf" cx="890" cy="650" r="20"/><text class="leafLabel" x="890" y="650">C</text>
+  <circle class="leaf" cx="890" cy="690" r="20"/><text class="leafLabel" x="890" y="690">S</text>
+
+  <line class="resultLine" x1="912" y1="90" x2="982" y2="90"/><rect class="resultBox" x="982" y="75" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="91">(C, C, C, C)</text>
+  <line class="resultLine" x1="912" y1="130" x2="982" y2="130"/><rect class="resultBox" x="982" y="115" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="131">(C, C, C, S)</text>
+  <line class="resultLine" x1="912" y1="170" x2="982" y2="170"/><rect class="resultBox" x="982" y="155" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="171">(C, C, S, C)</text>
+  <line class="resultLine" x1="912" y1="210" x2="982" y2="210"/><rect class="resultBox" x="982" y="195" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="211">(C, C, S, S)</text>
+  <line class="resultLine" x1="912" y1="250" x2="982" y2="250"/><rect class="resultBox" x="982" y="235" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="251">(C, S, C, C)</text>
+  <line class="resultLine" x1="912" y1="290" x2="982" y2="290"/><rect class="resultBox" x="982" y="275" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="291">(C, S, C, S)</text>
+  <line class="resultLine" x1="912" y1="330" x2="982" y2="330"/><rect class="resultBox" x="982" y="315" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="331">(C, S, S, C)</text>
+  <line class="resultLine" x1="912" y1="370" x2="982" y2="370"/><rect class="resultBox" x="982" y="355" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="371">(C, S, S, S)</text>
+  <line class="resultLine" x1="912" y1="410" x2="982" y2="410"/><rect class="resultBox" x="982" y="395" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="411">(S, C, C, C)</text>
+  <line class="resultLine" x1="912" y1="450" x2="982" y2="450"/><rect class="resultBox" x="982" y="435" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="451">(S, C, C, S)</text>
+  <line class="resultLine" x1="912" y1="490" x2="982" y2="490"/><rect class="resultBox" x="982" y="475" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="491">(S, C, S, C)</text>
+  <line class="resultLine" x1="912" y1="530" x2="982" y2="530"/><rect class="resultBox" x="982" y="515" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="531">(S, C, S, S)</text>
+  <line class="resultLine" x1="912" y1="570" x2="982" y2="570"/><rect class="resultBox" x="982" y="555" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="571">(S, S, C, C)</text>
+  <line class="resultLine" x1="912" y1="610" x2="982" y2="610"/><rect class="resultBox" x="982" y="595" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="611">(S, S, C, S)</text>
+  <line class="resultLine" x1="912" y1="650" x2="982" y2="650"/><rect class="resultBox" x="982" y="635" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="651">(S, S, S, C)</text>
+  <line class="resultLine" x1="912" y1="690" x2="982" y2="690"/><rect class="resultBox" x="982" y="675" width="148" height="30" rx="6"/><text class="outcome" x="1056" y="691">(S, S, S, S)</text>
+  </g>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="620" viewBox="0 0 1120 620" role="img" aria-labelledby="title desc">
+  <title id="title">Árbol compacto para tres lanzamientos de un dado</title>
+  <desc id="desc">Diagrama que resume las ramificaciones de tres lanzamientos de un dado: seis opciones en cada tiempo y 216 resultados posibles.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .panel { fill: #ffffff; stroke: #d7dde5; stroke-width: 2; }
+      .branch { fill: none; stroke: #52616f; stroke-width: 2.4; stroke-linecap: round; }
+      .dash { fill: none; stroke: #8a98a8; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 6 8; }
+      .node { fill: #ffffff; stroke: #2f5d7c; stroke-width: 3; }
+      .die { fill: #fff3c4; stroke: #b27a00; stroke-width: 2.4; }
+      .group { fill: #eef6f0; stroke: #8ab17d; stroke-width: 2; }
+      .result { fill: #f1f8ff; stroke: #2f5d7c; stroke-width: 2; }
+      .title { fill: #1f2933; font-family: Arial, sans-serif; font-size: 25px; font-weight: 700; text-anchor: middle; }
+      .label { fill: #1f2933; font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .small { fill: #52616f; font-family: Arial, sans-serif; font-size: 16px; text-anchor: middle; dominant-baseline: middle; }
+      .note { fill: #1f2933; font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; dominant-baseline: middle; }
+      .math { fill: #1f2933; font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1120" height="620"/>
+  <rect class="panel" x="28" y="26" width="1064" height="568" rx="8"/>
+  <text class="title" x="560" y="58">Árbol compacto: tres lanzamientos de un dado</text>
+
+  <text class="small" x="170" y="104">Inicio</text>
+  <text class="small" x="360" y="104">t1</text>
+  <text class="small" x="575" y="104">t2</text>
+  <text class="small" x="790" y="104">t3</text>
+  <text class="small" x="970" y="104">Resultado</text>
+
+  <circle class="node" cx="170" cy="330" r="34"/>
+  <text class="label" x="170" y="330">Inicio</text>
+
+  <line class="branch" x1="204" y1="330" x2="330" y2="170"/>
+  <line class="branch" x1="204" y1="330" x2="330" y2="234"/>
+  <line class="branch" x1="204" y1="330" x2="330" y2="298"/>
+  <line class="branch" x1="204" y1="330" x2="330" y2="362"/>
+  <line class="branch" x1="204" y1="330" x2="330" y2="426"/>
+  <line class="branch" x1="204" y1="330" x2="330" y2="490"/>
+
+  <rect class="die" x="330" y="146" width="60" height="48" rx="9"/><text class="label" x="360" y="171">1</text>
+  <rect class="die" x="330" y="210" width="60" height="48" rx="9"/><text class="label" x="360" y="235">2</text>
+  <rect class="die" x="330" y="274" width="60" height="48" rx="9"/><text class="label" x="360" y="299">3</text>
+  <rect class="die" x="330" y="338" width="60" height="48" rx="9"/><text class="label" x="360" y="363">4</text>
+  <rect class="die" x="330" y="402" width="60" height="48" rx="9"/><text class="label" x="360" y="427">5</text>
+  <rect class="die" x="330" y="466" width="60" height="48" rx="9"/><text class="label" x="360" y="491">6</text>
+
+  <path class="branch" d="M390 170L525 170M390 234L525 234M390 298L525 298M390 362L525 362M390 426L525 426M390 490L525 490"/>
+  <rect class="group" x="525" y="142" width="100" height="56" rx="8"/><text class="note" x="575" y="171">1,...,6</text>
+  <rect class="group" x="525" y="206" width="100" height="56" rx="8"/><text class="note" x="575" y="235">1,...,6</text>
+  <rect class="group" x="525" y="270" width="100" height="56" rx="8"/><text class="note" x="575" y="299">1,...,6</text>
+  <rect class="group" x="525" y="334" width="100" height="56" rx="8"/><text class="note" x="575" y="363">1,...,6</text>
+  <rect class="group" x="525" y="398" width="100" height="56" rx="8"/><text class="note" x="575" y="427">1,...,6</text>
+  <rect class="group" x="525" y="462" width="100" height="56" rx="8"/><text class="note" x="575" y="491">1,...,6</text>
+
+  <path class="dash" d="M625 170L740 150M625 170L740 190M625 234L740 222M625 234L740 246M625 298L740 286M625 298L740 310M625 362L740 350M625 362L740 374M625 426L740 414M625 426L740 438M625 490L740 470M625 490L740 510"/>
+  <rect class="result" x="740" y="126" width="100" height="48" rx="8"/><text class="note" x="790" y="151">1,...,6</text>
+  <rect class="result" x="740" y="174" width="100" height="48" rx="8"/><text class="note" x="790" y="199">1,...,6</text>
+  <text class="small" x="790" y="236">...</text>
+  <rect class="result" x="740" y="262" width="100" height="48" rx="8"/><text class="note" x="790" y="287">1,...,6</text>
+  <rect class="result" x="740" y="310" width="100" height="48" rx="8"/><text class="note" x="790" y="335">1,...,6</text>
+  <text class="small" x="790" y="374">...</text>
+  <rect class="result" x="740" y="398" width="100" height="48" rx="8"/><text class="note" x="790" y="423">1,...,6</text>
+  <rect class="result" x="740" y="486" width="100" height="48" rx="8"/><text class="note" x="790" y="511">1,...,6</text>
+
+  <path class="branch" d="M840 150L915 185M840 199L915 225M840 287L915 290M840 335L915 330M840 423L915 395M840 511L915 435"/>
+  <rect class="group" x="915" y="170" width="110" height="74" rx="8"/>
+  <text class="note" x="970" y="196">(1, 1, 1)</text>
+  <text class="small" x="970" y="220">...</text>
+  <rect class="group" x="915" y="276" width="110" height="74" rx="8"/>
+  <text class="note" x="970" y="302">(i, j, k)</text>
+  <text class="small" x="970" y="326">...</text>
+  <rect class="group" x="915" y="382" width="110" height="74" rx="8"/>
+  <text class="note" x="970" y="408">(6, 6, 6)</text>
+  <text class="small" x="970" y="432">216 casos</text>
+
+  <text class="math" x="560" y="560">n(S) = 6 x 6 x 6 = 216</text>
+</svg>

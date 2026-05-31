@@ -26,13 +26,13 @@ Los gobernantes entendieron en algún punto de la historia que contar a sus pobl
 
 Algunos datos son sumamente importantes para manejar presupuestos del gobierno, por ejemplo: la cantidad de niños recién nacidos que mueren. La mortalidad infantil es un asunto moral, que a todos nos importa (quizá con excepción de algún que otro loco). Saber cuántos niños mueren es importante para saber cuánto dinero destinar a luchar contra esa problemática.
 
-**La parte de la matemáticas que se ocupa de la recolección, la organización, el análisis y la interpretación de los datos es la estadística**. Entonces, hacemos estadística cuando recolectamos datos de un grupo de personas, hacemos registros de las fallas de un sistema, registramos nuestros gastos e ingresos o observamos algún fenómeno físico y lo documentamos.
+**La parte de las matemáticas que se ocupa de la recolección, la organización, el análisis y la interpretación de los datos es la estadística**. Entonces, hacemos estadística cuando recolectamos datos de un grupo de personas, hacemos registros de las fallas de un sistema, registramos nuestros gastos e ingresos o observamos algún fenómeno físico y lo documentamos.
 
 ¿Por qué recolectar datos sería útil o importante?, puede preguntarse un principiante. Bueno, vamos a ser directos con un ejemplo: ¿por qué sería importante saber cuántos clientes he perdido el último mes, si fuera un comerciante o empresario? Porque así sabría si estoy fracasando o algo en el entorno económico está siendo problemático para mis negocios. Me permitirá pensar en una solución, en una decisión, en una estrategia. Las empresas actuales gastan una gran cantidad de dinero recolectando datos de usted, así que hágase una idea del valor que tienen las estadísticas y los datos.
 
-Cuando usted utiliza una red social está ofreciendo datos: cuánto tiempo mira un video, qué tipo de video mira, qué le gusta, qué compraría, las sugerencias de compra de quién tomaría. Todos esos datos que usted ofrece le interesan a empresas, que los analizan con sus equipos de análisis de datos; integradis por matemáticos, estadísticos, economistas y, ahora, científicos de datos, entre otros profesionales con conocimientos matemáticos y estadísticos. Ellos les dan sugerencias a las empresas, al gobierno y a organizaciones en general de qué sería estratégico, conveniente o rentable. Por eso, los dueños de esas redes sociales que maneja están dispuestos a no “cobrarles” por su uso. Usé comillas, porque como se habrá dado cuenta a estas alturas, le están cobrando, de hecho. Y usted les está pagando.
+Cuando usted utiliza una red social está ofreciendo datos: cuánto tiempo mira un video, qué tipo de video mira, qué le gusta, qué compraría, las sugerencias de compra de quién tomaría. Todos esos datos que usted ofrece le interesan a empresas, que los analizan con sus equipos de análisis de datos; integrados por matemáticos, estadísticos, economistas y, ahora, científicos de datos, entre otros profesionales con conocimientos matemáticos y estadísticos. Ellos les dan sugerencias a las empresas, al gobierno y a organizaciones en general de qué sería estratégico, conveniente o rentable. Por eso, los dueños de esas redes sociales que maneja están dispuestos a no “cobrarles” por su uso. Usé comillas, porque como se habrá dado cuenta a estas alturas, le están cobrando, de hecho. Y usted les está pagando.
 
-Además, podemos considerar un arte hacer estadística: lo buenos que somos analizando datos, formulando las preguntas importantes para examinar esos datos o comunicar la importancia de tomar una decisión basándonos en rigurosos análisis de esos datos. Usted, señor lector, será un artesano, y tiene que ser uno bueno, por su puesto, si quiere ganarse buenos beneficios por su oficio artesanal.
+Además, podemos considerar un arte hacer estadística: lo buenos que somos analizando datos, formulando las preguntas importantes para examinar esos datos o comunicar la importancia de tomar una decisión basándonos en rigurosos análisis de esos datos. Usted, señor lector, será un artesano, y tiene que ser uno bueno, por supuesto, si quiere ganarse buenos beneficios por su oficio artesanal.
 
 ## Fenómenos estocásticos
 
@@ -42,7 +42,7 @@ Si yo quiero saber por qué candidato a alcalde votarán las personas, sería mu
 
 Es muy importante hacer aleatorizaciones como estas para asegurar la calidad de las inferencias, es decir, de las conclusiones que obtenemos a partir de los datos. En los siguientes capítulos comprenderemos a detalle por qué. Por ahora, basta con entender que la aleatorización es fundamental para que las conclusiones que obtengamos sean válidas.
 
-Más allá de eso, no podemos saber con certeza algunas cosas. Si tiene una moneda en su bolsillo, láncela al aire, tómela en la caída y mire qué cara observa. Usted no sabe cuál será el resulatdo con certeza, sino cuál puede ser el resultado. Seguramente ya ha oído que tiene un 50% por ciento de probabilidad de obtener una de las dos caras de la moneda. Ocurre igual cuando lanza un dado, tiene una probabilidad de obtener una cara del dado. La estadística se ocupa de ambos asuntos: del hecho de tener que hacer inferencias de una población usando una muestra y de usar datos de fenómenos estocásticos, como lanzar dados y monedas al aire, o más importante: de fenómenos estocásticos que ocurren en la vida real. Por ejemplo, las probabilidades de que una inversión sea exitosa, llueva mañana o su equipo de fútbol gane el próximo partido.
+Más allá de eso, no podemos saber con certeza algunas cosas. Si tiene una moneda en su bolsillo, láncela al aire, tómela en la caída y mire qué cara observa. Usted no sabe cuál será el resultado con certeza, sino cuál puede ser el resultado. Seguramente ya ha oído que tiene un 50% por ciento de probabilidad de obtener una de las dos caras de la moneda. Ocurre igual cuando lanza un dado, tiene una probabilidad de obtener una cara del dado. La estadística se ocupa de ambos asuntos: del hecho de tener que hacer inferencias de una población usando una muestra y de usar datos de fenómenos estocásticos, como lanzar dados y monedas al aire, o más importante: de fenómenos estocásticos que ocurren en la vida real. Por ejemplo, las probabilidades de que una inversión sea exitosa, llueva mañana o su equipo de fútbol gane el próximo partido.
 
 
 **Con el propósito de tomar decisiones hacemos estadísticas.**
@@ -55,11 +55,11 @@ la estadística se ocupa de la recolección, la organización, el análisis y la
 
 # Métodos gráficos
 
-Plantémonso un problema: entender la pobreza de Ecuador. ¿Cómo podríamos hacerlo?
+Planteémonos un problema: entender la pobreza de Ecuador. ¿Cómo podríamos hacerlo?
 
 Usaremos una tabla de datos que construí con datos del Instituto Nacional de Estadística y Censos de Ecuador [(INEC)](https://www.censoecuador.gob.ec/), datos geoespaciales de radiancia nocturna, datos de suelo urbano, entre otros. Pueden obtenerse en mi repositorio de GitHub [Michaeljo112/Estimando-la-pobreza-parroquial](https://github.com/Michaeljo112/Estimando-la-pobreza-parroquial).
 
-Cada fila es una parroquia del país. En análisis de datos solemos identificar una unidad de observación (lemento básico sobre el cual se recolectan datos) con códigos (sean numéricos o cadenas de textos, o una cambinación de ambos) que denominamos identificadores únicos. En este caso, el identificador de cada parroquia es su código postal.    
+Cada fila es una parroquia del país. En análisis de datos solemos identificar una unidad de observación (elemento básico sobre el cual se recolectan datos) con códigos (sean numéricos o cadenas de textos, o una combinación de ambos) que denominamos identificadores únicos. En este caso, el identificador de cada parroquia es su código postal.    
 
 ```{code-cell}
 import pandas as pd
@@ -71,7 +71,7 @@ df = pd.read_excel(url, sheet_name='data', index_col=None)
 df.head()
 ```
 
-Los datos tienen una columna llamada "Pobres" que es el recuento porcentaje de personas pobres de cada parroquia. "Personas" es la cantidad de personas de cada parroquia. "No pobres" es el recuento de personas no pobres de cada parroquia. Construyemos un resumen estadístico.
+Los datos tienen una columna llamada "Pobres" que es el recuento porcentaje de personas pobres de cada parroquia. "Personas" es la cantidad de personas de cada parroquia. "No pobres" es el recuento de personas no pobres de cada parroquia. Construyamos un resumen estadístico.
 
 ## Variables
 
@@ -81,7 +81,7 @@ Una **variable** es una característica, atributo, propiedad, medida o detalle d
 
 Un indicador resume un fenómeno. Por ejemplo, el porcentaje de personas pobres resume la pobreza de una parroquia. Usemos un indicador para resumir la pobreza de Ecuador.
 
-Construyamos una variable que sea una medida de la pobreza. Si divido la cantidad personas pobres para la cantidad de personas en el país, obtengo el porcentaje de personas pobres. En nuestros datos, debo dividir la cantidad de personas pobres para la cantidad de personas en cada parroquia. El resulatdo de la división es la tasa de pobreza de la parroquia, y es un número entre 0 y 1, un porcentaje. Luego de cada explicación, insertaré el código en Python que puedes usar para hacer lo mismo.
+Construyamos una variable que sea una medida de la pobreza. Si divido la cantidad personas pobres para la cantidad de personas en el país, obtengo el porcentaje de personas pobres. En nuestros datos, debo dividir la cantidad de personas pobres para la cantidad de personas en cada parroquia. El resultado de la división es la tasa de pobreza de la parroquia, y es un número entre 0 y 1, un porcentaje. Luego de cada explicación, insertaré el código en Python que puedes usar para hacer lo mismo.
 
 ```{code-cell}
 df['Tasa de pobreza'] = df['Pobres']/df['Personas']
@@ -94,7 +94,7 @@ import numpy as np
 df['almenoslamitadpobre'] = np.where(df['Tasa de pobreza'] >= .5, 1, 0)
 ```
 
-Cuando clasificamos en 1 y 0 los valores de una variable, basándonos en una condición como la anterior, estamos creando una variable dicotómica o *dummy* ―si prefieres anglisismos, yo no. En este caso, la condición es que la tasa de pobreza sea mayor o igual a 0,5 (en inglés, que se usa en python por defecto, los decimales se separan con punto y en español por coma).
+Cuando clasificamos en 1 y 0 los valores de una variable, basándonos en una condición como la anterior, estamos creando una variable dicotómica o *dummy* ―si prefieres anglicismos, yo no. En este caso, la condición es que la tasa de pobreza sea mayor o igual a 0,5 (en inglés, que se usa en python por defecto, los decimales se separan con punto y en español por coma).
 
 Un cantón tiene varias parroquias. Pensemos en un cantón, por ejemplo, el cantón Espejo. Este cantón tiene 4 parroquias. Los valores para cada una son 0, 0, 1 y 0. 
 
@@ -111,11 +111,11 @@ espejo['almenoslamitadpobre'].sum()/4
 
 ### Media o promedio
 
-Un promedio distribuye un valor para la cantidad de observaciones. Por ejemplo, si tomo a 4 personas (unidades de observación) y les pregunto sus salarios, y obtengo 100, 200, 300 y 400 dólares, el promedio es (100+200+300+400)/4 = 250 dólares. Es decir, el promedio es una forma aritmética de distruir la suma para la cantidad de observaciones. En este caso, si todos ganaran igual, ganarían 250 dólares. En este sentido, la media es una forma de repartir un pastel en partes iguales. 
+Un promedio distribuye un valor para la cantidad de observaciones. Por ejemplo, si tomo a 4 personas (unidades de observación) y les pregunto sus salarios, y obtengo 100, 200, 300 y 400 dólares, el promedio es (100+200+300+400)/4 = 250 dólares. Es decir, el promedio es una forma aritmética de distribuir la suma para la cantidad de observaciones. En este caso, si todos ganaran igual, ganarían 250 dólares. En este sentido, la media es una forma de repartir un pastel en partes iguales. 
 
 En nuestro cálculo anterior, calculamos un promedio o media. 
 
-Cuando promediamos una variable dicotómica, como "almenoslamitadpobre", estamos contando cuántas unidades de observación, en nuestro caso parroquias, cumplen la propiedad; posteriormnete, calculamos cuánto representa ese conteo del total de observaciones.
+Cuando promediamos una variable dicotómica, como "almenoslamitadpobre", estamos contando cuántas unidades de observación, en nuestro caso parroquias, cumplen la propiedad; posteriormente, calculamos cuánto representa ese conteo del total de observaciones.
 
 Ahora, calculemos la media de *almenoslamitadpobre* por cantón. Esto, en la práctica, será calcular el porcentaje de parroquias donde la mitad de sus poblaciones es pobre.
 
@@ -132,12 +132,10 @@ resumenindicador.sort_values(by='indicador_pobreza', ascending=False)
 
 Así, si somos los gobernantes de un cantón podemos saber qué tan mala es nuestra situación respecto a otros cantones. Podemos consultarnos en el Ranking de Michael. Por otra parte, si somos gobernantes de las provincias, podemos saber qué cantones necesitan más atención. Si somos presidentes, podemos saber en dónde poner más atención e idear proyectos para mejorar la situación.
 
-Muchas personas no saben manejar lenguajes de programación ni software estadístico. Por esta razón, es importante presentar los datos de forma visual. ¿Qué tal si presentamos la pobreza parroquial de forma interactiva en un mapa del país usando nuestro indicador? Justamente hice esto, hace tiempo, como divulgación de un estudio econométrico que elaboré. El resultado fue un proyecto en Tableu Public [Pobreza parroquial de Ecuador](https://public.tableau.com/app/profile/michael.joseph5274/viz/PobrezaparroquialdeEcuador/Dashboard).
+Muchas personas no saben manejar lenguajes de programación ni software estadístico. Por esta razón, es importante presentar los datos de forma visual. ¿Qué tal si presentamos la pobreza parroquial de forma interactiva en un mapa del país usando nuestro indicador? Justamente hice esto, hace tiempo, como divulgación de un estudio econométrico que elaboré. El resultado fue un proyecto en Tableau Public [Pobreza parroquial de Ecuador](https://public.tableau.com/app/profile/michael.joseph5274/viz/PobrezaparroquialdeEcuador/Dashboard).
 
 Elaboré un mapa interactivo donde el usuario puede consultar nuestro indicador, la tasa de pobreza y otras variables relacionadas por provincia y cantón usando botones con los que filtrar la información (ver captura del visualizador abajo). El tipo de mapa que usé para mostrar nuestro índice de pobreza habitualmente se conoce como "mapa de calor". Es un mapa que variaba la intensidad de color según el valor del indicador. Más rojo, más pobreza.
 
 ![Mapa de pobreza](imagenes/mapatableau.png)
 
 Le enseñaré a hacer este tipo de visualizaciones, estudiante. Pero antes, debemos dominar las bases de la estadística descriptiva. Debemos convertirnos en buenos alumnos, así seremos buenos maestros un día. En el siguiente capítulo, por ejemplo, qué es una distribución de datos y estudiaremos algunas distribuciones de datos. Luego, estudiaremos las medidas de tendencia central y de dispersión. Finalmente, estudiaremos las medidas de asociación entre variables. Con esto, estaremos listos para hacer visualizaciones como la de arriba. Pero de momento, descanse, buen trabajo.
-
-

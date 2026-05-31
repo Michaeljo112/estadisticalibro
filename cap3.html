@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-57M0ESJTXR"></script>
@@ -73,6 +73,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'cap3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Probabilidad" href="cap4.html" />
     <link rel="prev" title="Mirar los datos. Distribuciones" href="cap2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -187,7 +188,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Un econometrista te explica
+                    Un econometrista le explica
                 </a>
             </li>
         </ul>
@@ -196,6 +197,9 @@
 
 <li class="toctree-l1"><a class="reference internal" href="cap2.html">Mirar los datos. Distribuciones</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">El arte de la inferencia</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="cap4.html">Probabilidad</a></li>
+
 
 </ul>
 
@@ -418,16 +422,16 @@ document.write(`
 <p>En el capítulo anterior usamos datos censales, es decir, de toda la población de Ecuador. Este censo costó <a class="reference external" href="https://www.primicias.ec/noticias/sociedad/censo-ecuador/inec-poblacion-roberto-castillo-criticas/">83,3</a> millones de dólares.</p>
 <p>Antes había discutido cómo el coste de un censo es elevado como para levantarlo continuamente. (Aunque quizá gastamos más dinero en tonterías como sociedad, bien haríamos en priorizar la recopilación de estos datos).</p>
 <p>Los políticos no están dispuestos a censar a la población cada año, porque tienen la opción de usar el dinero que gastarían en un censo en otras cosas: como contratar propaganda para hablar bien de su gestión, aunque sea pésima.</p>
-<p>Pero aunque no tuvieramos malos políticos ―como de hecho ocurre―, puede ser que el país enfrente una dura crisis económica, por lo que gastar dinero en un censo no sería prioridad. En esa situación sería más importante gastar ese dinero para evitar muertes infantiles, por ejemplo.</p>
+<p>Pero aunque no tuviéramos malos políticos ―como de hecho ocurre―, puede ser que el país enfrente una dura crisis económica, por lo que gastar dinero en un censo no sería prioridad. En esa situación sería más importante gastar ese dinero para evitar muertes infantiles, por ejemplo.</p>
 <p>Por uno u otro motivo, el costo de un censo es elevado como para levantarlo continuamente. Entonces, ¿qué podemos hacer? Digamos que usted piensa en esto por primera vez. ¿Qué se le ocurre?</p>
 <p>Digamos que piensa: “bueno, encuestar a todos es costoso, pero ¿y si no encuesto a todos, sino a una parte?”. Entonces decide encuestar a una parte de la población: su barrio. Mejor aun a su parroquia entera.</p>
-<p>En el capítulo anterior analizamos qué porcentaje de hogares estaba integrado por 1, 2, 3, y así sucesvamente, hasta 34 miembros. Supongamos que el censo no se hizo, y le encomiendan determinar qué porcentaje de hogares son de una cantidad determinada de miembros.</p>
-<p>Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podras desplegar el código dando click en “Show code cell content”.</p>
+<p>En el capítulo anterior analizamos qué porcentaje de hogares estaba integrado por 1, 2, 3, y así sucesivamente, hasta 34 miembros. Supongamos que el censo no se hizo, y le encomiendan determinar qué porcentaje de hogares son de una cantidad determinada de miembros.</p>
+<p>Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podrás desplegar el código dando click en “Show code cell content”.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
+<p class="collapsed admonition-title">Show code cell content</p>
+<p class="expanded admonition-title">Hide code cell content</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -459,10 +463,10 @@ document.write(`
 <p>Tomar una parte de las observaciones (en este caso los hogares) de la población se le llama <strong>muestrar</strong>: seleccionar un subconjunto de todas observaciones de la población. Al grupo de observaciones seleccionadas se le llama <strong>muestra</strong>.</p>
 <p>Tomada su muestra de hogares, los encuesta. Obtiene sus datos; los tabula; hace el mismo análisis que ya hicimos en el capítulo anterior: cuenta el número de hogares por tamaño; luego los expresa como porción del total de hogares y los grafica. Las siguientes líneas de código hacen esto, mostrando los resultados como una distribución. Obsérvela.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -588,10 +592,10 @@ document.write(`
 <h2>Sesgo de selección<a class="headerlink" href="#sesgo-de-seleccion" title="Link to this heading">#</a></h2>
 <p>Como nota, esta distribución es diferente a la distribución de la población. De hecho, podemos comparar la distribución de su parroquia y la de la población en un mismo gráfico, el de abajo.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probabilidades de la población</span>
@@ -728,11 +732,11 @@ document.write(`
   })({"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-5dc2399ec4ffb4d0c01444664072db5c"}, "mark": {"type": "bar", "size": 10}, "encoding": {"color": {"field": "grupo", "legend": {"orient": "top"}, "scale": {"domain": ["poblacion", "muestra"], "range": ["#013440", "#593954"]}, "sort": ["poblacion", "muestra"], "title": "", "type": "nominal"}, "tooltip": [{"field": "numpersonas", "title": "Personas", "type": "ordinal"}, {"field": "grupo", "title": "Grupo", "type": "nominal"}, {"field": "porcentaje", "format": ".2%", "title": "Porcentaje", "type": "quantitative"}], "x": {"axis": {"labelAngle": 0}, "field": "numpersonas", "title": "N\u00famero de personas en el hogar", "type": "ordinal"}, "xOffset": {"field": "grupo", "sort": ["poblacion", "muestra"], "type": "nominal"}, "y": {"axis": {"format": ".1%"}, "field": "porcentaje", "title": "Porcentaje de hogares", "type": "quantitative"}}, "height": 400, "title": "Distribuci\u00f3n del tama\u00f1o del hogar", "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-5dc2399ec4ffb4d0c01444664072db5c": [{"numpersonas": 1, "grupo": "poblacion", "porcentaje": 0.11302993234030048}, {"numpersonas": 2, "grupo": "poblacion", "porcentaje": 0.15522417693167884}, {"numpersonas": 3, "grupo": "poblacion", "porcentaje": 0.19312993820311003}, {"numpersonas": 4, "grupo": "poblacion", "porcentaje": 0.22796150112382504}, {"numpersonas": 5, "grupo": "poblacion", "porcentaje": 0.16250161407103064}, {"numpersonas": 6, "grupo": "poblacion", "porcentaje": 0.08058090011750797}, {"numpersonas": 7, "grupo": "poblacion", "porcentaje": 0.03631704779124945}, {"numpersonas": 8, "grupo": "poblacion", "porcentaje": 0.016284582933037722}, {"numpersonas": 9, "grupo": "poblacion", "porcentaje": 0.007622012080265099}, {"numpersonas": 10, "grupo": "poblacion", "porcentaje": 0.003738889886006121}, {"numpersonas": 11, "grupo": "poblacion", "porcentaje": 0.001752008911470497}, {"numpersonas": 12, "grupo": "poblacion", "porcentaje": 0.0008916506038873665}, {"numpersonas": 13, "grupo": "poblacion", "porcentaje": 0.00043593405885901094}, {"numpersonas": 14, "grupo": "poblacion", "porcentaje": 0.0002413463312660036}, {"numpersonas": 15, "grupo": "poblacion", "porcentaje": 0.00012085300641635947}, {"numpersonas": 16, "grupo": "poblacion", "porcentaje": 6.977822394277898e-05}, {"numpersonas": 17, "grupo": "poblacion", "porcentaje": 3.9205290771973754e-05}, {"numpersonas": 18, "grupo": "poblacion", "porcentaje": 2.337930183649811e-05}, {"numpersonas": 19, "grupo": "poblacion", "porcentaje": 1.2229173268322088e-05}, {"numpersonas": 20, "grupo": "poblacion", "porcentaje": 1.0071083868029957e-05}, {"numpersonas": 21, "grupo": "poblacion", "porcentaje": 3.9564972338689116e-06}, {"numpersonas": 22, "grupo": "poblacion", "porcentaje": 3.9564972338689116e-06}, {"numpersonas": 23, "grupo": "poblacion", "porcentaje": 1.7984078335767777e-06}, {"numpersonas": 24, "grupo": "poblacion", "porcentaje": 1.4387262668614222e-06}, {"numpersonas": 25, "grupo": "poblacion", "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 26, "grupo": "poblacion", "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 28, "grupo": "poblacion", "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 31, "grupo": "poblacion", "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 34, "grupo": "poblacion", "porcentaje": 3.5968156671535555e-07}, {"numpersonas": 1, "grupo": "muestra", "porcentaje": 0.21052631578947367}, {"numpersonas": 2, "grupo": "muestra", "porcentaje": 0.15789473684210525}, {"numpersonas": 3, "grupo": "muestra", "porcentaje": 0.2631578947368421}, {"numpersonas": 4, "grupo": "muestra", "porcentaje": 0.10526315789473684}, {"numpersonas": 5, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 6, "grupo": "muestra", "porcentaje": 0.15789473684210525}, {"numpersonas": 7, "grupo": "muestra", "porcentaje": 0.05263157894736842}, {"numpersonas": 8, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 9, "grupo": "muestra", "porcentaje": 0.05263157894736842}, {"numpersonas": 10, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 11, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 12, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 13, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 14, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 15, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 16, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 17, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 18, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 19, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 20, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 21, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 22, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 23, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 24, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 25, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 26, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 28, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 31, "grupo": "muestra", "porcentaje": null}, {"numpersonas": 34, "grupo": "muestra", "porcentaje": null}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
-<p>Pensemos un poco. ¿No es posible que su parrroquia tenga un número de miembros bastante diferente al de las demás? Ya sea porque hay costumbres familiares particulares; una propensión a tener una cantidad específica de hiijos; quizá tiene una economía y cultura que influye en que los tamaños de hogar sean diferentes a los de otras parroquias. Favorecer su parroquia en lugar de otras es sesgado. ¿Por qué no elegir otra parroquia?</p>
+<p>Pensemos un poco. ¿No es posible que su parroquia tenga un número de miembros bastante diferente al de las demás? Ya sea porque hay costumbres familiares particulares; una propensión a tener una cantidad específica de hijos; quizá tiene una economía y cultura que influye en que los tamaños de hogar sean diferentes a los de otras parroquias. Favorecer su parroquia en lugar de otras es sesgado. ¿Por qué no elegir otra parroquia?</p>
 <p>Incluso si toma otra parroquia podría pasar que también tiene una distribución diferente al de la población, y su meta es caracterizar el país.</p>
 <section id="estimador-y-parametro">
 <h3>Estimador y parámetro<a class="headerlink" href="#estimador-y-parametro" title="Link to this heading">#</a></h3>
-<p>Cada porcentaje que calculamos con los datos de nuestraes un <em>estimador</em>. Se denomina estimador a una medida de la muestra, que tiene intención de ser igual a la misma medida aplicada a la población.</p>
+<p>Cada porcentaje que calculamos con los datos de nuestra muestra es un <em>estimador</em>. Se denomina estimador a una medida de la muestra, que tiene intención de ser igual a la misma medida aplicada a la población.</p>
 <p>Nuestro estimado en este caso es el porcentaje de hogares por tamaño. Pero podemos construir muchos estimadores, por ejemplo: el porcentaje de personas del hogar que son mujeres; el porcentaje de personas del hogar que son hombres; el porcentaje de personas del hogar que son niños, etc.</p>
 <p>También podemos hacer los mismos cálculos con todos los datos de la población. A las medidas de la población se les conoce como <strong>parámetros</strong>. Un <strong>parámetro</strong> es una medida de la población.</p>
 <p>Nuestro propósito es que nuestro parámetro sea igual al estimador. En este caso, que el porcentaje calculado con nuestra muestra sea igual al porcentaje que obtendríamos si el cálculo se hiciera con la población. En otras palabras, que nuestro estimador sea una buena estimación de nuestro parámetro. Como en la vida real, por varios motivos y factores, es muy, muy, muy poco probable que logremos que el estimador sea igual al parámetro, queremos que sea lo más cercano posible; es decir, que la diferencia sea lo más pequeña posible (tienda a 0, si hablamos con lenguaje del cálculo).</p>
@@ -754,12 +758,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>¿Qué tal si en lugar de selecionar hogares de una parroquia elegimos una parte de los hogares de todo el país? Un puñado de cada cantón y provincia. Y hacemos la selección de forma aleatoria. En el siguiente gráfico seleccionamos aleatoriamente 10 hogares al inicio, luego 30, 50, 100, 1.000, etcétera. Puede usar el deslizador del gráfico para cambiar el tamaño de la muestra aleatoria. Además, puede dar “play” para ver cómo se comporta el estimador a medida que aumenta el tamaño de la muestra.</p>
+<p>¿Qué tal si en lugar de seleccionar hogares de una parroquia elegimos una parte de los hogares de todo el país? Un puñado de cada cantón y provincia. Y hacemos la selección de forma aleatoria. En el siguiente gráfico seleccionamos aleatoriamente 10 hogares al inicio, luego 30, 50, 100, 1.000, etcétera. Puede usar el deslizador del gráfico para cambiar el tamaño de la muestra aleatoria. Además, puede dar “play” para ver cómo se comporta el estimador a medida que aumenta el tamaño de la muestra.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
+<details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
@@ -8662,18 +8666,18 @@ if (outputEl) {{
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="una-idea-vaga-de-la-ley-de-grandes-numeros">
 <h1>Una idea vaga de la Ley de grandes números<a class="headerlink" href="#una-idea-vaga-de-la-ley-de-grandes-numeros" title="Link to this heading">#</a></h1>
-<p>Empíricamente hemos observado que aumentar la cantidad de observaciones en la muestra aleatorua mejora la estimación. La ley de los grandes número resume esta idea: aumentar el tamaño de la muestra hace que los valores de estimadores sean más cercanos a los valores de los parámetros.</p>
-<p>Más adelante vovleremos a esta ley y la delimitaremos matemáticamente para que sea precisa, tenga un sentido riguroso. De momento es suficiente con una noción vaga de ella.</p>
-<p>Cuando diga que “seré más formal” me referiré a que “seré más riguroso y usaré el lenguaje de las matemáticas para expresar una definición”. En el siguiente capítulo vamos a intruducirnos en la probabilidad de manera formal, sentando las bases para entender las propiedades y supuestos de una distribución de probabilidad.</p>
+<p>Empíricamente hemos observado que aumentar la cantidad de observaciones en la muestra aleatoria mejora la estimación. La ley de los grandes números resume esta idea: aumentar el tamaño de la muestra hace que los valores de estimadores sean más cercanos a los valores de los parámetros.</p>
+<p>Más adelante volveremos a esta ley y la delimitaremos matemáticamente para que sea precisa, tenga un sentido riguroso. De momento es suficiente con una noción vaga de ella.</p>
+<p>Cuando diga que “seré más formal” me referiré a que “seré más riguroso y usaré el lenguaje de las matemáticas para expresar una definición”. En el siguiente capítulo vamos a introducirnos en la probabilidad de manera formal, sentando las bases para entender las propiedades y supuestos de una distribución de probabilidad.</p>
 <p>Repase bien todo lo aprendido hasta aquí, sino no podrá avanzar.</p>
 <div class="important admonition">
 <p class="admonition-title">Resumen</p>
 <ol class="arabic simple">
-<li><p><strong>Inferencia estadística</strong>: No siempre nos será posible obtener datos de la población, por lo que usaremos una muestra para inferir medidas de la población. El acto de estimar alguna medida de la población es hacer una inferecnia estadística.</p></li>
+<li><p><strong>Inferencia estadística</strong>: No siempre nos será posible obtener datos de la población, por lo que usaremos una muestra para inferir medidas de la población. El acto de estimar alguna medida de la población es hacer una inferencia estadística.</p></li>
 <li><p><strong>Muestreo</strong>: Tomar una parte de las observaciones de la población es hacer un muestreo: seleccionar un subconjunto de todas observaciones de la población. Al grupo de observaciones seleccionadas se le llama <strong>muestra</strong>.</p></li>
 <li><p><strong>Estimador</strong>: Se denomina <strong>estimador</strong> a una medida de la muestra, que tiene intención de ser igual a la misma medida aplicada a la población. También podemos hacer las mismas mediciones con todos los datos de la población. Un <strong>parámetro</strong> es una medida de la población.</p></li>
 <li><p><strong>Sesgo de selección</strong>: Elección de muestras que conducen a un error en la estimación de algún parámetro de la población: que el valor del estimador sea diferente al del parámetro.</p></li>
-<li><p><strong>Selección aleatoria</strong>: Elección de observaciones de la población de forma aleatoria. Permite que los estimadores calculados con las obersvaciones de la muestra sean lo más cercanos posible a los parámetros de la población.</p></li>
+<li><p><strong>Selección aleatoria</strong>: Elección de observaciones de la población de forma aleatoria. Permite que los estimadores calculados con las observaciones de la muestra sean lo más cercanos posible a los parámetros de la población.</p></li>
 </ol>
 </div>
 </section>
@@ -8716,6 +8720,15 @@ if (outputEl) {{
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Mirar los datos. Distribuciones</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="cap4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probabilidad</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

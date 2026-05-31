@@ -19,15 +19,15 @@ Antes había discutido cómo el coste de un censo es elevado como para levantarl
 
 Los políticos no están dispuestos a censar a la población cada año, porque tienen la opción de usar el dinero que gastarían en un censo en otras cosas: como contratar propaganda para hablar bien de su gestión, aunque sea pésima.
 
-Pero aunque no tuvieramos malos políticos ―como de hecho ocurre―, puede ser que el país enfrente una dura crisis económica, por lo que gastar dinero en un censo no sería prioridad. En esa situación sería más importante gastar ese dinero para evitar muertes infantiles, por ejemplo.
+Pero aunque no tuviéramos malos políticos ―como de hecho ocurre―, puede ser que el país enfrente una dura crisis económica, por lo que gastar dinero en un censo no sería prioridad. En esa situación sería más importante gastar ese dinero para evitar muertes infantiles, por ejemplo.
 
 Por uno u otro motivo, el costo de un censo es elevado como para levantarlo continuamente. Entonces, ¿qué podemos hacer? Digamos que usted piensa en esto por primera vez. ¿Qué se le ocurre?
 
 Digamos que piensa: "bueno, encuestar a todos es costoso, pero ¿y si no encuesto a todos, sino a una parte?". Entonces decide encuestar a una parte de la población: su barrio. Mejor aun a su parroquia entera.	
 
-En el capítulo anterior analizamos qué porcentaje de hogares estaba integrado por 1, 2, 3, y así sucesvamente, hasta 34 miembros. Supongamos que el censo no se hizo, y le encomiendan determinar qué porcentaje de hogares son de una cantidad determinada de miembros.
+En el capítulo anterior analizamos qué porcentaje de hogares estaba integrado por 1, 2, 3, y así sucesivamente, hasta 34 miembros. Supongamos que el censo no se hizo, y le encomiendan determinar qué porcentaje de hogares son de una cantidad determinada de miembros.
 
-Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podras desplegar el código dando click en "Show code cell content".
+Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podrás desplegar el código dando click en "Show code cell content".
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -179,13 +179,13 @@ chart = alt.Chart(freq_resize).mark_bar(
 chart
 ```
 
-Pensemos un poco. ¿No es posible que su parrroquia tenga un número de miembros bastante diferente al de las demás? Ya sea porque hay costumbres familiares particulares; una propensión a tener una cantidad específica de hiijos; quizá tiene una economía y cultura que influye en que los tamaños de hogar sean diferentes a los de otras parroquias. Favorecer su parroquia en lugar de otras es sesgado. ¿Por qué no elegir otra parroquia?
+Pensemos un poco. ¿No es posible que su parroquia tenga un número de miembros bastante diferente al de las demás? Ya sea porque hay costumbres familiares particulares; una propensión a tener una cantidad específica de hijos; quizá tiene una economía y cultura que influye en que los tamaños de hogar sean diferentes a los de otras parroquias. Favorecer su parroquia en lugar de otras es sesgado. ¿Por qué no elegir otra parroquia?
 
 Incluso si toma otra parroquia podría pasar que también tiene una distribución diferente al de la población, y su meta es caracterizar el país.
 
 ### Estimador y parámetro
 
-Cada porcentaje que calculamos con los datos de nuestraes un *estimador*. Se denomina estimador a una medida de la muestra, que tiene intención de ser igual a la misma medida aplicada a la población. 
+Cada porcentaje que calculamos con los datos de nuestra muestra es un *estimador*. Se denomina estimador a una medida de la muestra, que tiene intención de ser igual a la misma medida aplicada a la población. 
 
 Nuestro estimado en este caso es el porcentaje de hogares por tamaño. Pero podemos construir muchos estimadores, por ejemplo: el porcentaje de personas del hogar que son mujeres; el porcentaje de personas del hogar que son hombres; el porcentaje de personas del hogar que son niños, etc.
 
@@ -203,7 +203,7 @@ La cantidad de hogares en su parroquia Sofía son 19.
 print(f'El número de hogares en la parroquia Sofía es {parroquia.shape[0]}')
 ```
 
-¿Qué tal si en lugar de selecionar hogares de una parroquia elegimos una parte de los hogares de todo el país? Un puñado de cada cantón y provincia. Y hacemos la selección de forma aleatoria. En el siguiente gráfico seleccionamos aleatoriamente 10 hogares al inicio, luego 30, 50, 100, 1.000, etcétera. Puede usar el deslizador del gráfico para cambiar el tamaño de la muestra aleatoria. Además, puede dar "play" para ver cómo se comporta el estimador a medida que aumenta el tamaño de la muestra.
+¿Qué tal si en lugar de seleccionar hogares de una parroquia elegimos una parte de los hogares de todo el país? Un puñado de cada cantón y provincia. Y hacemos la selección de forma aleatoria. En el siguiente gráfico seleccionamos aleatoriamente 10 hogares al inicio, luego 30, 50, 100, 1.000, etcétera. Puede usar el deslizador del gráfico para cambiar el tamaño de la muestra aleatoria. Además, puede dar "play" para ver cómo se comporta el estimador a medida que aumenta el tamaño de la muestra.
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -318,18 +318,18 @@ Un asunto que puede preguntarse es ¿qué tan grande debe ser el tamaño de una 
 
 # Una idea vaga de la Ley de grandes números
 
-Empíricamente hemos observado que aumentar la cantidad de observaciones en la muestra aleatorua mejora la estimación. La ley de los grandes número resume esta idea: aumentar el tamaño de la muestra hace que los valores de estimadores sean más cercanos a los valores de los parámetros.
+Empíricamente hemos observado que aumentar la cantidad de observaciones en la muestra aleatoria mejora la estimación. La ley de los grandes números resume esta idea: aumentar el tamaño de la muestra hace que los valores de estimadores sean más cercanos a los valores de los parámetros.
 
-Más adelante vovleremos a esta ley y la delimitaremos matemáticamente para que sea precisa, tenga un sentido riguroso. De momento es suficiente con una noción vaga de ella.
+Más adelante volveremos a esta ley y la delimitaremos matemáticamente para que sea precisa, tenga un sentido riguroso. De momento es suficiente con una noción vaga de ella.
 
-Cuando diga que "seré más formal" me referiré a que "seré más riguroso y usaré el lenguaje de las matemáticas para expresar una definición". En el siguiente capítulo vamos a intruducirnos en la probabilidad de manera formal, sentando las bases para entender las propiedades y supuestos de una distribución de probabilidad.
+Cuando diga que "seré más formal" me referiré a que "seré más riguroso y usaré el lenguaje de las matemáticas para expresar una definición". En el siguiente capítulo vamos a introducirnos en la probabilidad de manera formal, sentando las bases para entender las propiedades y supuestos de una distribución de probabilidad.
 
 Repase bien todo lo aprendido hasta aquí, sino no podrá avanzar.
 
 ```{admonition} Resumen
 :class: important
 
-1. **Inferencia estadística**: No siempre nos será posible obtener datos de la población, por lo que usaremos una muestra para inferir medidas de la población. El acto de estimar alguna medida de la población es hacer una inferecnia estadística.
+1. **Inferencia estadística**: No siempre nos será posible obtener datos de la población, por lo que usaremos una muestra para inferir medidas de la población. El acto de estimar alguna medida de la población es hacer una inferencia estadística.
 
 2. **Muestreo**: Tomar una parte de las observaciones de la población es hacer un muestreo: seleccionar un subconjunto de todas observaciones de la población. Al grupo de observaciones seleccionadas se le llama **muestra**.
 
@@ -337,6 +337,6 @@ Repase bien todo lo aprendido hasta aquí, sino no podrá avanzar.
 
 3. **Sesgo de selección**: Elección de muestras que conducen a un error en la estimación de algún parámetro de la población: que el valor del estimador sea diferente al del parámetro.
 
-4. **Selección aleatoria**: Elección de observaciones de la población de forma aleatoria. Permite que los estimadores calculados con las obersvaciones de la muestra sean lo más cercanos posible a los parámetros de la población.
+4. **Selección aleatoria**: Elección de observaciones de la población de forma aleatoria. Permite que los estimadores calculados con las observaciones de la muestra sean lo más cercanos posible a los parámetros de la población.
 
 ```

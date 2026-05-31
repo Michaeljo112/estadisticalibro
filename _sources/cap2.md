@@ -62,19 +62,19 @@ personasporhogar = (
 personasporhogar
 ```
 
-En su [metodología](https://www.censoecuador.gob.ec/wp-content/uploads/2024/02/1.Ficha_Met_Promedio_de_personas_por_hogar.pdf), el INEC excluye a los hogares que están clasificados con el número 0 cuando cuenta a las personas. Probablemente se trate de viviendas que no están ocupadas por hogares, ya que es habitual clasificar este tipo de viviendas como 0, pero no pude encontrar esta aclaración ni en los diccionarios ni en los metadatos públicos. —Si el INEC lee esto, le agradecería que me lo hiciera saber—. En las líneas de código de abajo usamos el mismo filtro que el INEC y contamos cuántos hogares tienen 1, 2, 3, etc. personas. (Recordemos que en las líneas de código presedentes ya habíamos obtenido la cantidad de miembros por hogar, así que ahora contaremos cuántos hogares tienen una cantidad determinada de miembros).
+En su [metodología](https://www.censoecuador.gob.ec/wp-content/uploads/2024/02/1.Ficha_Met_Promedio_de_personas_por_hogar.pdf), el INEC excluye a los hogares que están clasificados con el número 0 cuando cuenta a las personas. Probablemente se trate de viviendas que no están ocupadas por hogares, ya que es habitual clasificar este tipo de viviendas como 0, pero no pude encontrar esta aclaración ni en los diccionarios ni en los metadatos públicos. —Si el INEC lee esto, le agradecería que me lo hiciera saber—. En las líneas de código de abajo usamos el mismo filtro que el INEC y contamos cuántos hogares tienen 1, 2, 3, etc. personas. (Recordemos que en las líneas de código precedentes ya habíamos obtenido la cantidad de miembros por hogar, así que ahora contaremos cuántos hogares tienen una cantidad determinada de miembros).
 
 ```{code-cell}
 # Excluye hogar que están clasificados con el número 0. Así que se respetó el filtro
 pararesumen = personasporhogar[personasporhogar['INH']>0]
 
-# Ver un conteo de la cantdiad de personas en el hogar
+# Ver un conteo de la cantidad de personas en el hogar
 resumen = pararesumen['numpersonas'].value_counts().sort_index().reset_index(name='numhogares')
 
 resumen
 ```
 
-## Distribución estaística
+## Distribución estadística
 
 Como puede observar, en el año 2022, 314.250 hogares eran de 1 persona; 431.560 hogares eran de 2 personas; 536.947 hogares eran de 3 personas, etc. Muy pocos hogares tenían más de 11 miembros. Pero resumamos la tabla obtenida graficándola. Dibujemos en el eje horizontal número de personas en el hogar y en el eje vertical la frecuencia o cantidad de hogares con ese número de personas. 
 
@@ -108,7 +108,7 @@ chart
 
 Este gráfico es una distribución estadística: la forma en la que se reparten los datos. En este caso, la mayoría de los hogares tienen entre 2 y 5 personas. Note que las barras del gráfico, vistas como un todo, parecen una campana deformada, como si la hubieran martillado.
 
-Hay otra forma de presentar estos datos: como porcentajes. Si dividimos el número de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares (2.780.237), obtenemos la porción que respresentan. Llamamos a esta representación porcentual la **frecuencia relativa** comunmente. 
+Hay otra forma de presentar estos datos: como porcentajes. Si dividimos el número de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares (2.780.237), obtenemos la porción que representan. Llamamos a esta representación porcentual la **frecuencia relativa** comúnmente. 
 
 ```{code-cell}
 hogarestotales = sum(resumen['numhogares'])
@@ -150,20 +150,20 @@ chart
 Como nota, el gráfico conserva su forma; esto es porque solo es una forma diferente de personificar la misma información. Lo que mostramos en el gráfico de arriba es la frecuencia relativa, es decir, la porción de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares.
 
 ```{note}
-La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empelada es un dato y los volvimos información al analizar la distribución.
+La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empleada es un dato y los volvimos información al analizar la distribución.
 ```
 
 ## La frecuencia como probabilidad
 
 Anteriormente dividimos el número de hogares según su tamaño por el número total de hogares para obtener la frecuencia relativa. Es decir, cuántos hogares de un miembro había para el total, cuántos de 2 para el total, cuántos de 3 para el total, et. al. Dividimos la cantidad de veces que ocurrió un evento (ser un hogar de una cantidad de miembros) por el total de eventos (el número de hogares). En este apartado veremos que esta frecuencia relativa es una estimación de la probabilidad de que un hogar tenga un tamaño determinado.
 
-Usar el término "frecuencia" resume el hecho de cuántas veces ocurre un evento respecto al total de eventos. El nombre que usamos para referinos al total de eventos es **espacio muestral**. Más adelante quedará claro por qué "muestral", de momento es importante notar que la frecuencia relativa de un evento es el porcentaje que representa respecto al espacio muestral.
+Usar el término "frecuencia" resume el hecho de cuántas veces ocurre un evento respecto al total de eventos. El nombre que usamos para referirnos al total de eventos es **espacio muestral**. Más adelante quedará claro por qué "muestral", de momento es importante notar que la frecuencia relativa de un evento es el porcentaje que representa respecto al espacio muestral.
 
-Consideremos otro ejemplo: si lanzamos un dado, el espacio muestral son los puntos de sus caras {1, 2, 3, 4, 5, 6}. La frecuencia relativa de que veamos un punto en una de sus caras es una de seis (1/6); de que salga 2, una de sesis (1/6), etc.
+Consideremos otro ejemplo: si lanzamos un dado, el espacio muestral son los puntos de sus caras {1, 2, 3, 4, 5, 6}. La frecuencia relativa de que veamos un punto en una de sus caras es una de seis (1/6); de que salga 2, una de seis (1/6), etc.
 
-Al hablar de probabilidad aludimos a la frecuencia relativa de un evento. Por ejemplo, en nuestro caso, la frecuencia o probabilidad de que un hogar en el Ecuador sea de 1 miembro es 11,30%. Otra forma de ver ese 11,30% es pensar así: 113 de cada 1000 hogares tienen 1 miembro, porque 113/1000 = 11,30% = 314.250 (hogares de 1 miembro)/2.780.237 (hogares totales). La probabilidad de que un hogar en el Ecuador esté consitituído de un miembro es 11,30%, porque expresa la posibilidad de observar eso basándonos en la frecuencia relativa, que a su vez se basa en la frecuencia (o cantidad de veces que ocurre algo); es decir, en qué tan habitual es el evento.
+Al hablar de probabilidad aludimos a la frecuencia relativa de un evento. Por ejemplo, en nuestro caso, la frecuencia o probabilidad de que un hogar en el Ecuador sea de 1 miembro es 11,30%. Otra forma de ver ese 11,30% es pensar así: 113 de cada 1000 hogares tienen 1 miembro, porque 113/1000 = 11,30% = 314.250 (hogares de 1 miembro)/2.780.237 (hogares totales). La probabilidad de que un hogar en el Ecuador esté constituido de un miembro es 11,30%, porque expresa la posibilidad de observar eso basándonos en la frecuencia relativa, que a su vez se basa en la frecuencia (o cantidad de veces que ocurre algo); es decir, en qué tan habitual es el evento.
 
-Es indispensable que usted entienda que la probabilidad es una frecuencia relativa. Sino, relea los capítulso hasta aquí antes de seguir. 
+Es indispensable que usted entienda que la probabilidad es una frecuencia relativa. Sino, relea los capítulos hasta aquí antes de seguir. 
 
 Como seguramente ya entendió hasta este momento, la probabilidad está asociada con la distribución de los datos. Prácticamente entender la distribución de los datos es entender la probabilidad de la ocurrencia de los eventos que estamos analizando.
 
