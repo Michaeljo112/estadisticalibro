@@ -34,4 +34,8 @@ html:
   analytics:
     google_analytics_id: "G-57M0ESJTXR"
 
-
+# Configuración de tiempo de ejecución
+execute:
+  execute_notebooks: cache
+  timeout: -1
+  allow_errors: false

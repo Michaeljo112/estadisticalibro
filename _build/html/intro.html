@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Un econometrista te explica &#8212; Estadística</title>
+    <title>Un econometrista le explica &#8212; Estadística</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -70,6 +70,8 @@
                 gtag('config', 'G-57M0ESJTXR');
             </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -189,14 +191,19 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Un econometrista te explica
+                    Un econometrista le explica
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="qesestadistica.html">¿Qué es la estadística?</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="distribuciones.html">Mirar los datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap2.html">Mirar los datos. Distribuciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap3.html">El arte de la inferencia</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="cap4.html">Probabilidad</a></li>
+
+
 </ul>
 
     </div>
@@ -380,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Un econometrista te explica</h1>
+    <h1>Un econometrista le explica</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -394,25 +401,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="un-econometrista-te-explica">
-<h1>Un econometrista te explica<a class="headerlink" href="#un-econometrista-te-explica" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="un-econometrista-le-explica">
+<h1>Un econometrista le explica<a class="headerlink" href="#un-econometrista-le-explica" title="Link to this heading">#</a></h1>
+<a class="bg-primary mb-1 reference internal image-reference" href="_images/portada.png"><img alt="Portada" class="bg-primary mb-1 align-center" src="_images/portada.png" style="width: 100%;" />
+</a>
 <p>Me dedico, desde hace ya unos 6 años, a la <strong>Econometría</strong> de forma profesional: la ciencia y el arte de emplear matemáticas aplicadas a estudiar asuntos económicos. La <strong>Estadística</strong> es un componente fundamental de la econometría, y una herramienta poderosísima para tomar decisiones.</p>
-<p>Como la he estudiado con devoción más allá de estudios formales de pregado y posgrado de Economía con los que cuento, la he usado a diario en mi trabajo y en investigación científica de economía, creo que puedo darte una buena perspectiva de lo que es y cómo puedes aprovecharla.</p>
+<p>Como la he estudiado con devoción más allá de estudios formales de pregrado y posgrado de Economía con los que cuento y la he usado a diario en mi trabajo y en investigación científica, creo que puedo darle una buena perspectiva de lo que es y cómo puede aprovecharla.</p>
 <p>Los economistas usamos mucha estadística, sobre todo los <em>econometristas</em>. Por lo general, los economistas nos centramos en problemas económicos, pero la estadística nos ayuda a entender y resolver problemas en casi cualquier campo. En este contexto, Los <em>econometristas</em> hacemos un énfasis particular en dominar la Estadística y las matemáticas aplicadas a un nivel avanzado.</p>
 <p>Mi opinión es que el camino de estudiar matemáticas nunca termina y siempre hay que aprender, reaprender y desaprender ―como quizá todo en la vida. Eso no significa que se disfrute, al contrario, si uno puede aprender a centrarse en el proceso terminará descubriendo que le resulta gratificante.</p>
-<p>Quiero que este libro te ayude a desarrollar una manera estadística de pensar, matemática de pensar. Por eso, mi enfoque en este libro es partir de problemas aplicados y luego construir las herramientas estadísticas para resolverlos. Empezar por la intuición para deducir las matemáticas.</p>
-<p>Las matemáticas consisten en refinar nuestra intuición, en sofisticarla. Eso es lo que quiero hacer en este libro: presentarte problemas, que pienses en ellos, que intuyas una solución, y luego te mostraré cómo las matemáticas pueden ayudarte a resolverlos de manera rigurosa. Por tanto, no evitaremos la formalidad matemática, sino que la dominaremos paso a paso, victoria a victoria.</p>
-<p>En este libro, usaremos Python para manipular datos. No te preocupes si no eres un experto en él, seré gradual en su uso, así que podrás ir aprendiéndolo; sin embargo, te recomiendo aprenderlo en paralelo en todo caso.</p>
-<p>Lo que sí te demando es una buena base en álgebra y cálculo. Si no la tienes, te recomiendo repasar esos temas antes de empezar con este libro. Por ejemplo, si no sabes derivar o integrar, te recomiendo repasar esos temas antes de empezar con este libro. Dicto clases de cálculo y matemáticas aplicadas en mi canal de Youtube <a class="reference external" href="https://www.youtube.com/&#64;michael_joep">&#64;michael_joep</a>, si te interesa. ¡Espero que sea útil!</p>
-<p>Sin más que agregar, ¡espero que disfrutes este libro, que sea un viaje intelectual que te estimule!</p>
+<p>Quiero que este libro le ayude a desarrollar una manera estadística de pensar, matemática de pensar. Por eso, mi enfoque en este libro es partir de problemas aplicados y luego construir las herramientas estadísticas para resolverlos. Empezar por la intuición para deducir las matemáticas.</p>
+<p>Las matemáticas consisten en refinar nuestra intuición, en sofisticarla. Eso es lo que quiero hacer en este libro: presentarle problemas, que piense en ellos, que intuya una solución, y luego le mostraré cómo las matemáticas pueden ayudarle a resolverlos de manera rigurosa. Por tanto, no evitaremos la formalidad matemática, sino que la dominaremos paso a paso, victoria a victoria.</p>
+<p>En este libro, usaremos Python para manipular datos. No se preocupe si no es un experto en él, seré gradual en su uso, así que podrá ir aprendiéndolo; sin embargo, le recomiendo aprenderlo en paralelo en todo caso.</p>
+<p>Lo que sí le demando es una buena base en álgebra y cálculo. Si no la tiene, le recomiendo repasar esos temas antes de empezar con este libro. Por ejemplo, si no sabe derivar o integrar, le recomiendo repasar esos temas antes de empezar con este libro. Dicto clases de cálculo y matemáticas aplicadas en mi canal de Youtube <a class="reference external" href="https://www.youtube.com/&#64;michael_joep">&#64;michael_joep</a>, si le interesa. ¡Espero que sea útil!</p>
+<p>Sin más que agregar, ¡espero que disfrute este libro, que sea un viaje intelectual que le estimule!</p>
 <p>Atentamente,</p>
 <p>Michael Peñafiel,</p>
-<p>tu econometrista favorito.</p>
+<p>su econometrista favorito.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="qesestadistica.html">¿Qué es la estadística?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qesestadistica.html#metodos-graficos">Métodos gráficos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="distribuciones.html">Mirar los datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap2.html">Mirar los datos. Distribuciones</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap3.html">El arte de la inferencia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap3.html#una-idea-vaga-de-la-ley-de-grandes-numeros">Una idea vaga de la Ley de grandes números</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap4.html">Probabilidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap4.html#eventos-conjuntos-y-condicionalidad">Eventos conjuntos y condicionalidad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cap4.html#filtros-condicionalidad">Filtros, condicionalidad</a></li>
 </ul>
 </div>
 </section>
