@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="480" viewBox="0 0 880 480" role="img" aria-labelledby="title desc">
+  <title id="title">Árbol de bifurcación para dos lanzamientos de una moneda</title>
+  <desc id="desc">Diagrama que muestra los resultados posibles de dos lanzamientos de una moneda: CC, CS, SC y SS.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .panel { fill: #ffffff; stroke: #d7dde5; stroke-width: 2; rx: 8; }
+      .branch { fill: none; stroke: #52616f; stroke-width: 3; stroke-linecap: round; }
+      .node { fill: #ffffff; stroke: #2f5d7c; stroke-width: 3; }
+      .leaf { fill: #f1f8ff; stroke: #2f5d7c; stroke-width: 3; }
+      .coin { fill: #fff3c4; stroke: #b27a00; stroke-width: 2; }
+      .label { fill: #1f2933; font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .small { fill: #52616f; font-family: Arial, sans-serif; font-size: 17px; text-anchor: middle; dominant-baseline: middle; }
+      .outcome { fill: #1f2933; font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+      .title { fill: #1f2933; font-family: Arial, sans-serif; font-size: 26px; font-weight: 700; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="880" height="480"/>
+  <rect class="panel" x="28" y="26" width="824" height="428" rx="8"/>
+
+  <text class="title" x="440" y="66">Árbol de bifurcación: dos lanzamientos de una moneda</text>
+
+  <line class="branch" x1="120" y1="240" x2="330" y2="150"/>
+  <line class="branch" x1="120" y1="240" x2="330" y2="330"/>
+  <line class="branch" x1="330" y1="150" x2="570" y2="105"/>
+  <line class="branch" x1="330" y1="150" x2="570" y2="195"/>
+  <line class="branch" x1="330" y1="330" x2="570" y2="285"/>
+  <line class="branch" x1="330" y1="330" x2="570" y2="375"/>
+
+  <circle class="node" cx="120" cy="240" r="34"/>
+  <text class="label" x="120" y="240">Inicio</text>
+
+  <circle class="coin" cx="330" cy="150" r="34"/>
+  <text class="label" x="330" y="150">C</text>
+  <text class="small" x="250" y="174">t1</text>
+
+  <circle class="coin" cx="330" cy="330" r="34"/>
+  <text class="label" x="330" y="330">S</text>
+  <text class="small" x="250" y="306">t1</text>
+
+  <circle class="leaf" cx="570" cy="105" r="31"/>
+  <text class="label" x="570" y="105">C</text>
+  <text class="small" x="460" y="111">t2</text>
+
+  <circle class="leaf" cx="570" cy="195" r="31"/>
+  <text class="label" x="570" y="195">S</text>
+  <text class="small" x="460" y="184">t2</text>
+
+  <circle class="leaf" cx="570" cy="285" r="31"/>
+  <text class="label" x="570" y="285">C</text>
+  <text class="small" x="460" y="296">t2</text>
+
+  <circle class="leaf" cx="570" cy="375" r="31"/>
+  <text class="label" x="570" y="375">S</text>
+  <text class="small" x="460" y="364">t2</text>
+
+  <rect x="660" y="82" width="112" height="46" rx="8" fill="#eef6f0" stroke="#8ab17d" stroke-width="2"/>
+  <text class="outcome" x="716" y="106">(C, C)</text>
+
+  <rect x="660" y="172" width="112" height="46" rx="8" fill="#eef6f0" stroke="#8ab17d" stroke-width="2"/>
+  <text class="outcome" x="716" y="196">(C, S)</text>
+
+  <rect x="660" y="262" width="112" height="46" rx="8" fill="#eef6f0" stroke="#8ab17d" stroke-width="2"/>
+  <text class="outcome" x="716" y="286">(S, C)</text>
+
+  <rect x="660" y="352" width="112" height="46" rx="8" fill="#eef6f0" stroke="#8ab17d" stroke-width="2"/>
+  <text class="outcome" x="716" y="376">(S, S)</text>
+
+  <text class="small" x="330" y="92">Primer lanzamiento</text>
+  <text class="small" x="570" y="66">Segundo lanzamiento</text>
+  <text class="small" x="716" y="66">Resultado</text>
+</svg>
