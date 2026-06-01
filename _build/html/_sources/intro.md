@@ -7,11 +7,9 @@
 :align: center
 ```
 
-Me dedico, desde hace ya unos 6 años, a la **Econometría** de forma profesional: la ciencia y el arte de emplear matemáticas aplicadas a estudiar asuntos económicos. La **Estadística** es un componente fundamental de la econometría, y una herramienta poderosísima para tomar decisiones. 
+Me dedico, desde hace ya unos 6 años, a la **Econometría** de forma profesional: la ciencia y el arte de emplear matemáticas aplicadas a estudiar asuntos económicos. La **Estadística** es un componente fundamental de la econometría, y una herramienta poderosísima para tomar decisiones.
 
-Como la he estudiado con devoción más allá de estudios formales de pregrado y posgrado de Economía con los que cuento y la he usado a diario en mi trabajo y en investigación científica, creo que puedo darle una buena perspectiva de lo que es y cómo puede aprovecharla.
-
-Los economistas usamos mucha estadística, sobre todo los *econometristas*. Por lo general, los economistas nos centramos en problemas económicos, pero la estadística nos ayuda a entender y resolver problemas en casi cualquier campo. En este contexto, Los *econometristas* hacemos un énfasis particular en dominar la Estadística y las matemáticas aplicadas a un nivel avanzado.
+Como la he estudiado con devoción más allá de estudios formales de pregrado y posgrado de Economía con los que cuento, y la he usado a diario en mi trabajo y en investigación científica, creo que puedo darle una buena perspectiva de lo que es y cómo puede aprovecharla.
 
 Mi opinión es que el camino de estudiar matemáticas nunca termina y siempre hay que aprender, reaprender y desaprender ―como quizá todo en la vida. Eso no significa que se disfrute, al contrario, si uno puede aprender a centrarse en el proceso terminará descubriendo que le resulta gratificante.
 
@@ -19,7 +17,7 @@ Quiero que este libro le ayude a desarrollar una manera estadística de pensar, 
 
 Las matemáticas consisten en refinar nuestra intuición, en sofisticarla. Eso es lo que quiero hacer en este libro: presentarle problemas, que piense en ellos, que intuya una solución, y luego le mostraré cómo las matemáticas pueden ayudarle a resolverlos de manera rigurosa. Por tanto, no evitaremos la formalidad matemática, sino que la dominaremos paso a paso, victoria a victoria.
 
-En este libro, usaremos Python para manipular datos. No se preocupe si no es un experto en él, seré gradual en su uso, así que podrá ir aprendiéndolo; sin embargo, le recomiendo aprenderlo en paralelo en todo caso.
+Analizaremos situaciones reales en este libro. Eso implica analizar datos. En este libro, usaremos Python para analizar datos. No se preocupe si no es un experto en él, seré gradual en su uso, así que podrá ir aprendiéndolo; sin embargo, le recomiendo aprenderlo en paralelo en todo caso. Mi sugerencia es que, si aún no programa en Python, use asistentes de IA, que le digan que hace cada línea. Entienda la lógica, las demás mañanas de la programación aquí no son tan importantes.
 
 Lo que sí le demando es una buena base en álgebra y cálculo. Si no la tiene, le recomiendo repasar esos temas antes de empezar con este libro. Por ejemplo, si no sabe derivar o integrar, le recomiendo repasar esos temas antes de empezar con este libro. Dicto clases de cálculo y matemáticas aplicadas en mi canal de Youtube [@michael_joep](https://www.youtube.com/@michael_joep), si le interesa. ¡Espero que sea útil!
 
@@ -28,8 +26,9 @@ Sin más que agregar, ¡espero que disfrute este libro, que sea un viaje intelec
 Atentamente,
 
 Michael Peñafiel,
-
 su econometrista favorito.
+
+<a href="https://tiktok.com/michael_joep" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a> · <a href="https://www.instagram.com/michael_joepi/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · <a href="https://www.facebook.com/michael.joep/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
 
 ```{tableofcontents}
 ```

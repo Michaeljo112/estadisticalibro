@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -200,6 +200,12 @@
 <li class="toctree-l1"><a class="reference internal" href="cap3.html">El arte de la inferencia</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Probabilidad</a></li>
+
+
+
+
+
+
 
 
 </ul>
@@ -405,20 +411,24 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-y-definiciones-formales">Conjuntos y definiciones formales</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-conjuntos-y-condicionalidad">Eventos conjuntos y condicionalidad</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-conjuntos">Eventos conjuntos</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disjunciones">Disjunciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emptyset"><span class="math notranslate nohighlight">\( \emptyset \)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s"><span class="math notranslate nohighlight">\( S \)</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-condicionalidad">Filtros, condicionalidad</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-condicionalidad">Filtros, condicionalidad</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-ocurrencias-combinancion-de-espacios-muestrales">Composición de ocurrencias: combinanción de espacios muestrales</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocurrencias-temporales">Ocurrencias temporales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">Independencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discusion">Discusión</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionalidad-e-independencia">Condicionalidad e independencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro">Dependencia: cuando un evento cambia la probabilidad de otro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocurrencias-simultaneas">Ocurrencias simultáneas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recapitulacion-combinando-espacios-muestrales">Recapitulación: combinando espacios muestrales</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distincion-p-a-cap-b-y-p-a-b">Distinción: <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> y <span class="math notranslate nohighlight">\(P(A, B)\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">Independencia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionalidad-e-independencia">Condicionalidad e independencia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro">Dependencia: cuando un evento cambia la probabilidad de otro</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
 
             </nav>
@@ -434,32 +444,32 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="probabilidad">
 <h1>Probabilidad<a class="headerlink" href="#probabilidad" title="Link to this heading">#</a></h1>
 <p>Recordemos el caso de análisis de los hogares del capítulo anterior, estos pueden conformarse por 1 hasta 34 miembros.</p>
-<p>Como ejercicio intelectual, supongamos que usted hubiese podido observara la conformación de todos los hogares. Imagínese un observador omnipresente que puede viajar al pasado y presenciar la evolución de la formación de los hogares. Usted, sin embargo, no tiene el poder de saber el resultado, solo puede presenciar y tomar apuntes. También suponga que el viaje le borra la memoria y usted no sabe cuántos hogares de un tamaño determinado existirán en el 2022 de Ecuador. Entonces, antes que se constituyan los hogares, usted hará un experimento.</p>
+<p>Como ejercicio intelectual, supongamos que usted hubiese podido observara la conformación de todos los hogares. Imagínese un observador omnipresente que puede viajar al pasado y presenciar la evolución de la formación de los hogares. Usted, sin embargo, no tiene el poder de saber el resultado, solo puede presenciar y tomar apuntes. También suponga que el viaje le borra la memoria y usted no sabe cuántos hogares de un tamaño determinado existirán en el 2022 de Ecuador. Entonces, antes de que se constituyan los hogares, usted hará un experimento.</p>
 <section id="experimento">
 <h2>Experimento<a class="headerlink" href="#experimento" title="Link to this heading">#</a></h2>
 <p>En el contexto de la probabilidad, un <strong>experimento</strong> es un proceso, situación o acción cuyo resultado no conocemos con certeza antes de realizarlo.</p>
 <p>Usted debería esperar, como ese observador, a que se conformen los hogares y luego censar a los pobladores para conocer la distribución del tamaño de los hogares.</p>
 <p>Como dijimos en el capítulo anterior, la probabilidad es la frecuencia relativa. Profundicemos esa idea.</p>
-<p>Los experimentos serían, en diversos contextos, el proceso que genera los resultados. En nuestro ejercicio, nosotros no emparejamos a las personas. Esperamos y observamos. El proceso es la demografía. También podemos pensar en el experimento como la situación: la conformación de hogares. En otras situaciones, el proceso será lanzar una moneda –la acción–.</p>
-<p>El experimento es el proceso generador de resultados. Por lo tanto, si queremos contar los puntos de las caras de dos dados, hacemos un experimento al lanzarlos al aire. Si empezamos a mirar con atención el precio de un activo en el mercado de valores, también estamos haciendo un experimento. Existen varias situaciones de interés en las que hacemos experimentos, ya sean mentales, como en nuestro ejemplo del observador omnipresente sin memoria que viaja al pasado para observar la constitución del tamaño de los hogares, o físicos: como al medir la temperatura. Eso sí, <strong>cuando no podemos saber con certeza el resultado</strong>.</p>
-<p>Note que al lanzar una moneda podemos obtener dos caras. Si lanzamos al aire dos dados, 2 caras con puntos entre 1 y 6 cada una. Si miramos el precio de un activo, un rango de precios, expresados en números reales. Los resultados, todos, contados, se conocen como espacio muestral.</p>
+<p>Los experimentos serían, en diversos contextos, los procesos que genera los resultados. En nuestro ejercicio, nosotros no emparejamos a las personas. Esperamos y observamos. El proceso es la demografía. También podemos pensar en el experimento como la situación: la conformación de hogares. Aquí no hay acción, pero en otras situaciones como lanzar una moneda sí.</p>
+<p>El experimento es el proceso generador de resultados. En esa línea de sentido, si queremos contar los puntos de las caras de dos dados, hacemos un experimento al lanzarlos al aire. Si empezamos a mirar con atención el precio de un activo en el mercado de valores, también estamos haciendo un experimento. Si medimos la temperatura del ambiente, hacemos un experimento. Existen varias situaciones de interés en las que hacemos experimentos, ya sean mentales, como en nuestro ejemplo del observador omnipresente, o físicos: como al medir la temperatura. Eso sí, <strong>cuando no podemos saber con certeza el resultado</strong>.</p>
+<p>Note que al lanzar una moneda podemos obtener dos caras. Si lanzamos al aire dos dados, 2 caras con puntos entre 1 y 6 cada una. Si miramos el precio de un activo, un rango de precios, expresados en números reales; así mismo al medir la temperatura, obtendremos un rango de números reales. Los resultados, todos, contados o fijados en un rango, se conocen como espacio muestral.</p>
 </section>
 <section id="espacio-muestral">
 <h2>Espacio muestral<a class="headerlink" href="#espacio-muestral" title="Link to this heading">#</a></h2>
-<p>Todos los resultados de un experimento son el espacio muestral. Note que “todos los resultados” pueden representarse en un conjunto de todas las opciones producidas por el experimento. En la Teoría de la Probabilidad (TP), una rama de las matemáticas que estudia la probabilidad, se utilizan los conjuntos como elementos clave. Estos nos permiten ponerle un número a los procesos estocásticos.</p>
+<p>Todos <strong>los resultados de un experimento son el espacio muestral</strong>. Note que “todos los resultados” pueden representarse en un conjunto de todas las opciones producidas por el experimento. En la Teoría de la Probabilidad (TP), una rama de las matemáticas que estudia la probabilidad, se utilizan los conjuntos como elementos clave. Estos nos permiten ponerle un número a los procesos estocásticos.</p>
 </section>
 <section id="procesos-estocasticos">
 <h2>Procesos estocásticos<a class="headerlink" href="#procesos-estocasticos" title="Link to this heading">#</a></h2>
-<p>Un sistema <strong>estocástico</strong> es aquel comportamiento <strong>no determinista</strong>. En ellos no podemos asegurar, predecir o adivinar con certeza un resultado.</p>
-<p>Cuando no podemos asegurar con certeza, pensamos en posibilidades. Como señaló <span id="id1">[]</span>:</p>
+<p>Un sistema <strong>estocástico</strong> es aquel de comportamiento <strong>no determinista</strong>. En estos sistemas no podemos asegurar, predecir o adivinar con certeza resultados.</p>
+<p>Cuando no podemos asegurar con certeza, pensamos en posibilidades. Como señalaron <span id="id1">Grimmett and Stirzaker [<a class="reference internal" href="#id8" title="Geoffrey R. Grimmett and David R. Stirzaker. Probability and Random Processes. Oxford University Press, 4 edition, 2020. ISBN 978-0-19-884760-1.">GS20</a>]</span>:</p>
 <blockquote>
 <div><p>Muchas afirmaciones cotidianas tienen la forma: “la posibilidad —o probabilidad— de que ocurra A es p”, donde A es algún evento, como “que mañana brille el sol” o “que Cambridge gane la regata Boat Race”, y p es un número o adjetivo que describe una cantidad, como “un octavo”, “baja”, etc.</p>
 </div></blockquote>
-<p>No está demás precisar que Teoría es, en ciencia, explicación exhaustiva y comprobable de algún aspecto del universo. Así que la TP es una descripción rigurosa de los fenómenos aleatorios.</p>
+<p>No está demás precisar que Teoría es, en ciencia, una explicación exhaustiva y comprobable de algún aspecto del universo. Así que la TP es una descripción rigurosa de los fenómenos estocásticos.</p>
 </section>
 <section id="evento">
 <h2>Evento<a class="headerlink" href="#evento" title="Link to this heading">#</a></h2>
-<p>Un evento es un subconjunto del espacio muestral. Es decir, es un puñado de todos resultados posibles que ocurren en el experimento. Por ejemplo, al lanzar dos dados la suma puede ser de 2 a 12. Dibujemos el espacio muestral lanzar dos dados en una tabla: en las filas listemos los puntos de un dado, y en las columnas del otro.</p>
+<p>Un evento es un subconjunto del espacio muestral. Es decir, es un puñado de todos resultados posibles que ocurren en el experimento. Por ejemplo, al lanzar dos dados la suma puede ser de 2 a 12. Representemos este espacio muestral en una tabla: en las filas listemos los puntos de un dado, y en las columnas del otro.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>+</p></th>
@@ -523,34 +533,34 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>Un evento A, digamos, puede ser: que la suma de las caras sea par: {2, 4, 6, 8, 10, 12}, o que la suma sea impar {3, 5, 7, 9, 11}. Hay varios eventos que son subconjuntos del espacio muestral.</p>
-<p>Al lanzar los dados tendremos solo un resultado, digamos: 3 en un dado, y 5 en el otro. La suma sería 3 + 5 = 8. El resultado del experimento es 8, entonces. El evento “suma par” ocurrió. Cualquier resultado que esté en A implica que A ocurra (se dé, tenga lugar, suceda).</p>
+<p>Un evento A, digamos, puede ser que la suma de las caras sea par: {2, 4, 6, 8, 10, 12}, o que la suma sea impar {3, 5, 7, 9, 11}. Hay varios eventos que son subconjuntos del espacio muestral.</p>
+<p>Al lanzar los dados tendremos solo un resultado, digamo 3 en un dado, y 5 en el otro. La suma sería 3 + 5 = 8. El resultado del experimento es 8, entonces. El evento “suma par” ocurrió. Cualquier resultado que esté en A implica que A ocurra (se dé, tenga lugar, suceda).</p>
 </section>
 <section id="conjuntos-y-definiciones-formales">
 <h2>Conjuntos y definiciones formales<a class="headerlink" href="#conjuntos-y-definiciones-formales" title="Link to this heading">#</a></h2>
 <p>Empecemos a expresar estos conceptos de forma económica, es decir, sin tener que repetir largas oraciones:</p>
 <blockquote>
-<div><p><strong>Espacio muestral</strong>: conjunto, S, de todos los resultados posibles generados con el experimento. <br>
-<strong>Evento</strong>: <span class="math notranslate nohighlight">\(A \subseteq S\)</span>. Note que escribimos <span class="math notranslate nohighlight">\(\subseteq\)</span> ya que A puede ser B.</p>
+<div><p><strong>Espacio muestral</strong>: conjunto <span class="math notranslate nohighlight">\(S\)</span> de todos los resultados posibles generados con el experimento. <br>
+<strong>Evento</strong>: <span class="math notranslate nohighlight">\(A \subseteq S\)</span>. Note que escribimos <span class="math notranslate nohighlight">\(\subseteq\)</span> ya que <span class="math notranslate nohighlight">\(A\)</span> puede ser igual a <span class="math notranslate nohighlight">\(S\)</span>.</p>
 </div></blockquote>
-<p>Construimos definiciones justamente, entre otros propósitos, para no repetir un párrafo completo cada vez que tengamos que trabajar sobre una situación en la que tengamos que estimar la posibilidad de una ocurrencia de un evento. Es fácil emplear símbolos para comunicarnos con otros, además, sin los problemas del idioma, la mala comunicación de ambos, o otras minucias.</p>
-<p>Partiendo de estas definiciones, queremos cuantificar la posibilidad de ocurrencia de un evento. Ponerle un número, que dé cuenta de la magnitud de esa posibilidad.  En el <a class="reference internal" href="cap2.html#la-frecuencia-como-probabilidad"><span class="std std-ref">capítulo 2</span></a> dijimos que la probabilidad era la frecuencia relativa, y dividimos la cantidad de hogares de un tamaño para la cantidad total de hogares del país. Los eventos podían haberse definido como: “el hogar sea de 1 miembro”, “el hogar sea de 2 miembros”, etc. Siendo más breves: “el hogar sea de <em>i</em> miembros”; de esta manera, i puede ser algún valor del conjunto {1, 2, 3, …, 34}.</p>
-<p>También podíamos escribir, deseando ser ocupar menos espacio:</p>
+<p>Construimos definiciones justamente, entre otros propósitos, para no repetir un párrafo completo cada vez que tengamos que trabajar sobre una situación en la que tengamos que estimar la posibilidad de ocurrencia de un evento. Es fácil emplear símbolos para comunicarnos con otros, además, sin los problemas del idioma, la mala comunicación de ambos, o otras minucias. Y también ser precisos. Las matemáticas son un lenguaje para la precisión.</p>
+<p>Partiendo de estas definiciones, queremos cuantificar la posibilidad de ocurrencia de un evento; ponerle un número, que dé cuenta de la magnitud de esa posibilidad.  En el <a class="reference internal" href="cap2.html#la-frecuencia-como-probabilidad"><span class="std std-ref">capítulo 2</span></a> dijimos que la probabilidad era la frecuencia relativa, y dividimos la cantidad de hogares de un tamaño para la cantidad total de hogares del país. Los eventos podían haberse definido como: “el hogar sea de 1 miembro”, “el hogar sea de 2 miembros”, etc. Siendo más breves: “el hogar sea de <em>i</em> miembros”; de esta manera, i puede ser algún valor del conjunto {1, 2, 3, …, 34}.</p>
+<p>También podíamos escribir, deseando ocupar menos espacio (<span class="math notranslate nohighlight">\(:=\)</span> es definir):</p>
 <p><span class="math notranslate nohighlight">\(A_i := \text{el hogar sea de } i \text{ miembros}, \forall i \in \{1, 2, 3, ..., 34\}\)</span>
 o</p>
 <p><span class="math notranslate nohighlight">\(A_i := \text{el hogar sea de } i \text{ miembros}, \forall i = 1, 2, 3, ..., 34\)</span>.</p>
-<p>Escribir <span class="math notranslate nohighlight">\(A_i\)</span> nos permite definir un evento para cada cantidad de miembros, e identificar el evento.</p>
+<p>Escribir <span class="math notranslate nohighlight">\(A_i\)</span> nos permite definir un evento para cada cantidad de miembros, e identificar al evento.</p>
 <p>Quiero que se dé cuenta de que el uso de símbolos matemáticos nos permite ser precisos y breves.</p>
 <p>Continuemos.</p>
 <p>Al medir la probabilidad, estamos calculando la frecuencia relativa. Siendo específicos, dado un evento <span class="math notranslate nohighlight">\(E\)</span> contamos todos los resultados potenciales que conforman el conjunto del evento (hogar de <span class="math notranslate nohighlight">\(i\)</span> miembros en nuestro análisis de los hogares) y lo dividimos para la cantidad de eventos posibles del espacio muestral (total de hogares de Ecuador).</p>
-<p>Ese conteo se puede expresar matemáticamente (con símbolos, precisión y brevedad) con <span class="math notranslate nohighlight">\(n\)</span>. Así, con un conjunto <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(n(C)\)</span> es la cantidad de elementos del conjunto <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<p>Ese conteo se puede expresar matemáticamente (con símbolos, precisión y brevedad) con una función <span class="math notranslate nohighlight">\(n(\cdot)\)</span>, donde <span class="math notranslate nohighlight">\(\cdot\)</span> es cualquier evento. Así, con un conjunto <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(n(C)\)</span> es la cantidad de elementos del conjunto <span class="math notranslate nohighlight">\(C\)</span>.</p>
 <p>Sean <span class="math notranslate nohighlight">\(E\)</span> el evento de interés y <span class="math notranslate nohighlight">\(S\)</span> el espacio muestral de nuestro experimento, <span class="math notranslate nohighlight">\(\frac{n(E)}{n(S)}\)</span> es la probabilidad del evento <span class="math notranslate nohighlight">\(E\)</span>. Usaremos <span class="math notranslate nohighlight">\(P\)</span> para referirnos a probabilidad, y <span class="math notranslate nohighlight">\(P(E)\)</span> para aludir a la probabilidad de <span class="math notranslate nohighlight">\(E\)</span>. Así:</p>
 <div class="math notranslate nohighlight">
 \[
 P(E) = \frac{n(E)}{n(S)}
 \]</div>
 <p>(Me reservo el derecho de ser redundante o poco ahorrativo de palabras en aras de que usted, estudiante, entienda sin duda razonable cada definición y objeto matemático).</p>
-<p>También es importante notar que <span class="math notranslate nohighlight">\(n(\cdot)\)</span> y <span class="math notranslate nohighlight">\(P(\cdot)\)</span> son funciones (si usted no recuerda que es una función, revíselo brevemente con su agente favorito de IA).</p>
+<p>Es importante subrayar que <span class="math notranslate nohighlight">\(n(\cdot)\)</span> y <span class="math notranslate nohighlight">\(P(\cdot)\)</span> son funciones (si usted no recuerda que es una función, revíselo brevemente con su agente favorito de IA).</p>
 <p>En el siguiente capítulo exploraremos las propiedades que debe tener una función de probabilidad. Esto nos permitirá ser claros cuando hablemos de estimar probabilidades, incluyendo las limitaciones de nuestras estimaciones. Por ahora, solo vamos a pensar en aritmética (divisiones) y conceptos.</p>
 <p>Hagamos un par de estimaciones. Usemos nuestros datos censales para calcular la probabilidad del evento <span class="math notranslate nohighlight">\(M := \text{ser mujer}\)</span>.</p>
 <p>Estimemos la probabilidad con Python.</p>
@@ -626,8 +636,8 @@ P(M) = \frac{n(M)}{n(S)} = \frac{8.686.463}{16.938.986} \approx 0.512809 \approx
 \]</div>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="eventos-conjuntos-y-condicionalidad">
-<h1>Eventos conjuntos y condicionalidad<a class="headerlink" href="#eventos-conjuntos-y-condicionalidad" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="eventos-conjuntos">
+<h1>Eventos conjuntos<a class="headerlink" href="#eventos-conjuntos" title="Link to this heading">#</a></h1>
 <p>Ahora consideremos la distribución por edad de hombres y mujeres.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -743,7 +753,7 @@ P(M) = \frac{n(M)}{n(S)} = \frac{8.686.463}{16.938.986} \approx 0.512809 \approx
 <p>121 rows × 3 columns</p>
 </div></div></div>
 </div>
-<p>En la tabla de arriba podemos ver cuántas mujeres y hombres de determinada edad hay. Como puedes ver, tenemos personas que alcanzan hasta los 120 años; cosa que es muy extraña, pero así constan los registros. Para poder resumir estos datos, usemos rangos de edad de 10 años, y asignemos cada rango de edad de menor a mayor a los números 1, 2, 3, etc.</p>
+<p>En la tabla de arriba podemos ver cuántas mujeres y hombres de determinada edad hay. Como puedes ver, tenemos personas que alcanzan hasta los 120 años; cosa que es muy extraña, pero así constan los registros. Para poder resumir estos datos, usemos rangos de edad de 10 años, y asignemos cada rango en order de edad de menor a mayor a los números 1, 2, 3, etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mi">121</span><span class="p">]</span>
@@ -890,7 +900,7 @@ P(M) = \frac{n(M)}{n(S)} = \frac{8.686.463}{16.938.986} \approx 0.512809 \approx
 </table>
 </div></div></div>
 </div>
-<p>La tabla anterior resume cuántas mujeres y hombres hay en cada rango de edad, y asigna a cada rango un código numérico. Ahora, pensemos en los eventos que podemos conformar con los rangos de edad. Definamos eventos <span class="math notranslate nohighlight">\(Y_j := \text{que la persona tenga una edad en el rango de edad } j\)</span>. Además, podemos definir los eventos “ser mujer y tener 15 años” (ser mujer y tener una edad en el rango 2) o “ser hombre y tener 20 años” (ser hombre y tener una edad en el rango 3). Pensemos en ellos de forma gráfica.</p>
+<p>La tabla anterior resume cuántas mujeres y hombres hay en cada rango de edad, y asigna a cada rango un código numérico. Ahora, pensemos en los eventos que podemos conformar con los rangos de edad. Definamos eventos <span class="math notranslate nohighlight">\(Y_j := \text{que la persona tenga una edad en el rango de edad } j\)</span>. Además, podemos definir los eventos “ser mujer y tener 15 años” (ser mujer y tener una edad en el rango 2) o “ser hombre y tener 20 años” (ser hombre y tener una edad en el rango 3). Pensemos en ellos de forma gráfica:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -907,9 +917,8 @@ P(M) = \frac{n(M)}{n(S)} = \frac{8.686.463}{16.938.986} \approx 0.512809 \approx
 
 <span class="n">col_w</span> <span class="o">=</span> <span class="mf">3.0</span>
 <span class="n">row_h</span> <span class="o">=</span> <span class="mf">0.45</span>
-<span class="n">gap_col</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">x_h</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="n">x_m</span> <span class="o">=</span> <span class="n">x_h</span> <span class="o">+</span> <span class="n">col_w</span> <span class="o">+</span> <span class="n">gap_col</span>
+<span class="n">x_m</span> <span class="o">=</span> <span class="n">x_h</span> <span class="o">+</span> <span class="n">col_w</span>
 <span class="n">y0</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">total_h</span> <span class="o">=</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">row_h</span>
 
@@ -918,7 +927,7 @@ P(M) = \frac{n(M)}{n(S)} = \frac{8.686.463}{16.938.986} \approx 0.512809 \approx
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">row_h</span>
     <span class="n">color</span> <span class="o">=</span> <span class="n">palette</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">x_h</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">col_w</span> <span class="o">+</span> <span class="n">gap_col</span><span class="p">,</span> <span class="n">row_h</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">x_h</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">col_w</span><span class="p">,</span> <span class="n">row_h</span><span class="p">,</span>
                                      <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_h</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">row_h</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;$Y_</span><span class="se">{{</span><span class="si">{</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">}}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
 
@@ -938,39 +947,40 @@ P(M) = \frac{n(M)}{n(S)} = \frac{8.686.463}{16.938.986} \approx 0.512809 \approx
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="_images/ce91dde172af90d096ed10c85fc28432bbc47bf9e2c0def99f94fb1ba1308643.png" src="_images/ce91dde172af90d096ed10c85fc28432bbc47bf9e2c0def99f94fb1ba1308643.png" />
+<img alt="_images/9d938300abe7dbc9e77bb9fbfb0cd6859c13df27daf3bc31924e40580046274e.png" src="_images/9d938300abe7dbc9e77bb9fbfb0cd6859c13df27daf3bc31924e40580046274e.png" />
 </div>
 </div>
-<p>El evento “ser mujer y tener 15 años”, llamémosle <span class="math notranslate nohighlight">\(Z\)</span>, es la intersección de los eventos <span class="math notranslate nohighlight">\(M\)</span> (ser mujer) y <span class="math notranslate nohighlight">\(Y_2\)</span> (tener 15 años o estar en el rango de edad 2). Es decir: <span class="math notranslate nohighlight">\(Z = M \cap Y_2\)</span>. Por pura conveniencia, podemos usar <span class="math notranslate nohighlight">\(Z_i := \text{ser mujer y tener una edad en el rango de edad } i\)</span>. Así, <span class="math notranslate nohighlight">\(Z_2 := \text{ser mujer y tener una edad en el rango de edad 2}\)</span>.</p>
+<p>Como puede mirar, la poblaicón está compuesta por 2 sexos que se representan por dos recuadros H y M, y rangos de edad que se intersectan con ellos.</p>
+<p>El evento “ser mujer y tener 15 años”, llamémosle <span class="math notranslate nohighlight">\(Z\)</span>, es la intersección de los eventos <span class="math notranslate nohighlight">\(M\)</span> (ser mujer) y <span class="math notranslate nohighlight">\(Y_2\)</span> (tener 15 años o estar en el rango de edad 2). Es decir: <span class="math notranslate nohighlight">\(Z = M \cap Y_2\)</span>. Por pura conveniencia, podemos usar <span class="math notranslate nohighlight">\(Z_i := \text{ser mujer y tener una edad en el rango de edad } i\)</span> para ser generales. Así, <span class="math notranslate nohighlight">\(Z_2 := \text{ser mujer y tener una edad en el rango de edad 2}\)</span>, particularmente.</p>
 <p>Entonces, la probabilidad de “ser mujer y tener 15 años” o “ser mujer y tener una edad en el rango de edad 2” es:</p>
 <div class="math notranslate nohighlight">
 \[
 P(Z_2) = n(Z_2)/n(S) = n(M \cap Y_2)/n(S)
 \]</div>
-<p>Notemos que otra forma de escribir <span class="math notranslate nohighlight">\(P(Z_2) = P(\text{ser mujer } \textbf{y} \text{ tener una edad en el rango 2}) = P(M \textbf{ y } Y_2) = P(M, Y_2)\)</span>. Es habitual usar coma como “y”. Usaremos esta forma reducida: <span class="math notranslate nohighlight">\(P(M, Y_2)\)</span>, en adelante, para hablar de eventos conjuntos: que están intersectados, literalmente o “que ocurren juntos”, como han memorizado algunos estudiantes. Mi recomendación –de las pocas que me atrevo a hacer, pues considero dar consejos una mala costumbre– es que no memorice y entienda.</p>
 <section id="disjunciones">
 <h2>Disjunciones<a class="headerlink" href="#disjunciones" title="Link to this heading">#</a></h2>
-<p>Se le ha denominado dependencia al hecho de que un evento y otro estén relacionados. Cuando no se intersectan se los considera eventos disjuntos o mutuamente excluyentes. Eso no es lo mismo que independencia.</p>
+<p>Cuando dos eventos no se intersectan se los considera disjuntos o mutuamente excluyentes.</p>
 <p>Si yo quisiera estimar la probabilidad de que ser mujer y hombre tendría que estimar:</p>
 <div class="math notranslate nohighlight">
 \[
 P(H, M) = P(H \cap M) = P(\emptyset)
 \]</div>
-<p>Si yo quisiera estimar la probabilidad de que ser mujer y hombre tendría que estimar:</p>
+<p>ya que <span class="math notranslate nohighlight">\(H \cap M\)</span> no tienen ningún elemento en común.</p>
 </section>
 <section id="emptyset">
 <h2><span class="math notranslate nohighlight">\( \emptyset \)</span><a class="headerlink" href="#emptyset" title="Link to this heading">#</a></h2>
-<p><span class="math notranslate nohighlight">\(\emptyset\)</span> no tiene ningún elemento
+<p><span class="math notranslate nohighlight">\(\emptyset\)</span> es el conjunto vació y no tiene ningún elemento
 (<span class="math notranslate nohighlight">\(n( \emptyset ) \)</span> = 0). Le parecerá intuitivo que la probabilidad de algo que no tiene elementos sea 0. Esa intuición puede ser una restricción que imponemos. Efectivamente, los matemáticos imponen restricciones a sus cuerpos teóricos. Restrinjamos, entonces, que <span class="math notranslate nohighlight">\(P(\emptyset) = 0\)</span>.</p>
 </section>
 <section id="s">
 <h2><span class="math notranslate nohighlight">\( S \)</span><a class="headerlink" href="#s" title="Link to this heading">#</a></h2>
-<p>Por otra parte, pensemos en <span class="math notranslate nohighlight">\(P(S)\)</span> (recuerda que S es todo el espacio muestral). Como <span class="math notranslate nohighlight">\(S\)</span> son todos los resultados posibles, digamos que fueran <span class="math notranslate nohighlight">\(N\)</span> resultados, <span class="math notranslate nohighlight">\(P(S) = n(S)/n(S) = N/N = 1\)</span>. La intuición sugeriría que considerar todos los elementos implica que siempre suceden todos los resultados posibles. Sí, es una intuición útil. La refinaremos en los próximos capítulos.</p>
+<p>Por otra parte, pensemos en <span class="math notranslate nohighlight">\(P(S)\)</span> (recuerde que <span class="math notranslate nohighlight">\(S\)</span> es todo el espacio muestral). Como <span class="math notranslate nohighlight">\(S\)</span> son todos los resultados posibles, digamos que fueran <span class="math notranslate nohighlight">\(N\)</span> resultados, <span class="math notranslate nohighlight">\(P(S) = n(S)/n(S) = N/N = 1\)</span>. La intuición sugeriría que considerar todos los elementos implica que siempre suceden todos los resultados posibles. Sí, es una intuición útil. La refinaremos en los próximos capítulos con definiciones formales, aquí basta con esto.</p>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="filtros-condicionalidad">
 <h1>Filtros, condicionalidad<a class="headerlink" href="#filtros-condicionalidad" title="Link to this heading">#</a></h1>
-<p>Por otra parte, pensemos en la composición de mujeres por edad. Dividiremos la cantidad de mujeres de cada edad para el total de mujeres.</p>
+<p>Por otra parte, pensemos en esta pregunta: entre las mujeres de Ecuador, ¿qué proporción tiene una edad dentro del rango <span class="math notranslate nohighlight">\(k\)</span>? Esto es, queremos calcular la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span> restringida al conjunto <span class="math notranslate nohighlight">\(M\)</span>: la probabilidad de estar en el rango de edad <span class="math notranslate nohighlight">\(k\)</span> <strong>dado que la persona es mujer</strong>.</p>
+<p>Definamos <span class="math notranslate nohighlight">\(A_k := M \cap Y_k\)</span>, es decir, el evento de ser mujer y tener una edad en el rango <span class="math notranslate nohighlight">\(k\)</span>. La tabla de abajo muestra, para cada rango, cuántas mujeres hay (<span class="math notranslate nohighlight">\(n(A_k)\)</span>) y qué fracción representan del total de mujeres (<span class="math notranslate nohighlight">\(n(A_k)/n(M)\)</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_mujeres</span> <span class="o">=</span> <span class="n">tabla_rangos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tabla_rangos</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;Mujer&quot;</span><span class="p">]</span>
@@ -1075,121 +1085,195 @@ P(H, M) = P(H \cap M) = P(\emptyset)
 </table>
 </div></div></div>
 </div>
-<p>Si el evento es <span class="math notranslate nohighlight">\(A_k := \text{ser una mujer de edad dentro del rango } k\)</span>, en la tabla anterior calculamos <span class="math notranslate nohighlight">\(n(A_k)/n(M)\)</span>. Ahora, consideremos esa división y reescribámosla:</p>
+<p>Esa división <span class="math notranslate nohighlight">\(n(A_k)/n(M)\)</span> puede reescribirse en términos de probabilidades. Multiplicamos numerador y denominador por <span class="math notranslate nohighlight">\(1/n(S)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{n(A_k)}{n(M)} = \frac{n(A_k)}{n(M)} \cdot 1 =
-\frac{n(A_k)}{n(M)} \cdot \frac{\frac{1}{n(E)}}{\frac{1}{n(E)}} =
-\frac{\frac{n(A_k)}{n(E)}}{\frac{n(M)}{n(E)}} =
+\frac{n(A_k)}{n(M)} =
+\frac{\dfrac{n(A_k)}{n(S)}}{\dfrac{n(M)}{n(S)}} =
 \frac{P(A_k)}{P(M)}
 \]</div>
-<p><span class="math notranslate nohighlight">\(A_2\)</span> puede ser reescrito como <span class="math notranslate nohighlight">\(A_2 := \text{ser mujer y tener una edad en el rango 2} := M \cap Y_2\)</span>, de modo que, teniendo en cuenta la expresión de arriba:</p>
+<p>Como <span class="math notranslate nohighlight">\(A_k = M \cap Y_k\)</span>, entonces <span class="math notranslate nohighlight">\(P(A_k) = P(M \cap Y_k)\)</span>, y la expresión queda:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{P(A_k)}{P(M)} = \frac{P(M \cap Y_2)}{P(M)} = 
-\frac{P(M, Y_2)}{P(M)} = \frac{P(Y_2, M)}{P(M)} 
+\frac{P(A_k)}{P(M)} = \frac{P(M \cap Y_k)}{P(M)}
 \]</div>
-<p>Dada la población de Ecuador, tomamos las ~8.2 millones mujeres, y dentro de ellas identificamos a 15.420.88 de edades entre 10 - 19 (rango 2). Calculamos el peso de las mujeres de edades entre 10 - 19 en el total de mujeres. Otra forma de decirlo es que calculamos el peso o la porción. Estamos filtrando. También podríamos decir que estamos <strong>calculando la probabilidad de Y_2 en M</strong>.
-A este ejercicio de filtrar y calcular la probabilidad de un evento en otro se denomina probabilidad condicional. Y es equivalente decir probabilidad de Y_2 dado M, y escribir:</p>
+<p>Lo que estamos calculando es el peso del rango de edad <span class="math notranslate nohighlight">\(k\)</span> dentro del subconjunto de mujeres: hemos filtrado la población a <span class="math notranslate nohighlight">\(M\)</span> y, dentro de ese filtro, medimos la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span>. A este ejercicio se lo denomina <strong>probabilidad condicional</strong>: la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span> dado <span class="math notranslate nohighlight">\(M\)</span>. Se escribe:</p>
 <div class="math notranslate nohighlight">
 \[
-P(Y_2 | M) = \frac{P(Y_2, M)}{P(M)}
+P(Y_k \mid M) = \frac{P(M \cap Y_k)}{P(M)}
+\]</div>
+<p>En general, dados dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> del mismo espacio muestral con <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 \]</div>
 <p>Este enfoque de segmentación es muy importante, estudiante, así que será mejor que lo repase hasta que quede claro. Tómese el tiempo que necesite, pero no avance hasta que esté claro.</p>
-<p>En general, la probabilidad de un evento A dado un evento B es</p>
-<div class="math notranslate nohighlight">
-\[
-P(A | B) = \frac{P(A, B)}{P(B)}
-\]</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="composicion-de-ocurrencias-combinancion-de-espacios-muestrales">
+<h1>Composición de ocurrencias: combinanción de espacios muestrales<a class="headerlink" href="#composicion-de-ocurrencias-combinancion-de-espacios-muestrales" title="Link to this heading">#</a></h1>
 <section id="ocurrencias-temporales">
 <h2>Ocurrencias temporales<a class="headerlink" href="#ocurrencias-temporales" title="Link to this heading">#</a></h2>
-<p>Hasta aquí, hemos analizado casos estáticos. Un punto del tiempo, datos de 2022. Pero qué ocurre cuando consideramos casos dinámicos: sucesos en que ocurren en el tiempo.</p>
-<p>Consideremos el lanzamiento de una moneda. Si lanzo una moneda una vez, el espacio muestral es cara (C) y sello (S): <span class="math notranslate nohighlight">\(S = \{C, S\}\)</span>. Si vuelvo a lanzar la cara tendré otro espacio muestral <span class="math notranslate nohighlight">\(\{C, S\}\)</span> en el siguiente intento. Cada intento podría anclarse a un punto del tiempo <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Hasta aquí, hemos analizado casos estáticos: en un punto del tiempo, con datos de 2022. Pero qué ocurre cuando consideramos casos dinámicos: sucesos en que ocurren en varios puntos del tiempo.</p>
+<p>Consideremos el lanzamiento de una moneda. Si lanzo una moneda una vez, el espacio muestral es cara (C) y sello (S): <span class="math notranslate nohighlight">\(S = \{C, S\}\)</span>. Si vuelvo a lanzar la cara tendré otro espacio muestral <span class="math notranslate nohighlight">\(\{C, S\}\)</span> en el siguiente intento. Cada intento podría anclarse a un punto del tiempo <span class="math notranslate nohighlight">\(t\)</span>. Así, <span class="math notranslate nohighlight">\(S_t\)</span> es el espacio muestral del tiempo <span class="math notranslate nohighlight">\(t\)</span>.</p>
 <p>Hagamos un esquema de cuatro lanzamientos, como un árbol de bifurcación. En cada punto del tiempo el experimento vuelve a abrir dos caminos posibles:</p>
 <p><img alt="Árbol de bifurcación de cuatro lanzamientos de una moneda" src="_images/arbol_lanzamientos_moneda.svg" /></p>
 <p>Para cada lanzamiento existen dos opciones en el siguiente.</p>
 <p>Si quisiera analizar cuatro lanzamientos como un todo, el espacio muestral de cuatro lanzamientos entonces es:</p>
 <div class="math notranslate nohighlight">
 \[
-S = \{(C, C, C, C), (C, C, C, S), (C, C, S, C), (C, C, S, S), (C, S, C, C), (C, S, C, S), (C, S, S, C), (C, S, S, S), (S, C, C, C), (S, C, C, S), (S, C, S, C), (S, C, S, S), (S, S, C, C), (S, S, C, S), (S, S, S, C), (S, S, S, S)\}
+S_t = \{(C, C, C, C), (C, C, C, S), (C, C, S, C), (C, C, S, S), (C, S, C, C), (C, S, C, S), (C, S, S, C), (C, S, S, S), (S, C, C, C), (S, C, C, S), (S, C, S, C), (S, C, S, S), (S, S, C, C), (S, S, C, S), (S, S, S, C), (S, S, S, S)\}
 \]</div>
-<p>Cada rama completa del árbol representa una ocurrencia temporal: primero observamos el resultado en <span class="math notranslate nohighlight">\(t_1\)</span>, luego en <span class="math notranslate nohighlight">\(t_2\)</span>, después en <span class="math notranslate nohighlight">\(t_3\)</span> y finalmente en <span class="math notranslate nohighlight">\(t_4\)</span>.</p>
-<p>Cada vector elemento de <span class="math notranslate nohighlight">\(S\)</span> indica la secuencia de lanzamientos.</p>
+<p>Cada rama completa del árbol representa una ocurrencia temporal: primero observamos el resultado en <span class="math notranslate nohighlight">\(t = 1\)</span>, luego en <span class="math notranslate nohighlight">\(t = 2\)</span>, después en <span class="math notranslate nohighlight">\(t = 3\)</span> y finalmente en <span class="math notranslate nohighlight">\(t = 4\)</span>.</p>
+<p>Cada vector elemento de <span class="math notranslate nohighlight">\(S_t\)</span> indica la secuencia de lanzamientos.</p>
 <p>Consideremos lanzar un dado, ahora. Concentrémonos en 3 lanzamientos.</p>
 <p><img alt="Árbol compacto de tres lanzamientos de un dado" src="_images/arbol_lanzamientos_dado_3.svg" /></p>
-<p>Para cada lanzamiento, existen 6 resultados posibles en el siguiente lanzamiento. Consideremos los eventos <span class="math notranslate nohighlight">\(G := \text{ser un número primo}\)</span> y <span class="math notranslate nohighlight">\(I := \text{ser un número mayor que 1}\)</span>. Centrémonos en dos lanzamientos del dado: pensemos en la probabilidad de que el evento G se dé en el primer lanzamiento y en el segundo.</p>
-<p>Para el primer lanzamiento existen 3 opciones: <span class="math notranslate nohighlight">\(G = \{2, 3, 5\}\)</span>, para el segundo 5: <span class="math notranslate nohighlight">\(I = \{2, 3, 4, 5, 6\}\)</span>. O sea, en el primer lanzamiento puedo obtener cualquier resultado de <span class="math notranslate nohighlight">\(G\)</span> y para cada uno de esos resultados podría obtener un resultado de <span class="math notranslate nohighlight">\(I\)</span>. Puedo combinar cada número resultado de <span class="math notranslate nohighlight">\(G\)</span> se puede combinar con cada número posible de <span class="math notranslate nohighlight">\(I\)</span>.</p>
+<p>Para cada lanzamiento, existen 6 resultados posibles en el siguiente lanzamiento. tengamos en cuenta los eventos <span class="math notranslate nohighlight">\(G := \text{ser un número primo}\)</span> y <span class="math notranslate nohighlight">\(F := \text{ser un número mayor que 1}\)</span>. Centrémonos en dos lanzamientos del dado: pensemos en la probabilidad de que el evento <span class="math notranslate nohighlight">\(G\)</span> se dé en el primer lanzamiento y <span class="math notranslate nohighlight">\(F\)</span> en el segundo.</p>
+<p>Para el primer lanzamiento existen 3 opciones: <span class="math notranslate nohighlight">\(G = \{2, 3, 5\}\)</span>, para el segundo 5: <span class="math notranslate nohighlight">\(F = \{2, 3, 4, 5, 6\}\)</span>. O sea, en el primer lanzamiento puedo obtener cualquier resultado de <span class="math notranslate nohighlight">\(G\)</span> y para cada uno de esos resultados podría obtener un resultado de <span class="math notranslate nohighlight">\(F\)</span>. Puedo combinar cada número resultado de <span class="math notranslate nohighlight">\(G\)</span> con cada número posible de <span class="math notranslate nohighlight">\(F\)</span>. La ilustración a continuación muestra las combinaciones.</p>
 <p><img alt="Combinaciones de un número primo en el primer lanzamiento y un número mayor que 1 en el segundo" src="_images/diagrama_dado_primo_mayor_1.svg" /></p>
-<p>Note que una vez que lanzo el dado, el segundo lanzamiento no está en nada condicionado por el primero. Hay 6 resultados para el primer lanzamiento, en este lanzamiento esperamos que ocurra <span class="math notranslate nohighlight">\(G\)</span>. Denotaremos el resultado real del primer lanzamiento con <span class="math notranslate nohighlight">\(r_1\)</span>. Si el resultado está en <span class="math notranslate nohighlight">\(G\)</span>, lo denotaremos <span class="math notranslate nohighlight">\(r_1^1\)</span>; sino, <span class="math notranslate nohighlight">\(r_1^0\)</span>. Los subíndices indicarán qué lanzamiento es, y los superíndices si ocurrió o no el evento deseado en el lanzamiento. Además, <span class="math notranslate nohighlight">\(r_1^1\)</span> puede ser cualquier valor de <span class="math notranslate nohighlight">\(G\)</span>, por lo que existen <span class="math notranslate nohighlight">\(n(G) = g\)</span> casos favorables.</p>
-<p>Los resultados posibles del segundo lanzamiento son 6, y aquí queremos que ocurra <span class="math notranslate nohighlight">\(I\)</span>. Denotaremos el resultado real del segundo lanzamiento con <span class="math notranslate nohighlight">\(r_2\)</span> y si está en <span class="math notranslate nohighlight">\(I\)</span> escribiremos <span class="math notranslate nohighlight">\(r_2^1\)</span>, sino <span class="math notranslate nohighlight">\(r_2^0\)</span>. Además, <span class="math notranslate nohighlight">\(r_2^1\)</span> puede ser cualquier valor de <span class="math notranslate nohighlight">\(I\)</span>, por lo que existen <span class="math notranslate nohighlight">\(n(I) = i\)</span> casos favorables.</p>
-<p>Podemos verificar si un evento del primer lanzamiento sucedió con una función, que podemos llamar O (de ocurrencia). <span class="math notranslate nohighlight">\(O(r_1) = r_1^1\)</span> si el resultado en el primer lanzamiento estuvo en <span class="math notranslate nohighlight">\(G\)</span>; y <span class="math notranslate nohighlight">\(O(r_1) = r_1^0\)</span>, sino. Así mismo con <span class="math notranslate nohighlight">\(r_2\)</span>: <span class="math notranslate nohighlight">\(O(r_2) = r_2^1\)</span> si el resultado en segundo lanzamiento estuvo en <span class="math notranslate nohighlight">\(I\)</span>; y <span class="math notranslate nohighlight">\(O(r_2) = r_2^0\)</span>, sino.</p>
-<p>Como <span class="math notranslate nohighlight">\(r_1\)</span> puede ser cualquier elemento de <span class="math notranslate nohighlight">\(G\)</span>, y <span class="math notranslate nohighlight">\(r_2\)</span> puede ser cualquier elemento de <span class="math notranslate nohighlight">\(I\)</span>, sabemos que las combinaciones de los lanzamientos serán <span class="math notranslate nohighlight">\(g \cdot i = n(G) \cdot n(I)\)</span> (para cada resultado posible de <span class="math notranslate nohighlight">\(G\)</span> hay un resultado posible de <span class="math notranslate nohighlight">\(I\)</span>). Además, consideremos que los resultados posibles del primer lanzamiento son 6. En este sentido, denotemos los resultados posibles del primer lanzamiento con el conjunto <span class="math notranslate nohighlight">\(S_1\)</span>, que sería el espacio muestral <span class="math notranslate nohighlight">\(\{1, 2, 3, 4, 5, 6\}\)</span>. Así, la cantidad de resultados posibles del primer lanzamiento serían <span class="math notranslate nohighlight">\(n_1 = n(S_1)\)</span>. En el segundo lanzamiento existen <span class="math notranslate nohighlight">\(S_2 = \{1, 2, 3, 4, 5, 6\}\)</span> resultados posibles y contándolos: <span class="math notranslate nohighlight">\(n_2 = n(S_2)\)</span>.</p>
-<p>Así que para cada posible resultado del primer lanzamiento existe <span class="math notranslate nohighlight">\(n_2\)</span> en el segundo. Entonces, en total existen <span class="math notranslate nohighlight">\(n_1*n_2=n(S_1)*n(S_2)\)</span> posibilidades en los que <span class="math notranslate nohighlight">\(G\)</span> e <span class="math notranslate nohighlight">\(I\)</span> ocurran secuencialmente. En este caso, los resultados posibles en el primer y el segundo lanzamiento son iguales (<span class="math notranslate nohighlight">\(n_1 = n_2 \iff n(S_1) = n(S_2)\)</span>). Pero no siempre es así. Consideremos el ejemplo el siguiente ejemplo:</p>
-<p>Una caja contiene piezas producidas en las fábricas 1 y 2. Digamos que analizamos los eventos: “ser pieza estándar de la fábrica 1” (P) y “ser pieza estándar de la fábrica 2” (Q). En la fábrica 1 habrá un espacio muestral (<span class="math notranslate nohighlight">\(S_1\)</span>): cantidad de piezas producidas en la fábrica 1 (<span class="math notranslate nohighlight">\(n(S_1)\)</span>), y en la fábrica 2 otro espacio muestral (<span class="math notranslate nohighlight">\(S_2\)</span>): la cantidad de piezas producidas en la fábrica 2 (<span class="math notranslate nohighlight">\(n(S_2)\)</span>). No necesariamente las fábricas producen la misma cantidad de piezas, y de hecho casi nunca lo harán en la práctica.</p>
+<p>Note que una vez que lanzo el dado, el segundo lanzamiento no es alterado por el primero. Hay 6 resultados para el primer lanzamiento, en el cual esperamos que ocurra <span class="math notranslate nohighlight">\(G\)</span>. Denotaremos el resultado real del primer lanzamiento con <span class="math notranslate nohighlight">\(r_1\)</span>. Si el resultado está en <span class="math notranslate nohighlight">\(G\)</span>, lo denotaremos <span class="math notranslate nohighlight">\(r_1^1\)</span>; sino, <span class="math notranslate nohighlight">\(r_1^0\)</span>. Los subíndices indicarán qué lanzamiento es, y los superíndices si ocurrió o no el evento deseado en el lanzamiento. Además, <span class="math notranslate nohighlight">\(r_1^1\)</span> puede ser cualquier valor de <span class="math notranslate nohighlight">\(G\)</span>, por lo que existen <span class="math notranslate nohighlight">\(n(G) = g\)</span> casos favorables.</p>
+<p>Los resultados posibles del segundo lanzamiento son 6, y aquí queremos que ocurra <span class="math notranslate nohighlight">\(F\)</span>. Denotaremos el resultado real del segundo lanzamiento con <span class="math notranslate nohighlight">\(r_2\)</span> y si está en <span class="math notranslate nohighlight">\(F\)</span> escribiremos <span class="math notranslate nohighlight">\(r_2^1\)</span>, sino <span class="math notranslate nohighlight">\(r_2^0\)</span>. Además, <span class="math notranslate nohighlight">\(r_2^1\)</span> puede ser cualquier valor de <span class="math notranslate nohighlight">\(F\)</span>, por lo que existen <span class="math notranslate nohighlight">\(n(F) = f\)</span> casos favorables.</p>
+<p>Podemos verificar si un evento del primer lanzamiento sucedió con una función, que podemos llamar O (de ocurrencia). <span class="math notranslate nohighlight">\(O(r_1) = r_1^1\)</span> si el resultado en el primer lanzamiento estuvo en <span class="math notranslate nohighlight">\(G\)</span>; y <span class="math notranslate nohighlight">\(O(r_1) = r_1^0\)</span>, sino. Así mismo con <span class="math notranslate nohighlight">\(r_2\)</span>: <span class="math notranslate nohighlight">\(O(r_2) = r_2^1\)</span> si el resultado en segundo lanzamiento estuvo en <span class="math notranslate nohighlight">\(F\)</span>; y <span class="math notranslate nohighlight">\(O(r_2) = r_2^0\)</span>, sino.</p>
+<p>Como <span class="math notranslate nohighlight">\(r_1\)</span> puede ser cualquier elemento de <span class="math notranslate nohighlight">\(G\)</span>, y <span class="math notranslate nohighlight">\(r_2\)</span> puede ser cualquier elemento de <span class="math notranslate nohighlight">\(F\)</span>, sabemos que las combinaciones de los lanzamientos serán <span class="math notranslate nohighlight">\(g \cdot f = n(G) \cdot n(F)\)</span> (para cada resultado posible de <span class="math notranslate nohighlight">\(G\)</span> hay un resultado posible de <span class="math notranslate nohighlight">\(F\)</span>). En nuestro ejemplo del lanzamiento de un dado, los resultados posibles del primer lanzamiento son 6. En este sentido, denotemos los resultados posibles del primer lanzamiento con el conjunto <span class="math notranslate nohighlight">\(S_1\)</span>, que sería el espacio muestral <span class="math notranslate nohighlight">\(\{1, 2, 3, 4, 5, 6\}\)</span>. Así, la cantidad de resultados posibles del primer lanzamiento serían <span class="math notranslate nohighlight">\(n_1 = n(S_1)\)</span>. En el segundo lanzamiento existen <span class="math notranslate nohighlight">\(S_2 = \{1, 2, 3, 4, 5, 6\}\)</span> resultados posibles y contándolos: <span class="math notranslate nohighlight">\(n_2 = n(S_2)\)</span>.</p>
+<p>Así que para cada posible resultado del primer lanzamiento existe <span class="math notranslate nohighlight">\(n_2\)</span> resultados en el segundo. Entonces, en total existen <span class="math notranslate nohighlight">\(n_1 \cdot n_2 = n(S_1) \cdot n(S_2)\)</span> posibilidades en los que <span class="math notranslate nohighlight">\(G\)</span> e <span class="math notranslate nohighlight">\(F\)</span> ocurran secuencialmente. En este caso, los resultados posibles en el primer y el segundo lanzamiento son iguales (<span class="math notranslate nohighlight">\(n_1 = n_2 \iff n(S_1) = n(S_2)\)</span>). Pero no siempre es así. Consideremos el ejemplo el siguiente ejemplo:</p>
+</section>
+<section id="ocurrencias-simultaneas">
+<h2>Ocurrencias simultáneas<a class="headerlink" href="#ocurrencias-simultaneas" title="Link to this heading">#</a></h2>
+<p>Una caja contiene piezas producidas en las fábricas 1 y 2. Digamos que analizamos los eventos: “ser pieza estándar de la fábrica 1” (K) y “ser pieza estándar de la fábrica 2” (L). En la fábrica 1 habrá un espacio muestral (<span class="math notranslate nohighlight">\(S_1\)</span>): cantidad de piezas producidas en la fábrica 1 (<span class="math notranslate nohighlight">\(n(S_1)\)</span>), y en la fábrica 2 otro espacio muestral (<span class="math notranslate nohighlight">\(S_2\)</span>): la cantidad de piezas producidas en la fábrica 2 (<span class="math notranslate nohighlight">\(n(S_2)\)</span>). No necesariamente las fábricas producen la misma cantidad de piezas, y de hecho casi nunca lo harán en la práctica.</p>
 <p>Entonces, para cada resultado de la fábrica 1 existirá un resultado de la fábrica 2: esto se expresa como producto: <span class="math notranslate nohighlight">\(n(S_1) \cdot n(S_2) = n_1 \cdot n_2\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Saqué el ejemplo de las fábricas de <em>TEORÍA DE LAS PROBABILIDADES Y ESTADÍSTICA MATEMÁTICA</em> de V.E. GMURMAN, que hace años, cuando buscaba una explicación como estudiante universitario de por qué las fórmulas de probabilidad de independencia se escribían como se escribían, en tiempos de no IA, fue el único que me dio claridad. Uno le guarda cariño a estas cosas. En realidad, modifiqué el ejemplo, en aras de la comprensión. En fin. Sigamos.</p>
+<p>Saqué el ejemplo de las fábricas de <em>TEORÍA DE LAS PROBABILIDADES Y ESTADÍSTICA MATEMÁTICA</em> de V.E. GMURMAN, que leí hace años, cuando buscaba una explicación como estudiante universitario de por qué las fórmulas de probabilidad de independencia se escribían como se escribían –en tiempos de no IA–, fue el único que me dio claridad. Uno le guarda cariño a estas cosas. En realidad, modifiqué el ejemplo, en aras de la comprensión. En fin. Sigamos.</p>
 </div>
-<p>Es decir, habitualmente: <span class="math notranslate nohighlight">\(g_1\)</span> (cantidad de resultados en <span class="math notranslate nohighlight">\(G\)</span>) &lt; <span class="math notranslate nohighlight">\(n_1\)</span> (espacio muestral del primer lanzamiento); y <span class="math notranslate nohighlight">\(g_2\)</span> (cantidad de resultados en <span class="math notranslate nohighlight">\(I\)</span>) &lt; <span class="math notranslate nohighlight">\(n_2\)</span> (espacio muestral del segundo lanzamiento). Siendo más precisos:</p>
+<p>Es decir, habitualmente: <span class="math notranslate nohighlight">\(g\)</span> (cantidad de resultados en <span class="math notranslate nohighlight">\(G\)</span>) &lt; <span class="math notranslate nohighlight">\(n_1\)</span> (cantidad de elementos del espacio muestral del primer lanzamiento); y <span class="math notranslate nohighlight">\(f\)</span> (cantidad de resultados en <span class="math notranslate nohighlight">\(F\)</span>) &lt; <span class="math notranslate nohighlight">\(n_2\)</span> (cantidad de elementos del espacio muestral del segundo lanzamiento). Siendo más precisos:</p>
 <div class="math notranslate nohighlight">
 \[
-g_1 \leq n_1 
+g \leq n_1
 \]</div>
 <p>y</p>
 <div class="math notranslate nohighlight">
 \[
-g_2 \leq n_2
+f \leq n_2
 \]</div>
-<p>En total, en dos lanzamientos los resultados de <span class="math notranslate nohighlight">\(G\)</span> e <span class="math notranslate nohighlight">\(I\)</span> si ocurren secuencialmente serían <span class="math notranslate nohighlight">\(g \cdot i\)</span>, en casos totales <span class="math notranslate nohighlight">\(n_1 \cdot n_2\)</span>. Entonces, la probabilidad de que ocurran <span class="math notranslate nohighlight">\(G\)</span> y <span class="math notranslate nohighlight">\(I\)</span> se escribiría:</p>
+<p>En total, en dos lanzamientos los resultados de <span class="math notranslate nohighlight">\(G\)</span> y <span class="math notranslate nohighlight">\(F\)</span> serían <span class="math notranslate nohighlight">\(g \cdot f\)</span>, en casos totales <span class="math notranslate nohighlight">\(n_1 \cdot n_2\)</span>. Entonces, la probabilidad de que ocurran <span class="math notranslate nohighlight">\(G\)</span> y <span class="math notranslate nohighlight">\(F\)</span> se escribiría:</p>
 <div class="math notranslate nohighlight">
 \[
-P(G, I) = \frac{g \cdot i}{n_1 \cdot n_2} = \frac{g}{n_1} \cdot \frac{i}{n_2} = \frac{n(G)}{n(S_1)} \cdot \frac{n(I)}{n(S_2)}
-= P(G) \cdot P(I) 
+P(G, F) = \frac{g \cdot f}{n_1 \cdot n_2} = \frac{g}{n_1} \cdot \frac{f}{n_2} = \frac{n(G)}{n(S_1)} \cdot \frac{n(F)}{n(S_2)}
+= P(G) \cdot P(F)
 \]</div>
 </section>
-<section id="independencia">
-<h2>Independencia<a class="headerlink" href="#independencia" title="Link to this heading">#</a></h2>
-<p>Como notó en los análisis anteriores, cuando dos eventos coexisten ocurriendo el uno sin injerencia del otro, en el sentido de que sus procesos generadores (experimentos) no están condicionados mutuamente o unilateralmente, concluimos que</p>
+<section id="recapitulacion-combinando-espacios-muestrales">
+<h2>Recapitulación: combinando espacios muestrales<a class="headerlink" href="#recapitulacion-combinando-espacios-muestrales" title="Link to this heading">#</a></h2>
+<p>En los ejemplos anteriores —lanzamientos sucesivos del dado y piezas de dos fábricas— cada evento proviene de un experimento distinto con su propio espacio muestral: <span class="math notranslate nohighlight">\(S_1\)</span> para el primero y <span class="math notranslate nohighlight">\(S_2\)</span> para el segundo. Esto es diferente de los casos anteriores del capítulo (sexo, rangos de edad) donde todos los eventos describían al mismo objeto —la misma persona— y compartían un único espacio muestral <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>Cuando combinamos dos experimentos independientes, el espacio muestral conjunto es el producto cartesiano <span class="math notranslate nohighlight">\(S_1 \times S_2\)</span>: el conjunto de todos los pares posibles de resultados <span class="math notranslate nohighlight">\((r_1, r_2)\)</span>, uno de cada experimento. El total de pares es <span class="math notranslate nohighlight">\(n_1 \cdot n_2\)</span>, y los pares favorables para que ocurran <span class="math notranslate nohighlight">\(G\)</span> y <span class="math notranslate nohighlight">\(F\)</span> son <span class="math notranslate nohighlight">\(g \cdot f\)</span>. De ahí viene la regla del producto:</p>
 <div class="math notranslate nohighlight">
 \[
-P(G, I) = P(G) \cdot P(I) 
+P(G, F) = \frac{g \cdot f}{n_1 \cdot n_2} = P(G) \cdot P(F)
 \]</div>
-<p>En general, podemos escribir que dados dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-P(A, B) = P(A) \cdot P(B) 
-\]</div>
-<p>cuando <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes.</p>
+<p>Nótese que en este contexto <span class="math notranslate nohighlight">\(P(G, F)\)</span> <strong>no</strong> es <span class="math notranslate nohighlight">\(P(G \cap F)\)</span>: la intersección requiere que ambos eventos estén en el mismo espacio, lo cual no ocurre aquí. <span class="math notranslate nohighlight">\(P(G, F)\)</span> es la probabilidad conjunta sobre el espacio producto, no una intersección dentro de un único <span class="math notranslate nohighlight">\(S\)</span>.</p>
 </section>
-<section id="discusion">
-<h2>Discusión<a class="headerlink" href="#discusion" title="Link to this heading">#</a></h2>
-<p>Como nota, hay dos casos en los que podemos pensar la probabilidad independiente:</p>
-<ol class="arabic simple">
-<li><p>Dos eventos secuenciales en el tiempo, donde la generación de uno no afecta la del siguiente. Los resultados del evento que sucede después no están contenidos en los del primero.</p></li>
-<li><p>Eventos que ocurren en el mismo momento del tiempo, pero donde conocer el resultado de uno no cambia la probabilidad del otro. En este caso no estamos pensando en una secuencia, sino en dos características, clasificaciones o mediciones observadas al mismo tiempo. Por ejemplo, podríamos preguntar si una pieza viene de cierta fábrica y, además, si cumple cierto estándar de calidad. Si conocer la fábrica de origen no cambia la probabilidad de que la pieza sea estándar, entonces esos eventos pueden tratarse como independientes. Esto no debe confundirse con eventos excluyentes o disjuntos. Por ejemplo, “ser hombre de 25 años” y “ser mujer de 25 años” no pueden ocurrir en la misma persona: son mutuamente excluyentes, no independientes. Que dos eventos no puedan ocurrir juntos significa que su intersección es vacía; que sean independientes significa que conocer uno no cambia la probabilidad del otro.</p></li>
-</ol>
 </section>
-<section id="condicionalidad-e-independencia">
-<h2>Condicionalidad e independencia<a class="headerlink" href="#condicionalidad-e-independencia" title="Link to this heading">#</a></h2>
-<p>Habíamos definido también, antes que</p>
+<section class="tex2jax_ignore mathjax_ignore" id="distincion-p-a-cap-b-y-p-a-b">
+<h1>Distinción: <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> y <span class="math notranslate nohighlight">\(P(A, B)\)</span><a class="headerlink" href="#distincion-p-a-cap-b-y-p-a-b" title="Link to this heading">#</a></h1>
+<p><strong><span class="math notranslate nohighlight">\(P(A \cap B)\)</span></strong> es la probabilidad de la intersección de dos eventos dentro del <strong>mismo espacio muestral</strong>: el conjunto de resultados que pertenecen a <span class="math notranslate nohighlight">\(A\)</span> y a <span class="math notranslate nohighlight">\(B\)</span> a la vez. Tiene sentido cuando ambos eventos describen al mismo objeto (la misma persona, la misma pieza, el mismo lanzamiento).</p>
+<p><strong><span class="math notranslate nohighlight">\(P(A, B)\)</span></strong> es la probabilidad conjunta de que ocurran <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>. Cuando <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> viven en el mismo espacio muestral, <span class="math notranslate nohighlight">\(P(A, B) = P(A \cap B)\)</span>. Pero cuando provienen de experimentos distintos —cada uno con su propio espacio muestral— la coma expresa que <span class="math notranslate nohighlight">\(A\)</span> ocurre en el primer experimento y <span class="math notranslate nohighlight">\(B\)</span> en el segundo; en ese caso <span class="math notranslate nohighlight">\(P(A, B) \neq P(A \cap B)\)</span>, porque la intersección de eventos de espacios distintos no está definida del mismo modo.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="independencia">
+<h1>Independencia<a class="headerlink" href="#independencia" title="Link to this heading">#</a></h1>
+<p>Como notó en los análisis anteriores, cuando dos eventos coexisten ocurriendo el uno sin injerencia del otro, en el sentido de que sus procesos generadores (experimentos) no se alteran unilateral o mutuamente, concluimos que</p>
 <div class="math notranslate nohighlight">
 \[
-P(A | B) = \frac{P(A, B)}{P(B)}
+P(G, F) = P(G) \cdot P(F) 
 \]</div>
-<p>El enfoque abordado nos permitió entender que la probabilidad condicional era una estimación de la ocurrencia de un subconjunto en otro. Si un conjunto pertenece a otro, tiene elementos en común. Su intersección es diferente del conjunto vacío.</p>
-<p>Usemos un ejemplo, solo por familiaridad: si yo soy parte de la Universidad Central del Ecuador, y estudio en una de sus Facultades: la de Economía, bueno, resulta que ambas tienen elementos en común. Si pienso en ambas como conjuntos, y los intersecto, yo estoy en la intersección: soy el elemento en común. (Esto le puede resultar evidente, ahora que se lo digo, pero se lo dije por una razón).</p>
-<p>Ahora, pensemos: en nuestra definición de probabilidad condicional <span class="math notranslate nohighlight">\(P(A|B)\)</span> comparamos la probabilidad de <span class="math notranslate nohighlight">\(A\)</span> dentro del conjunto <span class="math notranslate nohighlight">\(B\)</span> con la probabilidad de <span class="math notranslate nohighlight">\(A\)</span> en todo el espacio muestral. Si conocer que ocurrió <span class="math notranslate nohighlight">\(B\)</span> no cambia la probabilidad de <span class="math notranslate nohighlight">\(A\)</span>, entonces los eventos son independientes.</p>
-<p>Dicho de otra manera:</p>
+<p>En general, dados dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>, la definición de independencia depende del contexto:</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> provienen de <strong>experimentos distintos</strong> (espacios <span class="math notranslate nohighlight">\(S_1\)</span> y <span class="math notranslate nohighlight">\(S_2\)</span>):</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[
 A \text{ y } B \text{ son independientes} \iff P(A, B) = P(A) \cdot P(B)
 \]</div>
-<p>Es importante, recapitulando, que le quede claro que en los ejemplos examinados la ocurrencia de un evento no produce nada la del otro. En nuestro caso de los lanzamiento del dado, el siguiente lanzamiento es independiente del anterior; en el caso de las fábricas, examinadas por separado, en un contexto sin colusión, en donde no se coordinan para subir o bajar la producción una después de la otra, tampoco hay cambios de un experimento al otro.</p>
-<p>Esta es la lógica de la probabilidad de sucesos compuestos y secuenciales. Y es la <strong>definición de probabilidad de sucesos independientes</strong>. Gaste tiempo en comprenderla. Es esencial. Disculpe si no puedo ser más claro, he intentado todo lo que me ha sido posible.</p>
+<ul class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> comparten el <strong>mismo espacio muestral</strong> <span class="math notranslate nohighlight">\(S\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+A \text{ y } B \text{ son independientes} \iff P(A \cap B) = P(A) \cdot P(B)
+\]</div>
+<p>En ambos casos la idea es la misma: la ocurrencia de uno no altera la probabilidad del otro.</p>
 </section>
-<section id="dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro">
-<h2>Dependencia: cuando un evento cambia la probabilidad de otro<a class="headerlink" href="#dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro" title="Link to this heading">#</a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="condicionalidad-e-independencia">
+<h1>Condicionalidad e independencia<a class="headerlink" href="#condicionalidad-e-independencia" title="Link to this heading">#</a></h1>
+<p>Habíamos definido la probabilidad condicional:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \mid B) = \frac{P(A, B)}{P(B)}
+\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recuerde la distinción que establecimos: <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> es la probabilidad de la intersección de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> dentro del <strong>mismo</strong> espacio muestral. <span class="math notranslate nohighlight">\(P(A, B)\)</span> es la probabilidad conjunta, que coincide con <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> cuando los eventos comparten espacio muestral, pero no cuando provienen de experimentos distintos. En los casos que siguen verá ambas situaciones.</p>
+</div>
+<p><strong>Caso 1: eventos mutuamente excluyentes — <span class="math notranslate nohighlight">\(H\)</span> y <span class="math notranslate nohighlight">\(M\)</span> (mismo espacio muestral)</strong></p>
+<p><span class="math notranslate nohighlight">\(H\)</span> y <span class="math notranslate nohighlight">\(M\)</span> describen a la misma persona: comparten el espacio muestral <span class="math notranslate nohighlight">\(S\)</span>. Su intersección es vacía, <span class="math notranslate nohighlight">\(H \cap M = \emptyset\)</span>, por lo que <span class="math notranslate nohighlight">\(P(H, M) = P(H \cap M) = 0\)</span>. Calculemos <span class="math notranslate nohighlight">\(P(H \mid M)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(H \mid M) = \frac{P(H \cap M)}{P(M)} = \frac{0}{P(M)} = 0
+\]</div>
+<p>Saber que una persona es mujer elimina por completo la posibilidad de que sea hombre. Los eventos mutuamente excluyentes son el extremo de la <strong>dependencia</strong>: conocer uno hace imposible al otro.</p>
+<p><strong>Caso 2: eventos independientes — <span class="math notranslate nohighlight">\(K\)</span> y <span class="math notranslate nohighlight">\(L\)</span> (experimentos distintos)</strong></p>
+<p><span class="math notranslate nohighlight">\(K\)</span> describe una pieza de la fábrica 1 y <span class="math notranslate nohighlight">\(L\)</span> una pieza de la fábrica 2: sus espacios muestrales son <span class="math notranslate nohighlight">\(S_1\)</span> y <span class="math notranslate nohighlight">\(S_2\)</span>. Aquí <span class="math notranslate nohighlight">\(P(K, L) \neq P(K \cap L)\)</span>. Si pensáramos en <span class="math notranslate nohighlight">\(K\)</span> y <span class="math notranslate nohighlight">\(L\)</span> dentro de un único espacio —la caja mezclada—, ninguna pieza pertenece a ambas fábricas a la vez y <span class="math notranslate nohighlight">\(P(K \cap L) = 0\)</span>. Pero <span class="math notranslate nohighlight">\(P(K, L)\)</span> no es eso: es la probabilidad de que ocurra <span class="math notranslate nohighlight">\(K\)</span> en el primer experimento y <span class="math notranslate nohighlight">\(L\)</span> en el segundo. Del argumento de conteo que hicimos antes:</p>
+<div class="math notranslate nohighlight">
+\[
+P(K, L) = P(K) \cdot P(L)
+\]</div>
+<p>Calculemos <span class="math notranslate nohighlight">\(P(K \mid L)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(K \mid L) = \frac{P(K, L)}{P(L)} = \frac{P(K) \cdot P(L)}{P(L)} = P(K)
+\]</div>
+<p>Saber el resultado del segundo experimento no cambia la probabilidad del primero. Eso es la independencia: <span class="math notranslate nohighlight">\(P(K \mid L) = P(K)\)</span>.</p>
+<p><strong>Caso 3: eventos que se intersectan — <span class="math notranslate nohighlight">\(Y_j\)</span> y <span class="math notranslate nohighlight">\(M\)</span> (mismo espacio muestral)</strong></p>
+<p><span class="math notranslate nohighlight">\(Y_j\)</span> y <span class="math notranslate nohighlight">\(M\)</span> describen a la misma persona: comparten <span class="math notranslate nohighlight">\(S\)</span>. Hay mujeres en cada rango de edad, así que <span class="math notranslate nohighlight">\(Y_j \cap M \neq \emptyset\)</span> y <span class="math notranslate nohighlight">\(P(Y_j, M) = P(Y_j \cap M) &gt; 0\)</span>. La probabilidad condicional es:</p>
+<div class="math notranslate nohighlight">
+\[
+P(Y_j \mid M) = \frac{P(Y_j \cap M)}{P(M)}
+\]</div>
+<p>Esto es lo que calculamos antes: el peso del rango <span class="math notranslate nohighlight">\(j\)</span> dentro de las mujeres. Si resultara <span class="math notranslate nohighlight">\(P(Y_j \mid M) = P(Y_j)\)</span>, el rango de edad y el sexo serían independientes para ese rango; en general, hay que calcularlo con los datos.</p>
+<p><strong>Resumen comparativo</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de relación</p></th>
+<th class="head"><p>Espacios</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(P(A \cap B)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(P(A, B)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(P(A \mid B)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mutuamente excluyentes</p></td>
+<td><p>Mismo</p></td>
+<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(= P(A \cap B) = 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Independientes</p></td>
+<td><p>Distintos</p></td>
+<td><p>No aplica</p></td>
+<td><p><span class="math notranslate nohighlight">\(P(A) \cdot P(B)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(P(A)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Se intersectan (general)</p></td>
+<td><p>Mismo</p></td>
+<td><p><span class="math notranslate nohighlight">\(&gt; 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(= P(A \cap B) &gt; 0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{P(A \cap B)}{P(B)}\)</span>, calcular</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La independencia y la exclusión mutua son opuestos: en la exclusión mutua, conocer un evento hace imposible al otro; en la independencia, conocer un evento no dice nada sobre el otro.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro">
+<h1>Dependencia: cuando un evento cambia la probabilidad de otro<a class="headerlink" href="#dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro" title="Link to this heading">#</a></h1>
 <p>Veamos el contraste entre independencia y dependencia con una urna. Consideremos una urna con 5 bolillas blancas y 3 bolillas negras. En total hay 8 bolillas. Extraemos una bolilla al azar y definimos el evento:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -1232,19 +1316,38 @@ P(B) = \frac{5}{8}
 P(B \mid A) \neq P(B)
 \]</div>
 <p>decimos que, sin reposición, los eventos son dependientes. El resultado de la primera extracción modifica las condiciones de la segunda extracción.</p>
+<p>En el próximo capítulo trataremos las ideas aquí presentadas con formalidad, espcificando las propiedades de la definición de probabilidad como una función y de teoremas relevantes. No te preocupes, como todo, iremos paso por paso.</p>
 <div class="important admonition">
 <p class="admonition-title">Resumen</p>
 <ol class="arabic simple">
-<li><p><strong>Experimento</strong>: Es el proceso, situación o acción que genera resultados que no conocemos con certeza antes de observarlos.</p></li>
-<li><p><strong>Espacio muestral</strong>: Es el conjunto <span class="math notranslate nohighlight">\(S\)</span> de todos los resultados posibles de un experimento. Un <strong>evento</strong> es un subconjunto del espacio muestral: <span class="math notranslate nohighlight">\(A \subseteq S\)</span>.</p></li>
-<li><p><strong>Probabilidad como frecuencia relativa</strong>: Si <span class="math notranslate nohighlight">\(A\)</span> es un evento dentro de <span class="math notranslate nohighlight">\(S\)</span>, podemos estimar su probabilidad como <span class="math notranslate nohighlight">\(P(A) = \frac{n(A)}{n(S)}\)</span>.</p></li>
-<li><p><strong>Eventos conjuntos y disjuntos</strong>: La expresión <span class="math notranslate nohighlight">\(P(A, B)\)</span> representa la probabilidad de que ocurran <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>; es decir, <span class="math notranslate nohighlight">\(P(A \cap B)\)</span>. Si <span class="math notranslate nohighlight">\(A \cap B = \emptyset\)</span>, los eventos son disjuntos o mutuamente excluyentes, y <span class="math notranslate nohighlight">\(P(A \cap B)=0\)</span>.</p></li>
-<li><p><strong>Probabilidad condicional</strong>: Calcular <span class="math notranslate nohighlight">\(P(A \mid B)\)</span> significa calcular la probabilidad de <span class="math notranslate nohighlight">\(A\)</span> dentro del conjunto <span class="math notranslate nohighlight">\(B\)</span>. Se escribe <span class="math notranslate nohighlight">\(P(A \mid B) = \frac{P(A, B)}{P(B)}\)</span>, siempre que <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>.</p></li>
-<li><p><strong>Independencia</strong>: Dos eventos son independientes si conocer que ocurrió uno no cambia la probabilidad del otro. En ese caso, <span class="math notranslate nohighlight">\(P(A, B) = P(A) \cdot P(B)\)</span>.</p></li>
-<li><p><strong>Dependencia</strong>: Dos eventos son dependientes cuando la ocurrencia de uno modifica la probabilidad del otro. En términos condicionales: <span class="math notranslate nohighlight">\(P(A \mid B) \neq P(A)\)</span>.</p></li>
+<li><p><strong>Experimento</strong>: proceso, situación o acción que genera resultados que no conocemos con certeza antes de observarlos.</p></li>
+<li><p><strong>Espacio muestral</strong>: conjunto <span class="math notranslate nohighlight">\(S\)</span> de todos los resultados posibles. Un <strong>evento</strong> es <span class="math notranslate nohighlight">\(A \subseteq S\)</span>.</p></li>
+<li><p><strong>Probabilidad</strong>: <span class="math notranslate nohighlight">\(P(A) = \dfrac{n(A)}{n(S)}\)</span>.</p></li>
+<li><p><strong>Dos notaciones</strong>: <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> es la probabilidad de la intersección dentro del <strong>mismo</strong> espacio muestral. <span class="math notranslate nohighlight">\(P(A, B)\)</span> es la probabilidad conjunta de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>: coincide con <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> si comparten espacio muestral, pero no si provienen de experimentos distintos.</p></li>
+<li><p><strong>Eventos mutuamente excluyentes</strong> (mismo espacio): <span class="math notranslate nohighlight">\(A \cap B = \emptyset \Rightarrow P(A \cap B) = 0\)</span>. Son el extremo de la dependencia: <span class="math notranslate nohighlight">\(P(A \mid B) = 0 \neq P(A)\)</span>.</p></li>
+<li><p><strong>Probabilidad condicional</strong> (mismo espacio muestral, <span class="math notranslate nohighlight">\(P(B)&gt;0\)</span>):
+$<span class="math notranslate nohighlight">\(P(A \mid B) = \frac{P(A \cap B)}{P(B)}\)</span><span class="math notranslate nohighlight">\(
+Para eventos de espacios distintos se escribe \)</span>P(A \mid B) = P(A, B)/P(B)$.</p></li>
+<li><p><strong>Independencia</strong>: la ocurrencia de uno no altera la probabilidad del otro.</p>
+<ul class="simple">
+<li><p>Mismo espacio: <span class="math notranslate nohighlight">\(P(A \cap B) = P(A) \cdot P(B)\)</span>, equivalentemente <span class="math notranslate nohighlight">\(P(A \mid B) = P(A)\)</span>.</p></li>
+<li><p>Experimentos distintos: <span class="math notranslate nohighlight">\(P(A, B) = P(A) \cdot P(B)\)</span>, equivalentemente <span class="math notranslate nohighlight">\(P(A \mid B) = P(A)\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Dependencia</strong> (mismo espacio, eventos que se intersectan): <span class="math notranslate nohighlight">\(P(A \cap B) &gt; 0\)</span> pero <span class="math notranslate nohighlight">\(P(A \mid B) \neq P(A)\)</span>; hay que calcularlo con los datos.</p></li>
 </ol>
 </div>
 </section>
+<section class="tex2jax_ignore mathjax_ignore" id="referencias">
+<h1>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h1>
+<div class="docutils container" id="id2">
+<div role="list" class="citation-list">
+<div class="citation" id="id8" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">GS20</a><span class="fn-bracket">]</span></span>
+<p>Geoffrey R. Grimmett and David R. Stirzaker. <em>Probability and Random Processes</em>. Oxford University Press, 4 edition, 2020. ISBN 978-0-19-884760-1.</p>
+</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1310,20 +1413,24 @@ P(B \mid A) \neq P(B)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-y-definiciones-formales">Conjuntos y definiciones formales</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-conjuntos-y-condicionalidad">Eventos conjuntos y condicionalidad</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eventos-conjuntos">Eventos conjuntos</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disjunciones">Disjunciones</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emptyset"><span class="math notranslate nohighlight">\( \emptyset \)</span></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s"><span class="math notranslate nohighlight">\( S \)</span></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-condicionalidad">Filtros, condicionalidad</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-condicionalidad">Filtros, condicionalidad</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#composicion-de-ocurrencias-combinancion-de-espacios-muestrales">Composición de ocurrencias: combinanción de espacios muestrales</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocurrencias-temporales">Ocurrencias temporales</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">Independencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discusion">Discusión</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionalidad-e-independencia">Condicionalidad e independencia</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro">Dependencia: cuando un evento cambia la probabilidad de otro</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ocurrencias-simultaneas">Ocurrencias simultáneas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recapitulacion-combinando-espacios-muestrales">Recapitulación: combinando espacios muestrales</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#distincion-p-a-cap-b-y-p-a-b">Distinción: <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> y <span class="math notranslate nohighlight">\(P(A, B)\)</span></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">Independencia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#condicionalidad-e-independencia">Condicionalidad e independencia</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencia-cuando-un-evento-cambia-la-probabilidad-de-otro">Dependencia: cuando un evento cambia la probabilidad de otro</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
 
   </nav></div>
