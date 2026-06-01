@@ -234,9 +234,7 @@ Por otra parte, pensemos en $P(S)$ (recuerde que $S$ es todo el espacio muestral
 
 # Filtros, condicionalidad
 
-Por otra parte, pensemos en esta pregunta: entre las mujeres de Ecuador, ¿qué proporción tiene una edad dentro del rango $k$? Esto es, queremos calcular la probabilidad de $Y_k$ restringida al conjunto $M$: la probabilidad de estar en el rango de edad $k$ **dado que la persona es mujer**.
-
-Definamos $A_k := M \cap Y_k$, es decir, el evento de ser mujer y tener una edad en el rango $k$. La tabla de abajo muestra, para cada rango, cuántas mujeres hay ($n(A_k)$) y qué fracción representan del total de mujeres ($n(A_k)/n(M)$):
+Por otra parte, segmentemos por rangos de edad a las mujeres. El evento $M := \text{ser mujer}$ está compuesto por grupos de edad. Con esta segmentación, dividamos la cantidad de mujeres en cada rango de edad $k = 1, 2, 3, .., 12$ para el total de mujeres.
 
 ```{code-cell}
 n_mujeres = tabla_rangos.loc[tabla_rangos.index != "All", "Mujer"]
@@ -246,32 +244,34 @@ pd.DataFrame({
     "porcentaje": n_mujeres / tabla_rangos.loc["All", "Mujer"] * 100
 })
 ```
-
-Esa división $n(A_k)/n(M)$ puede reescribirse en términos de probabilidades. Multiplicamos numerador y denominador por $1/n(S)$:
+Si el evento es $A_k := \text{tener una edad dentro del rango } k \text{ y ser mujer}$, en la tabla anterior calculamos $n(A_k)/n(M)$. Ahora, consideremos esa división y reescribámosla:
 
 $$
-\frac{n(A_k)}{n(M)} =
-\frac{\dfrac{n(A_k)}{n(S)}}{\dfrac{n(M)}{n(S)}} =
+\frac{n(A_k)}{n(M)} = \frac{n(A_k)}{n(M)} \cdot 1 =
+\frac{n(A_k)}{n(M)} \cdot ( \frac{\frac{1}{n(E)}}{\frac{1}{n(E)}} ) =
+\frac{\frac{n(A_k)}{n(E)}}{\frac{n(M)}{n(E)}} =
 \frac{P(A_k)}{P(M)}
 $$
 
-Como $A_k = M \cap Y_k$, entonces $P(A_k) = P(M \cap Y_k)$, y la expresión queda:
+$A_k$ puede ser reescrito como $A_k := \text{tener una edad en el rango k } y \text{ ser mujer}:= Y_k \cap M$, de modo que, teniendo en cuenta la expresión de arriba:
 
 $$
-\frac{P(A_k)}{P(M)} = \frac{P(M \cap Y_k)}{P(M)}
+\frac{P(A_k)}{P(M)} = \frac{P(Y_k \cap M)}{P(M)} 
 $$
 
-Lo que estamos calculando es el peso del rango de edad $k$ dentro del subconjunto de mujeres: hemos filtrado la población a $M$ y, dentro de ese filtro, medimos la probabilidad de $Y_k$. A este ejercicio se lo denomina **probabilidad condicional**: la probabilidad de $Y_k$ dado $M$. Se escribe:
+Lo que estamos calculando es el peso del rango de edad $k$ dentro del subconjunto de mujeres. Esto es calcular la probabilidad de estar en el rango de edad $k$ **dado que la persona es mujer**. A este ejercicio se lo denomina **probabilidad condicional**: la probabilidad de $Y_k$ dado $M$, y lo escribimos así:
 
 $$
-P(Y_k \mid M) = \frac{P(M \cap Y_k)}{P(M)}
+P(Y_k \mid M) = \frac{P(Y_k \cap M)}{P(M)}
 $$
 
-En general, dados dos eventos $A$ y $B$ del mismo espacio muestral con $P(B) > 0$:
+En general, dados dos eventos $A$ y $B$ del mismo espacio muestral:
 
 $$
 P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 $$
+
+Claro, siempre $P(B) > 0$.
 
 Este enfoque de segmentación es muy importante, estudiante, así que será mejor que lo repase hasta que quede claro. Tómese el tiempo que necesite, pero no avance hasta que esté claro.
 

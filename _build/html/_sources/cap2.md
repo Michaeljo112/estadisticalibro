@@ -153,6 +153,7 @@ Como nota, el gráfico conserva su forma; esto es porque solo es una forma difer
 La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empleada es un dato y los volvimos información al analizar la distribución.
 ```
 
+(la-frecuencia-como-probabilidad)=
 ## La frecuencia como probabilidad
 
 Anteriormente dividimos el número de hogares según su tamaño por el número total de hogares para obtener la frecuencia relativa. Es decir, cuántos hogares de un miembro había para el total, cuántos de 2 para el total, cuántos de 3 para el total, et. al. Dividimos la cantidad de veces que ocurrió un evento (ser un hogar de una cantidad de miembros) por el total de eventos (el número de hogares). En este apartado veremos que esta frecuencia relativa es una estimación de la probabilidad de que un hogar tenga un tamaño determinado.
