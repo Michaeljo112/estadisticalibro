@@ -30,9 +30,9 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-57M0ESJTXR"></script>
@@ -199,6 +199,12 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">El arte de la inferencia</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="cap4.html">Probabilidad</a></li>
+
+
+
+
+
+
 
 
 </ul>
@@ -428,10 +434,10 @@ document.write(`
 <p>En el capítulo anterior analizamos qué porcentaje de hogares estaba integrado por 1, 2, 3, y así sucesivamente, hasta 34 miembros. Supongamos que el censo no se hizo, y le encomiendan determinar qué porcentaje de hogares son de una cantidad determinada de miembros.</p>
 <p>Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podrás desplegar el código dando click en “Show code cell content”.</p>
 <div class="cell tag_hide-cell docutils container">
-<details class="admonition hide above-input">
+<details class="hide above-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell content</p>
-<p class="expanded admonition-title">Hide code cell content</p>
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -463,10 +469,10 @@ document.write(`
 <p>Tomar una parte de las observaciones (en este caso los hogares) de la población se le llama <strong>muestrar</strong>: seleccionar un subconjunto de todas observaciones de la población. Al grupo de observaciones seleccionadas se le llama <strong>muestra</strong>.</p>
 <p>Tomada su muestra de hogares, los encuesta. Obtiene sus datos; los tabula; hace el mismo análisis que ya hicimos en el capítulo anterior: cuenta el número de hogares por tamaño; luego los expresa como porción del total de hogares y los grafica. Las siguientes líneas de código hacen esto, mostrando los resultados como una distribución. Obsérvela.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
+<details class="hide above-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -592,10 +598,10 @@ document.write(`
 <h2>Sesgo de selección<a class="headerlink" href="#sesgo-de-seleccion" title="Link to this heading">#</a></h2>
 <p>Como nota, esta distribución es diferente a la distribución de la población. De hecho, podemos comparar la distribución de su parroquia y la de la población en un mismo gráfico, el de abajo.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
+<details class="hide above-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Probabilidades de la población</span>
@@ -760,10 +766,10 @@ document.write(`
 </div>
 <p>¿Qué tal si en lugar de seleccionar hogares de una parroquia elegimos una parte de los hogares de todo el país? Un puñado de cada cantón y provincia. Y hacemos la selección de forma aleatoria. En el siguiente gráfico seleccionamos aleatoriamente 10 hogares al inicio, luego 30, 50, 100, 1.000, etcétera. Puede usar el deslizador del gráfico para cambiar el tamaño de la muestra aleatoria. Además, puede dar “play” para ver cómo se comporta el estimador a medida que aumenta el tamaño de la muestra.</p>
 <div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
+<details class="hide above-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
