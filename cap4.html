@@ -979,8 +979,7 @@ P(H, M) = P(H \cap M) = P(\emptyset)
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="filtros-condicionalidad">
 <h1>Filtros, condicionalidad<a class="headerlink" href="#filtros-condicionalidad" title="Link to this heading">#</a></h1>
-<p>Por otra parte, pensemos en esta pregunta: entre las mujeres de Ecuador, ¿qué proporción tiene una edad dentro del rango <span class="math notranslate nohighlight">\(k\)</span>? Esto es, queremos calcular la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span> restringida al conjunto <span class="math notranslate nohighlight">\(M\)</span>: la probabilidad de estar en el rango de edad <span class="math notranslate nohighlight">\(k\)</span> <strong>dado que la persona es mujer</strong>.</p>
-<p>Definamos <span class="math notranslate nohighlight">\(A_k := M \cap Y_k\)</span>, es decir, el evento de ser mujer y tener una edad en el rango <span class="math notranslate nohighlight">\(k\)</span>. La tabla de abajo muestra, para cada rango, cuántas mujeres hay (<span class="math notranslate nohighlight">\(n(A_k)\)</span>) y qué fracción representan del total de mujeres (<span class="math notranslate nohighlight">\(n(A_k)/n(M)\)</span>):</p>
+<p>Por otra parte, segmentemos por rangos de edad a las mujeres. El evento <span class="math notranslate nohighlight">\(M := \text{ser mujer}\)</span> está compuesto por grupos de edad. Con esta segmentación, dividamos la cantidad de mujeres en cada rango de edad <span class="math notranslate nohighlight">\(k = 1, 2, 3, .., 12\)</span> para el total de mujeres.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_mujeres</span> <span class="o">=</span> <span class="n">tabla_rangos</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">tabla_rangos</span><span class="o">.</span><span class="n">index</span> <span class="o">!=</span> <span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="s2">&quot;Mujer&quot;</span><span class="p">]</span>
@@ -1085,28 +1084,30 @@ P(H, M) = P(H \cap M) = P(\emptyset)
 </table>
 </div></div></div>
 </div>
-<p>Esa división <span class="math notranslate nohighlight">\(n(A_k)/n(M)\)</span> puede reescribirse en términos de probabilidades. Multiplicamos numerador y denominador por <span class="math notranslate nohighlight">\(1/n(S)\)</span>:</p>
+<p>Si el evento es <span class="math notranslate nohighlight">\(A_k := \text{tener una edad dentro del rango } k \text{ y ser mujer}\)</span>, en la tabla anterior calculamos <span class="math notranslate nohighlight">\(n(A_k)/n(M)\)</span>. Ahora, consideremos esa división y reescribámosla:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{n(A_k)}{n(M)} =
-\frac{\dfrac{n(A_k)}{n(S)}}{\dfrac{n(M)}{n(S)}} =
+\frac{n(A_k)}{n(M)} = \frac{n(A_k)}{n(M)} \cdot 1 =
+\frac{n(A_k)}{n(M)} \cdot ( \frac{\frac{1}{n(E)}}{\frac{1}{n(E)}} ) =
+\frac{\frac{n(A_k)}{n(E)}}{\frac{n(M)}{n(E)}} =
 \frac{P(A_k)}{P(M)}
 \]</div>
-<p>Como <span class="math notranslate nohighlight">\(A_k = M \cap Y_k\)</span>, entonces <span class="math notranslate nohighlight">\(P(A_k) = P(M \cap Y_k)\)</span>, y la expresión queda:</p>
+<p><span class="math notranslate nohighlight">\(A_k\)</span> puede ser reescrito como <span class="math notranslate nohighlight">\(A_k := \text{tener una edad en el rango k } y \text{ ser mujer}:= Y_k \cap M\)</span>, de modo que, teniendo en cuenta la expresión de arriba:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{P(A_k)}{P(M)} = \frac{P(M \cap Y_k)}{P(M)}
+\frac{P(A_k)}{P(M)} = \frac{P(Y_k \cap M)}{P(M)} 
 \]</div>
-<p>Lo que estamos calculando es el peso del rango de edad <span class="math notranslate nohighlight">\(k\)</span> dentro del subconjunto de mujeres: hemos filtrado la población a <span class="math notranslate nohighlight">\(M\)</span> y, dentro de ese filtro, medimos la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span>. A este ejercicio se lo denomina <strong>probabilidad condicional</strong>: la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span> dado <span class="math notranslate nohighlight">\(M\)</span>. Se escribe:</p>
+<p>Lo que estamos calculando es el peso del rango de edad <span class="math notranslate nohighlight">\(k\)</span> dentro del subconjunto de mujeres. Esto es calcular la probabilidad de estar en el rango de edad <span class="math notranslate nohighlight">\(k\)</span> <strong>dado que la persona es mujer</strong>. A este ejercicio se lo denomina <strong>probabilidad condicional</strong>: la probabilidad de <span class="math notranslate nohighlight">\(Y_k\)</span> dado <span class="math notranslate nohighlight">\(M\)</span>, y lo escribimos así:</p>
 <div class="math notranslate nohighlight">
 \[
-P(Y_k \mid M) = \frac{P(M \cap Y_k)}{P(M)}
+P(Y_k \mid M) = \frac{P(Y_k \cap M)}{P(M)}
 \]</div>
-<p>En general, dados dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> del mismo espacio muestral con <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>:</p>
+<p>En general, dados dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> del mismo espacio muestral:</p>
 <div class="math notranslate nohighlight">
 \[
 P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 \]</div>
+<p>Claro, siempre <span class="math notranslate nohighlight">\(P(B) &gt; 0\)</span>.</p>
 <p>Este enfoque de segmentación es muy importante, estudiante, así que será mejor que lo repase hasta que quede claro. Tómese el tiempo que necesite, pero no avance hasta que esté claro.</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="composicion-de-ocurrencias-combinancion-de-espacios-muestrales">
