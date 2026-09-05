@@ -14,7 +14,7 @@ kernelspec:
 
 Hagámonos una pregunta: ¿cuántas personas hay por hogar en el Ecuador? Para responderla, usemos los datos del censo de 2022, como antes.
 
-Los datos que el INEC se pueden descargar de su página web, pero son archivos *.csv* que son bastante pesados para procesar en tu computadora. Por eso, preparé un archivo *parquet* con datos suficientes para que puedes usarlo sin problema. Este tipo de archivo sirve para almacenar grandes conjuntos de datos de forma eficiente, se usa en Big Data.
+Los datos del INEC se pueden descargar de su página web, pero son archivos *.csv* que son bastante pesados para procesar en su computadora. Por eso, preparé un archivo *parquet* con datos suficientes para que pueda usarlo sin problema. Este tipo de archivo sirve para almacenar grandes conjuntos de datos de forma eficiente; se usa en Big Data.
 
 Leamos tales datos.
 
@@ -147,7 +147,7 @@ chart = alt.Chart(resumen).mark_bar(
 chart
 ```
 
-Como nota, el gráfico conserva su forma; esto es porque solo es una forma diferente de personificar la misma información. Lo que mostramos en el gráfico de arriba es la frecuencia relativa, es decir, la porción de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares.
+Como nota, el gráfico conserva su forma; esto es porque solo es una forma diferente de presentar la misma información. Lo que mostramos en el gráfico de arriba es la frecuencia relativa, es decir, la porción de hogares que hay en cada grupo según la cantidad de miembros por el número total de hogares.
 
 ```{note}
 La información es el significado que les damos a los datos. En nuestro análisis, cada fila de la tabla empleada es un dato y los volvimos información al analizar la distribución.
@@ -156,7 +156,7 @@ La información es el significado que les damos a los datos. En nuestro análisi
 (la-frecuencia-como-probabilidad)=
 ## La frecuencia como probabilidad
 
-Anteriormente dividimos el número de hogares según su tamaño por el número total de hogares para obtener la frecuencia relativa. Es decir, cuántos hogares de un miembro había para el total, cuántos de 2 para el total, cuántos de 3 para el total, et. al. Dividimos la cantidad de veces que ocurrió un evento (ser un hogar de una cantidad de miembros) por el total de eventos (el número de hogares). En este apartado veremos que esta frecuencia relativa es una estimación de la probabilidad de que un hogar tenga un tamaño determinado.
+Anteriormente dividimos el número de hogares según su tamaño por el número total de hogares para obtener la frecuencia relativa. Es decir, cuántos hogares de un miembro había para el total, cuántos de 2 para el total, cuántos de 3 para el total, etc. Dividimos la cantidad de veces que ocurrió un evento (ser un hogar de una cantidad de miembros) por el total de eventos (el número de hogares). En este apartado veremos que esta frecuencia relativa es una estimación de la probabilidad de que un hogar tenga un tamaño determinado.
 
 Usar el término "frecuencia" resume el hecho de cuántas veces ocurre un evento respecto al total de eventos. El nombre que usamos para referirnos al total de eventos es **espacio muestral**. Más adelante quedará claro por qué "muestral", de momento es importante notar que la frecuencia relativa de un evento es el porcentaje que representa respecto al espacio muestral.
 
@@ -164,7 +164,7 @@ Consideremos otro ejemplo: si lanzamos un dado, el espacio muestral son los punt
 
 Al hablar de probabilidad aludimos a la frecuencia relativa de un evento. Por ejemplo, en nuestro caso, la frecuencia o probabilidad de que un hogar en el Ecuador sea de 1 miembro es 11,30%. Otra forma de ver ese 11,30% es pensar así: 113 de cada 1000 hogares tienen 1 miembro, porque 113/1000 = 11,30% = 314.250 (hogares de 1 miembro)/2.780.237 (hogares totales). La probabilidad de que un hogar en el Ecuador esté constituido de un miembro es 11,30%, porque expresa la posibilidad de observar eso basándonos en la frecuencia relativa, que a su vez se basa en la frecuencia (o cantidad de veces que ocurre algo); es decir, en qué tan habitual es el evento.
 
-Es indispensable que usted entienda que la probabilidad es una frecuencia relativa. Sino, relea los capítulos hasta aquí antes de seguir. 
+Es indispensable que usted entienda que la probabilidad es una frecuencia relativa. Si no, relea los capítulos hasta aquí antes de seguir.
 
 Como seguramente ya entendió hasta este momento, la probabilidad está asociada con la distribución de los datos. Prácticamente entender la distribución de los datos es entender la probabilidad de la ocurrencia de los eventos que estamos analizando.
 
@@ -177,4 +177,4 @@ Además, qué es la probabilidad: la frecuencia relativa de un evento.
 
 En los próximos capítulos profundizaremos en estos conceptos. Por ahora, solo quiero que se quede con la idea de que la probabilidad es una frecuencia relativa y que las distribuciones son la forma en la que se reparten los datos.
 
-En el siguiente capítulo conoceremos algunas distribuciones comunes y útiles, que nos sirven analizar fenómenos aleatorios. Luego de ese, empezaremos a utilizar el cálculo de probabilidades.
+En el siguiente capítulo conoceremos algunas distribuciones comunes y útiles, que nos sirven para analizar fenómenos aleatorios. Luego de ese, empezaremos a utilizar el cálculo de probabilidades.

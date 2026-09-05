@@ -18,7 +18,7 @@ Mientras bajo las gradas del metro de mi ciudad: Quito, la capital de Ecuador, p
 
 El fin de la estadística son las decisiones. De hecho, los humanos ideamos la estadística para estudiar problemas, originalmente del Estado. 
 
-Wikipedia dice, por ejemplo, este 26 de marzo, a la 1y25 p. m.:
+Wikipedia dice, por ejemplo, este 26 de marzo, a la 1:25 p. m.:
 
 >El término alemán *Statistik*, introducido originalmente por Gottfried Achenwall en 1749, se refería al análisis de datos del Estado, es decir, la «ciencia del Estado» (o más bien, de la ciudad-estado). También se llamó aritmética política de acuerdo con la traducción literal del inglés. No fue hasta el siglo XIX cuando el término estadística adquirió el significado de recolectar y clasificar datos. Este concepto fue introducido por el agrónomo y estadista escocés sir John Sinclair (1754-1835).
 
@@ -42,7 +42,7 @@ Si yo quiero saber por qué candidato a alcalde votarán las personas, sería mu
 
 Es muy importante hacer aleatorizaciones como estas para asegurar la calidad de las inferencias, es decir, de las conclusiones que obtenemos a partir de los datos. En los siguientes capítulos comprenderemos a detalle por qué. Por ahora, basta con entender que la aleatorización es fundamental para que las conclusiones que obtengamos sean válidas.
 
-Más allá de eso, no podemos saber con certeza algunas cosas. Si tiene una moneda en su bolsillo, láncela al aire, tómela en la caída y mire qué cara observa. Usted no sabe cuál será el resultado con certeza, sino cuál puede ser el resultado. Seguramente ya ha oído que tiene un 50% por ciento de probabilidad de obtener una de las dos caras de la moneda. Ocurre igual cuando lanza un dado, tiene una probabilidad de obtener una cara del dado. La estadística se ocupa de ambos asuntos: del hecho de tener que hacer inferencias de una población usando una muestra y de usar datos de fenómenos estocásticos, como lanzar dados y monedas al aire, o más importante: de fenómenos estocásticos que ocurren en la vida real. Por ejemplo, las probabilidades de que una inversión sea exitosa, llueva mañana o su equipo de fútbol gane el próximo partido.
+Más allá de eso, no podemos saber con certeza algunas cosas. Si tiene una moneda en su bolsillo, láncela al aire, tómela en la caída y mire qué cara observa. Usted no sabe cuál será el resultado con certeza, sino cuál puede ser el resultado. Seguramente ya ha oído que tiene un 50% de probabilidad de obtener una de las dos caras de la moneda. Ocurre igual cuando lanza un dado, tiene una probabilidad de obtener una cara del dado. La estadística se ocupa de ambos asuntos: del hecho de tener que hacer inferencias de una población usando una muestra y de usar datos de fenómenos estocásticos, como lanzar dados y monedas al aire, o más importante: de fenómenos estocásticos que ocurren en la vida real. Por ejemplo, las probabilidades de que una inversión sea exitosa, llueva mañana o su equipo de fútbol gane el próximo partido.
 
 
 **Con el propósito de tomar decisiones hacemos estadísticas.**
@@ -59,7 +59,7 @@ Planteémonos un problema: entender la pobreza de Ecuador. ¿Cómo podríamos ha
 
 Usaremos una tabla de datos que construí con datos del Instituto Nacional de Estadística y Censos de Ecuador [(INEC)](https://www.censoecuador.gob.ec/), datos geoespaciales de radiancia nocturna, datos de suelo urbano, entre otros. Pueden obtenerse en mi repositorio de GitHub [Michaeljo112/Estimando-la-pobreza-parroquial](https://github.com/Michaeljo112/Estimando-la-pobreza-parroquial).
 
-Cada fila es una parroquia del país. En análisis de datos solemos identificar una unidad de observación (elemento básico sobre el cual se recolectan datos) con códigos (sean numéricos o cadenas de textos, o una combinación de ambos) que denominamos identificadores únicos. En este caso, el identificador de cada parroquia es su código postal.    
+Cada fila es una parroquia del país. En análisis de datos solemos identificar una unidad de observación (elemento básico sobre el cual se recolectan datos) con códigos (sean numéricos o cadenas de texto, o una combinación de ambos) que denominamos identificadores únicos. En este caso, el identificador de cada parroquia es su código postal.
 
 ```{code-cell}
 import pandas as pd
@@ -81,7 +81,7 @@ Una **variable** es una característica, atributo, propiedad, medida o detalle d
 
 Un indicador resume un fenómeno. Por ejemplo, el porcentaje de personas pobres resume la pobreza de una parroquia. Usemos un indicador para resumir la pobreza de Ecuador.
 
-Construyamos una variable que sea una medida de la pobreza. Si divido la cantidad personas pobres para la cantidad de personas en el país, obtengo el porcentaje de personas pobres. En nuestros datos, debo dividir la cantidad de personas pobres para la cantidad de personas en cada parroquia. El resultado de la división es la tasa de pobreza de la parroquia, y es un número entre 0 y 1, un porcentaje. Luego de cada explicación, insertaré el código en Python que puedes usar para hacer lo mismo.
+Construyamos una variable que sea una medida de la pobreza. Si divido la cantidad de personas pobres para la cantidad de personas en el país, obtengo el porcentaje de personas pobres. En nuestros datos, debo dividir la cantidad de personas pobres para la cantidad de personas en cada parroquia. El resultado de la división es la tasa de pobreza de la parroquia, y es un número entre 0 y 1, un porcentaje. Luego de cada explicación, insertaré el código en Python que puede usar para hacer lo mismo.
 
 ```{code-cell}
 df['Tasa de pobreza'] = df['Pobres']/df['Personas']
@@ -94,7 +94,7 @@ import numpy as np
 df['almenoslamitadpobre'] = np.where(df['Tasa de pobreza'] >= .5, 1, 0)
 ```
 
-Cuando clasificamos en 1 y 0 los valores de una variable, basándonos en una condición como la anterior, estamos creando una variable dicotómica o *dummy* ―si prefieres anglicismos, yo no. En este caso, la condición es que la tasa de pobreza sea mayor o igual a 0,5 (en inglés, que se usa en python por defecto, los decimales se separan con punto y en español por coma).
+Cuando clasificamos en 1 y 0 los valores de una variable, basándonos en una condición como la anterior, estamos creando una variable dicotómica o *dummy* ―si prefiere anglicismos, yo no. En este caso, la condición es que la tasa de pobreza sea mayor o igual a 0,5 (en inglés, que se usa en Python por defecto, los decimales se separan con punto y en español por coma).
 
 Un cantón tiene varias parroquias. Pensemos en un cantón, por ejemplo, el cantón Espejo. Este cantón tiene 4 parroquias. Los valores para cada una son 0, 0, 1 y 0. 
 

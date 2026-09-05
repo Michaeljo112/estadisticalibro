@@ -15,7 +15,7 @@ kernelspec:
 
 Recordemos el caso de análisis de los hogares del capítulo anterior, estos pueden conformarse por 1 hasta 34 miembros.
 
-Como ejercicio intelectual, supongamos que usted hubiese podido observara la conformación de todos los hogares. Imagínese un observador omnipresente que puede viajar al pasado y presenciar la evolución de la formación de los hogares. Usted, sin embargo, no tiene el poder de saber el resultado, solo puede presenciar y tomar apuntes. También suponga que el viaje le borra la memoria y usted no sabe cuántos hogares de un tamaño determinado existirán en el 2022 de Ecuador. Entonces, antes de que se constituyan los hogares, usted hará un experimento.
+Como ejercicio intelectual, supongamos que usted hubiese podido observar la conformación de todos los hogares. Imagínese un observador omnipresente que puede viajar al pasado y presenciar la evolución de la formación de los hogares. Usted, sin embargo, no tiene el poder de saber el resultado, solo puede presenciar y tomar apuntes. También suponga que el viaje le borra la memoria y usted no sabe cuántos hogares de un tamaño determinado existirán en el 2022 de Ecuador. Entonces, antes de que se constituyan los hogares, usted hará un experimento.
 
 ## Experimento
 
@@ -25,7 +25,7 @@ Usted debería esperar, como ese observador, a que se conformen los hogares y lu
 
 Como dijimos en el capítulo anterior, la probabilidad es la frecuencia relativa. Profundicemos esa idea.
 
-Los experimentos serían, en diversos contextos, los procesos que genera los resultados. En nuestro ejercicio, nosotros no emparejamos a las personas. Esperamos y observamos. El proceso es la demografía. También podemos pensar en el experimento como la situación: la conformación de hogares. Aquí no hay acción, pero en otras situaciones como lanzar una moneda sí.
+Los experimentos serían, en diversos contextos, los procesos que generan los resultados. En nuestro ejercicio, nosotros no emparejamos a las personas. Esperamos y observamos. El proceso es la demografía. También podemos pensar en el experimento como la situación: la conformación de hogares. Aquí no hay acción, pero en otras situaciones como lanzar una moneda sí.
 
 El experimento es el proceso generador de resultados. En esa línea de sentido, si queremos contar los puntos de las caras de dos dados, hacemos un experimento al lanzarlos al aire. Si empezamos a mirar con atención el precio de un activo en el mercado de valores, también estamos haciendo un experimento. Si medimos la temperatura del ambiente, hacemos un experimento. Existen varias situaciones de interés en las que hacemos experimentos, ya sean mentales, como en nuestro ejemplo del observador omnipresente, o físicos: como al medir la temperatura. Eso sí, **cuando no podemos saber con certeza el resultado**.
 
@@ -43,11 +43,11 @@ Cuando no podemos asegurar con certeza, pensamos en posibilidades. Como señalar
 
 > Muchas afirmaciones cotidianas tienen la forma: “la posibilidad —o probabilidad— de que ocurra A es p”, donde A es algún evento, como “que mañana brille el sol” o “que Cambridge gane la regata Boat Race”, y p es un número o adjetivo que describe una cantidad, como “un octavo”, “baja”, etc.
 
-No está demás precisar que Teoría es, en ciencia, una explicación exhaustiva y comprobable de algún aspecto del universo. Así que la TP es una descripción rigurosa de los fenómenos estocásticos.
+No está de más precisar que Teoría es, en ciencia, una explicación exhaustiva y comprobable de algún aspecto del universo. Así que la TP es una descripción rigurosa de los fenómenos estocásticos.
 
 ## Evento
 
-Un evento es un subconjunto del espacio muestral. Es decir, es un puñado de todos resultados posibles que ocurren en el experimento. Por ejemplo, al lanzar dos dados la suma puede ser de 2 a 12. Representemos este espacio muestral en una tabla: en las filas listemos los puntos de un dado, y en las columnas del otro.
+Un evento es un subconjunto del espacio muestral. Es decir, es un puñado de todos los resultados posibles que ocurren en el experimento. Por ejemplo, al lanzar dos dados la suma puede ser de 2 a 12. Representemos este espacio muestral en una tabla: en las filas listemos los puntos de un dado, y en las columnas del otro.
 
 | + | 1 | 2 | 3 | 4 | 5 | 6 |
 |---|---|---|---|---|---|---|
@@ -60,7 +60,7 @@ Un evento es un subconjunto del espacio muestral. Es decir, es un puñado de tod
 
 Un evento A, digamos, puede ser que la suma de las caras sea par: {2, 4, 6, 8, 10, 12}, o que la suma sea impar {3, 5, 7, 9, 11}. Hay varios eventos que son subconjuntos del espacio muestral.
 
-Al lanzar los dados tendremos solo un resultado, digamo 3 en un dado, y 5 en el otro. La suma sería 3 + 5 = 8. El resultado del experimento es 8, entonces. El evento "suma par" ocurrió. Cualquier resultado que esté en A implica que A ocurra (se dé, tenga lugar, suceda).
+Al lanzar los dados tendremos solo un resultado, digamos 3 en un dado, y 5 en el otro. La suma sería 3 + 5 = 8. El resultado del experimento es 8, entonces. El evento "suma par" ocurrió. Cualquier resultado que esté en A implica que A ocurra (se dé, tenga lugar, suceda).
 
 ## Conjuntos y definiciones formales
 
@@ -142,7 +142,7 @@ tabla = pd.crosstab(df["P03"], df["sexo"], margins=True)
 tabla
 ```
 
-En la tabla de arriba podemos ver cuántas mujeres y hombres de determinada edad hay. Como puedes ver, tenemos personas que alcanzan hasta los 120 años; cosa que es muy extraña, pero así constan los registros. Para poder resumir estos datos, usemos rangos de edad de 10 años, y asignemos cada rango en order de edad de menor a mayor a los números 1, 2, 3, etc.
+En la tabla de arriba podemos ver cuántas mujeres y hombres de determinada edad hay. Como puede ver, tenemos personas que alcanzan hasta los 120 años; cosa que es muy extraña, pero así constan los registros. Para poder resumir estos datos, usemos rangos de edad de 10 años, y asignemos cada rango en orden de edad de menor a mayor a los números 1, 2, 3, etc.
 
 ```{code-cell} ipython3
 bins   = list(range(0, 111, 10)) + [121]
@@ -201,7 +201,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-Como puede mirar, la poblaicón está compuesta por 2 sexos que se representan por dos recuadros H y M, y rangos de edad que se intersectan con ellos.
+Como puede mirar, la población está compuesta por 2 sexos que se representan por dos recuadros H y M, y rangos de edad que se intersectan con ellos.
 
 El evento "ser mujer y tener 15 años", llamémosle $Z$, es la intersección de los eventos $M$ (ser mujer) y $Y_2$ (tener 15 años o estar en el rango de edad 2). Es decir: $Z = M \cap Y_2$. Por pura conveniencia, podemos usar $Z_i := \text{ser mujer y tener una edad en el rango de edad } i$ para ser generales. Así, $Z_2 := \text{ser mujer y tener una edad en el rango de edad 2}$, particularmente.
 
@@ -225,7 +225,7 @@ ya que $H \cap M$ no tienen ningún elemento en común.
 
 ## $ \emptyset $
 
-$\emptyset$ es el conjunto vació y no tiene ningún elemento 
+$\emptyset$ es el conjunto vacío y no tiene ningún elemento
 ($n( \emptyset ) $ = 0). Le parecerá intuitivo que la probabilidad de algo que no tiene elementos sea 0. Esa intuición puede ser una restricción que imponemos. Efectivamente, los matemáticos imponen restricciones a sus cuerpos teóricos. Restrinjamos, entonces, que $P(\emptyset) = 0$.
 
 ## $ S $
@@ -275,7 +275,7 @@ Claro, siempre $P(B) > 0$.
 
 Este enfoque de segmentación es muy importante, estudiante, así que será mejor que lo repase hasta que quede claro. Tómese el tiempo que necesite, pero no avance hasta que esté claro.
 
-# Composición de ocurrencias: combinanción de espacios muestrales
+# Composición de ocurrencias: combinación de espacios muestrales
 
 ## Ocurrencias temporales
 
@@ -303,7 +303,7 @@ Consideremos lanzar un dado, ahora. Concentrémonos en 3 lanzamientos.
 
 ![Árbol compacto de tres lanzamientos de un dado](imagenes/arbol_lanzamientos_dado_3.svg)
 
-Para cada lanzamiento, existen 6 resultados posibles en el siguiente lanzamiento. tengamos en cuenta los eventos $G := \text{ser un número primo}$ y $F := \text{ser un número mayor que 1}$. Centrémonos en dos lanzamientos del dado: pensemos en la probabilidad de que el evento $G$ se dé en el primer lanzamiento y $F$ en el segundo.
+Para cada lanzamiento, existen 6 resultados posibles en el siguiente lanzamiento. Tengamos en cuenta los eventos $G := \text{ser un número primo}$ y $F := \text{ser un número mayor que 1}$. Centrémonos en dos lanzamientos del dado: pensemos en la probabilidad de que el evento $G$ se dé en el primer lanzamiento y $F$ en el segundo.
 
 Para el primer lanzamiento existen 3 opciones: $G = \{2, 3, 5\}$, para el segundo 5: $F = \{2, 3, 4, 5, 6\}$. O sea, en el primer lanzamiento puedo obtener cualquier resultado de $G$ y para cada uno de esos resultados podría obtener un resultado de $F$. Puedo combinar cada número resultado de $G$ con cada número posible de $F$. La ilustración a continuación muestra las combinaciones.
 
@@ -317,7 +317,7 @@ Podemos verificar si un evento del primer lanzamiento sucedió con una función,
 
 Como $r_1$ puede ser cualquier elemento de $G$, y $r_2$ puede ser cualquier elemento de $F$, sabemos que las combinaciones de los lanzamientos serán $g \cdot f = n(G) \cdot n(F)$ (para cada resultado posible de $G$ hay un resultado posible de $F$). En nuestro ejemplo del lanzamiento de un dado, los resultados posibles del primer lanzamiento son 6. En este sentido, denotemos los resultados posibles del primer lanzamiento con el conjunto $S_1$, que sería el espacio muestral $\{1, 2, 3, 4, 5, 6\}$. Así, la cantidad de resultados posibles del primer lanzamiento serían $n_1 = n(S_1)$. En el segundo lanzamiento existen $S_2 = \{1, 2, 3, 4, 5, 6\}$ resultados posibles y contándolos: $n_2 = n(S_2)$.
 
-Así que para cada posible resultado del primer lanzamiento existe $n_2$ resultados en el segundo. Entonces, en total existen $n_1 \cdot n_2 = n(S_1) \cdot n(S_2)$ posibilidades en los que $G$ e $F$ ocurran secuencialmente. En este caso, los resultados posibles en el primer y el segundo lanzamiento son iguales ($n_1 = n_2 \iff n(S_1) = n(S_2)$). Pero no siempre es así. Consideremos el ejemplo el siguiente ejemplo:
+Así que para cada posible resultado del primer lanzamiento existen $n_2$ resultados en el segundo. Entonces, en total existen $n_1 \cdot n_2 = n(S_1) \cdot n(S_2)$ posibilidades en las que $G$ y $F$ ocurran secuencialmente. En este caso, los resultados posibles en el primer y el segundo lanzamiento son iguales ($n_1 = n_2 \iff n(S_1) = n(S_2)$). Pero no siempre es así. Consideremos el siguiente ejemplo:
 
 ## Ocurrencias simultáneas
 
@@ -503,7 +503,7 @@ $$
 
 decimos que, sin reposición, los eventos son dependientes. El resultado de la primera extracción modifica las condiciones de la segunda extracción.
 
-En el próximo capítulo trataremos las ideas aquí presentadas con formalidad, espcificando las propiedades de la definición de probabilidad como una función y de teoremas relevantes. No te preocupes, como todo, iremos paso por paso.
+En el próximo capítulo trataremos las ideas aquí presentadas con formalidad, especificando las propiedades de la definición de probabilidad como una función y de teoremas relevantes. No te preocupes, como todo, iremos paso por paso.
 
 
 ```{admonition} Resumen

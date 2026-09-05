@@ -23,11 +23,11 @@ Pero aunque no tuviéramos malos políticos ―como de hecho ocurre―, puede se
 
 Por uno u otro motivo, el costo de un censo es elevado como para levantarlo continuamente. Entonces, ¿qué podemos hacer? Digamos que usted piensa en esto por primera vez. ¿Qué se le ocurre?
 
-Digamos que piensa: "bueno, encuestar a todos es costoso, pero ¿y si no encuesto a todos, sino a una parte?". Entonces decide encuestar a una parte de la población: su barrio. Mejor aun a su parroquia entera.	
+Digamos que piensa: "bueno, encuestar a todos es costoso, pero ¿y si no encuesto a todos, sino a una parte?". Entonces decide encuestar a una parte de la población: su barrio. Mejor aún a su parroquia entera.
 
 En el capítulo anterior analizamos qué porcentaje de hogares estaba integrado por 1, 2, 3, y así sucesivamente, hasta 34 miembros. Supongamos que el censo no se hizo, y le encomiendan determinar qué porcentaje de hogares son de una cantidad determinada de miembros.
 
-Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podrás desplegar el código dando click en "Show code cell content".
+Usamos los mismos datos que en el ejercicio anterior. El bloque de código siguiente carga los datos del censo y calcula el número de personas por hogar, por lo que puede omitirlo si no considera necesario volver a ver cómo leer los datos. En adelante, podrá desplegar el código dando clic en "Show code cell content".
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -54,9 +54,9 @@ personasporhogar = (
 personasporhogar = personasporhogar[personasporhogar['INH']>0]
 ```
 
-Digamos que usted vive en una parroquia del país llamada Sofía, ubicada en el cantón Sucumbíos y la provincia Sucumbíos. Usted piensa que encuestar a la todos sus vecinos de la parroquia es buena idea. 
+Digamos que usted vive en una parroquia del país llamada Sofía, ubicada en el cantón Sucumbíos y la provincia Sucumbíos. Usted piensa que encuestar a todos sus vecinos de la parroquia es buena idea.
 
-Tomar una parte de las observaciones (en este caso los hogares) de la población se le llama **muestrar**: seleccionar un subconjunto de todas observaciones de la población. Al grupo de observaciones seleccionadas se le llama **muestra**. 
+Tomar una parte de las observaciones (en este caso los hogares) de la población se le llama **muestrear**: seleccionar un subconjunto de todas las observaciones de la población. Al grupo de observaciones seleccionadas se le llama **muestra**.
 
 Tomada su muestra de hogares, los encuesta. Obtiene sus datos; los tabula; hace el mismo análisis que ya hicimos en el capítulo anterior: cuenta el número de hogares por tamaño; luego los expresa como porción del total de hogares y los grafica. Las siguientes líneas de código hacen esto, mostrando los resultados como una distribución. Obsérvela.
   
@@ -193,11 +193,11 @@ También podemos hacer los mismos cálculos con todos los datos de la población
 
 Nuestro propósito es que nuestro parámetro sea igual al estimador. En este caso, que el porcentaje calculado con nuestra muestra sea igual al porcentaje que obtendríamos si el cálculo se hiciera con la población. En otras palabras, que nuestro estimador sea una buena estimación de nuestro parámetro. Como en la vida real, por varios motivos y factores, es muy, muy, muy poco probable que logremos que el estimador sea igual al parámetro, queremos que sea lo más cercano posible; es decir, que la diferencia sea lo más pequeña posible (tienda a 0, si hablamos con lenguaje del cálculo).
 
-Hablamos de **sesgo de selección** cuando la elección de las observaciones nos conduce a un error en la estimación de algún parámetro de la población: que el valor del estimador sea diferente al del parámetro. Por ejemplo, en nuestro caso los porcentajes de hogares de 2 miembros de la muestra y la población son 21,05% 11,30%, respectivamente. Una diferencia de casi 10 puntos porcentuales. No es el mejor estimador, porque no elegimos la mejor muestra.
+Hablamos de **sesgo de selección** cuando la elección de las observaciones nos conduce a un error en la estimación de algún parámetro de la población: que el valor del estimador sea diferente al del parámetro. Por ejemplo, en nuestro caso los porcentajes de hogares de 2 miembros de la muestra y la población son 21,05% y 11,30%, respectivamente. Una diferencia de casi 10 puntos porcentuales. No es el mejor estimador, porque no elegimos la mejor muestra.
 
 ## Selección aleatoria
 
-La cantidad de hogares en su parroquia Sofía son 19.
+La cantidad de hogares en su parroquia Sofía es 19.
 
 ```{code-cell} ipython3
 print(f'El número de hogares en la parroquia Sofía es {parroquia.shape[0]}')
@@ -312,7 +312,7 @@ Como puede ver, la estimación mejora conforme aumentamos el tamaño de la muest
 
 Pasan dos cosas aquí. Primero, la distribución de la muestra se parece más a la distribución de la población cuando es aleatoria. Mejora más cuando la selección es aleatoria y el tamaño de la muestra es mayor. Segundo, la diferencia entre el estimador y el parámetro disminuye. En otras palabras, el estimador se acerca más al parámetro.
 
-Analicemos una cosa: ¿qué pasaría si elegimos una muestra sesgada? No obtendríamos una buena estimación de la población. Puede ser incluso que esta muestra tenga más observaciones que el de una selección aleatoria y sería peor opción para calcular nuestro estimador. Por eso es importante que la selección sea aleatoria.
+Analicemos una cosa: ¿qué pasaría si elegimos una muestra sesgada? No obtendríamos una buena estimación de la población. Puede ser incluso que esta muestra tenga más observaciones que la de una selección aleatoria y sería peor opción para calcular nuestro estimador. Por eso es importante que la selección sea aleatoria.
 
 Un asunto que puede preguntarse es ¿qué tan grande debe ser el tamaño de una buena muestra para obtener un buen estimador? Responderemos esta pregunta en los siguientes capítulos. Sea paciente. Concepto a concepto.
 
@@ -324,14 +324,14 @@ Más adelante volveremos a esta ley y la delimitaremos matemáticamente para que
 
 Cuando diga que "seré más formal" me referiré a que "seré más riguroso y usaré el lenguaje de las matemáticas para expresar una definición". En el siguiente capítulo vamos a introducirnos en la probabilidad de manera formal, sentando las bases para entender las propiedades y supuestos de una distribución de probabilidad.
 
-Repase bien todo lo aprendido hasta aquí, sino no podrá avanzar.
+Repase bien todo lo aprendido hasta aquí; si no, no podrá avanzar.
 
 ```{admonition} Resumen
 :class: important
 
 1. **Inferencia estadística**: No siempre nos será posible obtener datos de la población, por lo que usaremos una muestra para inferir medidas de la población. El acto de estimar alguna medida de la población es hacer una inferencia estadística.
 
-2. **Muestreo**: Tomar una parte de las observaciones de la población es hacer un muestreo: seleccionar un subconjunto de todas observaciones de la población. Al grupo de observaciones seleccionadas se le llama **muestra**.
+2. **Muestreo**: Tomar una parte de las observaciones de la población es hacer un muestreo: seleccionar un subconjunto de todas las observaciones de la población. Al grupo de observaciones seleccionadas se le llama **muestra**.
 
 3. **Estimador**: Se denomina **estimador** a una medida de la muestra, que tiene intención de ser igual a la misma medida aplicada a la población. También podemos hacer las mismas mediciones con todos los datos de la población. Un **parámetro** es una medida de la población.
 
